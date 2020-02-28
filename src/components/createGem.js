@@ -11,7 +11,7 @@ export default function CreateGem () {
     return(
         <form onSubmit={(e)=>{
             e.preventDefault()
-            axios.post('https://geoseek-be-test.herokuapp.com/api/gems', form)
+            axios.post('https://geoseek-be-stage.herokuapp.com/api/gems', form)
             .then(res=>{
                 console.log(res)
             })
