@@ -1,17 +1,20 @@
-import React,{useState, useEffect} from 'react';
-import ReactMapGL, {Marker} from 'react-map-gl'
+import React, { useState, useEffect } from 'react';
+import ReactMapGL, { Marker } from 'react-map-gl'
 import axios from 'axios'
 
-function Map(){
+function Map({ latitude, longitude }){
 const [viewport, setViewport] = useState({
-    latitude: 36.955992,
-    longitude: -121.971428,
+    latitude,
+    longitude,
     width: "80%",
     height: "900px",
     zoom: 10
 });
 const [gems,setGems] = useState([])
 
+useEffect(()=> {
+    setViewport({ ...viewport, latitude, longitude})
+},[latitude, longitude])
 useEffect(()=>{
     axios.get('https://geoseek-be-stage.herokuapp.com/api/gems')
     .then(res=>{
