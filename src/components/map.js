@@ -4,11 +4,11 @@ import axios from 'axios'
 
 function Map(){
 const [viewport, setViewport] = useState({
-    latitude: 36.955992,
-    longitude: -121.971428,
+    latitude: 37.754,
+    longitude: -122.443,
     width: "80%",
-    height: "900px",
-    zoom: 10
+    height: "800px",
+    zoom: 11.6
 });
 
 const [gems,setGems] = useState([])
@@ -16,7 +16,7 @@ const [gems,setGems] = useState([])
 const [selectedGem, setSelectedGem] = useState(null)
 
 useEffect(()=>{
-    axios.get('https://geoseek-be-stage.herokuapp.com/api/gems')
+    axios.get('https://geoseek-be-test.herokuapp.com/api/gems')
     .then(res=>{
         console.log(res)
         setGems(res.data)
@@ -32,8 +32,9 @@ useEffect(()=>{
         <ReactMapGL
         {...viewport} 
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-        mapStyle = "mapbox://styles/geoseek/ck74zh2wi18f61ill2ttcy6hp"
+        mapStyle = "mapbox://styles/geoseek/ck7b5gau8002g1ip7b81etzj4"
         onViewportChange = {viewport => {setViewport(viewport)}}
+        onClick = {()=>setSelectedGem(null)}
         >
             {gems.map((gem)=>(
                 <Marker key = {gem.id} latitude = {gem.latitude} longitude = {gem.longitude}>
