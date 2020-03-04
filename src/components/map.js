@@ -1,9 +1,11 @@
+
 import React,{useState, useEffect} from 'react';
 import ReactMapGL, {Marker, Popup} from 'react-map-gl'
 import axios from 'axios'
 
-function Map(){
+function Map({ latitude, longitude }){
 const [viewport, setViewport] = useState({
+
     latitude: 37.754,
     longitude: -122.443,
     width: "80%",
@@ -11,10 +13,17 @@ const [viewport, setViewport] = useState({
     zoom: 11.6
 });
 
-const [gems,setGems] = useState([])
+ const [gems,setGems] = useState([])
 
-const [selectedGem, setSelectedGem] = useState(null)
+ const [selectedGem, setSelectedGem] = useState(null)
+  
 
+useEffect(()=> {
+    setViewport({ ...viewport, latitude, longitude})
+},[latitude, longitude])
+
+
+  
 useEffect(()=>{
     axios.get('https://geoseek-be-test.herokuapp.com/api/gems')
     .then(res=>{
