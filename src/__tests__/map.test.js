@@ -1,13 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom'
-import { render } from 'react-dom'
+import React from "react";
+import ReactDOM from "react-dom";
+import { render } from "react-dom";
 import { MemoryRouter } from "react-router-dom";
-import MapGL, {mockGpsPath, mockPathColor, mockPathWidth, mockBearing } from 'react-map-gl'
+import MapGL, {
+  mockGpsPath,
+  mockPathColor,
+  mockPathWidth,
+  mockBearing
+} from "react-map-gl";
 import { unmountComponentAtNode } from "react-dom";
-import App from '../App'
-import { act } from 'react-dom/test-utils';
-
-
+import App from "../App";
+import { act } from "react-dom/test-utils";
 
 let container = null;
 beforeEach(() => {
@@ -23,11 +26,11 @@ afterEach(() => {
   container = null;
 });
 
-jest.mock('react-map-gl', () => () => <div />)
+jest.mock("react-map-gl", () => () => <div />);
 
-describe('MapGL test', () => {
-  it('renders without crashing', () => {
-    const div = document.createElement('div')
+describe("MapGL test", () => {
+  it("renders without crashing", () => {
+    const div = document.createElement("div");
     ReactDOM.render(
       <div>
         <MapGL
@@ -37,26 +40,25 @@ describe('MapGL test', () => {
           bearing={mockBearing}
         />
       </div>,
-      div,
-    )
-  })
-})
-it('navigates to CreateGem', async() => {
-  const root = document.createElement('div')
-  document.body.appendChild(root)
+      div
+    );
+  });
+});
+it("navigates to CreateGem", async () => {
+  const root = document.createElement("div");
+  document.body.appendChild(root);
   render(
-    <MemoryRouter initialEntries = {['/CreateGem']}>
+    <MemoryRouter initialEntries={["/CreateGem"]}>
       <App />
     </MemoryRouter>,
     root
-  )
+  );
 
   act(() => {
-    const goCreateGemLink = document.querySelector('/CreateGem')
+    const goCreateGemLink = document.querySelector("/CreateGem");
     goCreateGemLink.dispatchEvent(new MouseEvent("click", { bubbles: true }));
   });
 
   // Check correct page content showed up
-  expect(document.body.textContent).toBe('Home');
+  expect(document.body.textContent).toBe("Home");
 });
-

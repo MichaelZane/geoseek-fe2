@@ -21,7 +21,7 @@ useEffect(()=>{
         "latitude": 37.754354,
         "threshold": 15
       }
-    axios.post('https://localhost:5000/api/gems/findNearby', body)
+    axios.post('http://localhost:5000/api/gems/findNearby', body)
     .then(res=>{
         console.log(res)
         setGems(res.data)
