@@ -4,8 +4,8 @@ import axios from 'axios'
 
 function Map(){
 const [viewport, setViewport] = useState({
-    latitude: 36.955992,
-    longitude: -121.971428,
+    latitude: 37.754354,
+    longitude: -122.446929,
     width: "80%",
     height: "900px",
     zoom: 10
@@ -16,7 +16,12 @@ const [gems,setGems] = useState([])
 const [selectedGem, setSelectedGem] = useState(null)
 
 useEffect(()=>{
-    axios.get('https://geoseek-be-test.herokuapp.com/api/gems')
+    let body = {
+        "longitude": -122.446929,
+        "latitude": 37.754354,
+        "threshold": 15
+      }
+    axios.post('https://localhost:5000/api/gems/findNearby', body)
     .then(res=>{
         console.log(res)
         setGems(res.data)
