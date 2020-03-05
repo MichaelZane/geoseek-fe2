@@ -1,19 +1,27 @@
 import React,{useState, useEffect} from 'react';
-import ReactMapGL, {Marker} from 'react-map-gl'
+import ReactMapGL, {Marker, Popup} from 'react-map-gl'
 import axios from 'axios'
 
 function Map(){
 const [viewport, setViewport] = useState({
-    latitude: 36.955992,
-    longitude: -121.971428,
+    latitude: 37.754354,
+    longitude: -122.446929,
     width: "80%",
     height: "900px",
     zoom: 10
 });
+
 const [gems,setGems] = useState([])
 
+const [selectedGem, setSelectedGem] = useState(null)
+
 useEffect(()=>{
-    axios.get('https://geoseek-be-stage.herokuapp.com/api/gems')
+    let body = {
+        "longitude": -122.446929,
+        "latitude": 37.754354,
+        "threshold": 15
+      }
+    axios.post('https://localhost:5000/api/gems/findNearby', body)
     .then(res=>{
         console.log(res)
         setGems(res.data)
@@ -34,9 +42,23 @@ useEffect(()=>{
         >
             {gems.map((gem)=>(
                 <Marker key = {gem.id} latitude = {gem.latitude} longitude = {gem.longitude}>
-                    <div>GEM</div>
+                    <button className = 'marker-btn' onClick = {e =>{
+                        e.preventDefault()
+                        setSelectedGem(gem)
+                    }} >
+                        <img src = '/gem.png' alt = "Gem Icon"/>
+                    </button>
                 </Marker>
             ))}
+            {selectedGem && (
+                <Popup latitude = {selectedGem.latitude} longitude = {selectedGem.longitude} onClose = {()=>setSelectedGem(null)}>
+                    <div>
+                        <h2>{`Title: ${selectedGem.title}`}</h2>
+                        <p>{`Dificulty: ${selectedGem.difficulty}`}</p>
+                        <p>{`Description: ${selectedGem.description}`}</p>
+                    </div>
+                </Popup>
+            )}
         </ReactMapGL>
 
         
