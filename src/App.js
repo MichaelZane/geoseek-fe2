@@ -6,7 +6,7 @@ import CreateGem from './components/createGem'
 
 import { BrowserRouter as Router, Route, } from "react-router-dom"; 
 function App() {
-  const [[latitude, longitude], setLatLong] = useState([36.955992, -121.971428]) 
+  const [[latitude, longitude], setLatLong] = useState([37.741, -122.433]) 
 
   const updatePosition = (latitude,longitude) => {
     setLatLong([ latitude, longitude ])

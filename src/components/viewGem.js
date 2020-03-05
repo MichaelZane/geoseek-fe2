@@ -16,10 +16,12 @@ export default function ViewGem({ updatePosition }) {
     },[])
 
     return (
-        <div>
+        <div className = 'viewGem'>
             {gems.map((gem)=> {
                 return(
-                <div onClick={()=>updatePosition(gem.latitude, gem.longitude)}>{gem.title} ,  ({gem.latitude}, {gem.longitude})</div> 
+                <div onClick={()=>updatePosition(gem.latitude, gem.longitude)} className='listedGem'>
+                    {gem.title} ,  ({gem.latitude}, {gem.longitude})
+                    </div> 
                 )
             })}
         </div>

@@ -3,9 +3,13 @@ import React, {useState} from 'react'
 import {connect} from "react-redux"
 
 
-import { postGem } from '../actions/index copy'
+import { postGem, geocode} from '../actions/index copy'
 
 function CreateGem (props) {
+    const [longitude,setLongitude] = useState();
+    const [latitude, setLatitude] = useState();
+
+
     const [newGem, setNewGem ] = useState({
             title: '',
             longitude: '',
@@ -30,6 +34,11 @@ function CreateGem (props) {
             difficulty: '',
             description: ''
         })
+
+    const handleGeocode = e=>{
+        e.preventDefault()
+        props.geocode(address)
+        }
     }
 
     
@@ -75,11 +84,56 @@ function CreateGem (props) {
     )
 }
 const mapStateToProps = state => {
-    return{}
+    return{
+ 
+    }
 
 }
 
 export default connect(mapStateToProps, 
-    { postGem }
+    { postGem, geocode }
     )(CreateGem)
 
+
+
+
+    
+///////////copy of form before changes for address
+//     <form onSubmit={handleSubmit}>
+//     <input
+//     name='title'
+//     placeholder='Title'
+//     value={newGem.name}
+//     onChange={(e)=>{
+//         setNewGem({
+//             ...newGem,
+//     [e.target.name]:e.target.value
+// })
+//     }}
+//     />
+//     <input
+//     name='longitude'
+//     placeholder='Logitude.'
+//     value={newGem.longitude}
+//     onChange={handleChanges}
+//     />
+//     <input
+//     name='latitude'
+//     placeholder='Latitude.'
+//     value={newGem.latitude}
+//     onChange={handleChanges}
+//     />
+//     <input
+//     name='difficulty'
+//     placeholder='Dificulty. 1-5'
+//     value={newGem.difficulty}
+//     onChange={handleChanges}
+//     />
+//     <input
+//     name='description'
+//     placeholder='Description.'
+//     value={newGem.description}
+//     onChange={handleChanges}
+//     />
+//     <button type='submit'>Add Gem!</button>
+// </form>

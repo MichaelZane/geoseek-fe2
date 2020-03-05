@@ -1,15 +1,14 @@
 import axiosWithAuth from   '../utils/axiosWithAuth'
 import axios from 'axios'
-
-
   
 export const CREATE_GEM_START = 'CREATE_GEM_START';
 export const CREATE_GEM_SUCCESS = 'CREATE_GEM_SUCCESS';
 export const CREATE_GEM_FAIL = 'CREATE_GEM_FAIL';
 
-// export const POST_GEM_START = 'POST_GEM_START';
-// export const POST_GEM_SUCCESS = 'POST_GEM_SUCCESS';
-// export const POST_GEM_FAIL = 'POST_GEM_FAIL';
+export const GEOCODING_START = 'GEOCODING_START'
+export const GEOCODING_SUCCESS = 'GEOCODING_SUCCESS'
+export const GEOCODING_FAILURE = 'GEOCODING_FAILURE'
+
 
 export const postGem = newGem => dispatch => {
     dispatch({ type: CREATE_GEM_START });
@@ -27,15 +26,18 @@ export const postGem = newGem => dispatch => {
   };
 
 
-export const GEOCODING_START = 'GEOCODING_START'
-export const GEOCODING_SUCCESS = 'GEOCODING_SUCCESS'
-export const GEOCODING_FAILURE = 'GEOCODING_FAILURE'
 
-// export const geoCodingActions = coordinates => dispatch{
-//   .get()
-//   dispatch
-// }
+
+export const geocode = address => dispatch => {
+  dispatch ({ type: GEOCODING_START });
+  axios
+  .get(`https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?f=json&singleLine=${address}&outFields=Match_addr,Addr_type`)
+  .then(res => {
+    console.log(res)
+    dispatch({ type: CREATE_GEM_SUCCESS, payload: address });
+  })
+  .catch(error=>{
+    dispatch({ type: GEOCODING_FAILURE, payload: error.response})
+  })
+}
  
-
-
-  

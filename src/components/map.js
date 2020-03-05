@@ -5,12 +5,11 @@ import axios from 'axios'
 
 function Map({ latitude, longitude }){
 const [viewport, setViewport] = useState({
-
-    latitude: 37.754,
-    longitude: -122.443,
-    width: "80%",
-    height: "800px",
-    zoom: 11.6
+    latitude: 37.741,
+    longitude: -122.433,
+    width: "75%",
+    height: "750px",
+    zoom: 11.69
 });
 
  const [gems,setGems] = useState([])
@@ -22,8 +21,19 @@ useEffect(()=> {
     setViewport({ ...viewport, latitude, longitude})
 },[latitude, longitude])
 
+function submitGemHandler(formData) {
+// handle form data submit
+// Update state with new data.
+// call setGems this will trigger a remounting of component
+}
 
+// Refactor such that createGem component becomes child component of Map.
+// Pass the submitGemHandler down through props
+// inside create gem send formdata back through submit gem handler
+// be sure to clear state on child after submitting.
   
+// 
+
 useEffect(()=>{
     axios.get('https://geoseek-be-stage.herokuapp.com/api/gems')
     .then(res=>{
