@@ -1,4 +1,4 @@
-import axiosWithAuth from   "./utils/axiosWithAuth"
+import axiosWithAuth from   "../utils/axiosWithAuth"
 
 export const USER_SIGNING_UP = "USER_SIGNING_UP";
 export const USER_SIGNING_UP_SUCCESS = "USER_SIGNING_UP_SUCCESS";

@@ -15,6 +15,9 @@ import {
     CREATE_GEM_SUCCESS,
     CREATE_GEM_FAIL,
 
+    COMPLETED_GEM_START,
+    COMPLETED_GEM_SUCCESS,
+    COMPLETED_GEM_FAIL,
 
   
   } from "../actions";
@@ -23,7 +26,6 @@ import {
     userData: [],
     fetchingData: false,
     error: "",
-    userData: {},
     getUserData: {}
   };
   
@@ -83,7 +85,7 @@ import {
   
           isPosting: false,
           error: "",
-          strainsData: [...action.payload]
+          gemData: [...action.payload]
         };
   
       case CREATE_GEM_FAIL:
@@ -91,6 +93,28 @@ import {
           ...state,
           isPosting: false,
           error: action.payload
+        };
+
+        case COMPLETED_GEM_START:
+        return {
+            ...state,
+            isPosting: true,
+            error: ""
+        };
+          
+        case COMPLETED_GEM_SUCCESS:
+        return {
+            ...state,
+            isPosting: false,
+            error: "",
+            userData: [...action.payload]
+        };
+          
+        case COMPLETED_GEM_FAIL:
+        return {
+            ...state,
+            isPosting: false,
+            error: action.payload
         };
   
         case START_FETCHING_DATA:

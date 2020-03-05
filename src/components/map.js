@@ -25,7 +25,7 @@ useEffect(()=> {
 
   
 useEffect(()=>{
-    axios.get('https://geoseek-be-test.herokuapp.com/api/gems')
+    axios.get('https://geoseek-be-stage.herokuapp.com/api/gems')
     .then(res=>{
         console.log(res)
         setGems(res.data)
