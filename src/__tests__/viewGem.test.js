@@ -1,12 +1,14 @@
-import React, {useState, useEffect} from "react";
-import { render, unmountComponentAtNode } from "react-dom";
-// import { act } from "react-dom/test-utils";
+
 import mockAxios from 'axios'
-import viewGem from '../components/viewGem'
+
+// import viewGem from '../components/viewGem'
+
+import { cleanup, fireEvent, render} from '@testing-library/react'
 
 
 
-it('calls axios and returns a list of gems', async() => {
+
+it.skip('calls axios and returns a list of gems', async() => {
     mockAxios.get.mockImplementationOnce(() => Promise.resolve({
         data: { 
             results: []
@@ -17,3 +19,4 @@ it('calls axios and returns a list of gems', async() => {
     const list = await viewGem('gems')
     expect(list).toEqual([])
 })
+

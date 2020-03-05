@@ -1,7 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
+import { render } from 'react-dom'
+import { MemoryRouter } from "react-router-dom";
 import MapGL, {mockGpsPath, mockPathColor, mockPathWidth, mockBearing } from 'react-map-gl'
 import { unmountComponentAtNode } from "react-dom";
+import App from '../App'
+import { act } from 'react-dom/test-utils';
+
+
 
 let container = null;
 beforeEach(() => {
@@ -35,3 +41,22 @@ describe('MapGL test', () => {
     )
   })
 })
+it('navigates to CreateGem', async() => {
+  const root = document.createElement('div')
+  document.body.appendChild(root)
+  render(
+    <MemoryRouter initialEntries = {['/CreateGem']}>
+      <App />
+    </MemoryRouter>,
+    root
+  )
+
+  act(() => {
+    const goCreateGemLink = document.querySelector('/CreateGem')
+    goCreateGemLink.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  });
+
+  // Check correct page content showed up
+  expect(document.body.textContent).toBe('Home');
+});
+

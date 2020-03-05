@@ -13,7 +13,7 @@ const [viewport, setViewport] = useState({
 const [gems,setGems] = useState([])
 
 useEffect(()=>{
-    axios.get('https://geoseek-be-stage.herokuapp.com/api/gems')
+    axios.get('http://localhost: 5000/api/gems/findNearby')
     .then(res=>{
         console.log(res)
         setGems(res.data)
