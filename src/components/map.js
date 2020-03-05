@@ -17,13 +17,13 @@ const [selectedGem, setSelectedGem] = useState(null)
 
 useEffect(()=>{
     let body = {
-        "longitude": -122.446929,
-        "latitude": 37.754354,
-        "threshold": 15
+        "longitude": 9.9,
+        "latitude": 9.9,
+        "threshold": 5
       }
-    axios.post('https://localhost:5000/api/gems/findNearby', body)
+    axios.post('http://localhost:5000/api/gems/findNearby', body)
     .then(res=>{
-        console.log(res)
+        console.log(res, 'axios res')
         setGems(res.data)
     })
     .catch(err=>{
