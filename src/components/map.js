@@ -9,8 +9,8 @@ function Map ({latitude, longitude}) {
 
         latitude: 37.754,
         longitude: -122.443,
-        width: "80%",
-        height: "800px",
+        width: "100%",
+        height: "90%",
         zoom: 11.6
     });
 

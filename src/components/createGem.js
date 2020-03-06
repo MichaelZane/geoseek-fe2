@@ -2,16 +2,15 @@ import React, {useState} from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
 
-export default function CreateGem (props) {
-    const FormContainer = styled.div`
-    width: 20%;
-    height: 76.9%;
-    background-color: #30364A;
-    border-left: 3px solid black;
-    padding-top: 30px;
-    `
+const FormContainer = styled.div`
+width: 20%;
+height: 87%;
+background-color: #30364A;
+border-left: 3px solid black;
+padding-top: 30px;
+`
 
-    const Input = styled.input`
+const Input = styled.input`
     width: 300px;
     padding-left: 10px;
     font-size: .9rem;
@@ -24,36 +23,45 @@ export default function CreateGem (props) {
     background-color: #3E4958;
     
     `
-    const Button = styled.button`
-     width: 330px;
-     height: 50px;
-     border-radius: 15px;
-     // margin: 10px auto;
-    
-    background-color: #C66DB2;
-    border: none;
-    color: white;
-    // padding: 16px 32px;
-    text-align: center;
-    font-size: 20px;
-    margin: 100px 0px 0px 25px;
-    transition: 0.3s;
-    text-decoration: none;
-    cursor: pointer;
 
+const Button = styled.button`
+    width: 330px;
+    height: 50px;
+    border-radius: 15px;
+   
+   background-color: #C66DB2;
+   border: none;
+   color: white;
+   text-align: center;
+   font-size: 20px;
+   margin: 100px 10px 0px 15px;
+   transition: 0.3s;
+   text-decoration: none;
+   cursor: pointer;
+   transition: opacity .55s ease-in-out;
+   -moz-transition: opacity .55s ease-in-out;
+   -webkit-transition: opacity .55s ease-in-out;
 
-    :hover {
-        opacity: 2
-    }
-    `
-    const Form = styled.label`
-        margin-left: 10%;
-        color: white;
-    `
+   :hover {
+       opacity: 1.0;
+       transition: opacity .55s ease-in-out;
+       -moz-transition: opacity .55s ease-in-out;
+       -webkit-transition: opacity .55s ease-in-out;
+       background-color: #FF69B4;
+       border: 2px solid black;
+   }
+   `
+const Label = styled.label`
+       margin-left: 10%;
+       color: white;
+   `
+
+export default function CreateGem (props) {
 
     const [form, setForm] = useState({
         //created_by_user: '',
         title: '',
+        longitude: ''
     })
     return (
         <FormContainer>
@@ -77,11 +85,11 @@ export default function CreateGem (props) {
         })
             }}
             /> */}
-                <Form>TITLE</Form>
+                <Label>TITLE</Label>
                 <Input
                     name='title'
                     placeholder='The location to Mi booty'
-                    value={form.name}
+                    value={form.title}
                     onChange={(e) => {
                         setForm({
                             ...form,
@@ -89,7 +97,7 @@ export default function CreateGem (props) {
                         })
                     }}
                 />
-                <Form>LONGITUDE</Form>
+                <Label>LONGITUDE</Label>
                 <Input
                     name='longitude'
                     placeholder='-77.086620'
@@ -101,7 +109,7 @@ export default function CreateGem (props) {
                         })
                     }}
                 />
-                <Form>LATITUDE</Form>
+                <Label>LATITUDE</Label>
                 <Input
                     name='latitude'
                     placeholder='-12.042120'
@@ -113,7 +121,7 @@ export default function CreateGem (props) {
                         })
                     }}
                 />
-                <Form>DIFFICULTY</Form>
+                <Label>DIFFICULTY</Label>
                 <Input
                     name='difficulty'
                     placeholder='Choose 1-5 for difficulty '
@@ -125,7 +133,7 @@ export default function CreateGem (props) {
                         })
                     }}
                 />
-                <Form>DESCRIPTION</Form>
+                <Label>DESCRIPTION</Label>
                 <Input
                     name='description'
                     placeholder=''
