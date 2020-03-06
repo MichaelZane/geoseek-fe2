@@ -1,13 +1,16 @@
 import React from 'react'
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
 function NavBar (){
 return(
-    <div className = 'navbar'>
+    <div className = 'navbar' data-testid="navLinks" >
     <h1>geoSeek</h1>
     {/* <Router> */}
-    <Link to = '/CreateGem'>Create a Gem</Link>
-    <Link to = '/ViewGem'>View Gems</Link>
+    
+        <NavLink to = '/CreateGem'>Create a Gem</NavLink>
+    
+        <NavLink to = '/ViewGem'>View Gems</NavLink>
+    
     {/* <Route path = '/CreateGem' component = {CreateGem}/>
     <button onClick= {toggleGem}>View Gems</button>
     </Router> */}

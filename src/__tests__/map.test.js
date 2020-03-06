@@ -32,6 +32,7 @@ describe("MapGL test", () => {
   it("renders without crashing", () => {
     const div = document.createElement("div");
     ReactDOM.render(
+     
       <div>
         <MapGL
           gpsPath={mockGpsPath}
@@ -41,24 +42,8 @@ describe("MapGL test", () => {
         />
       </div>,
       div
+      
     );
   });
 });
-it("navigates to CreateGem", async () => {
-  const root = document.createElement("div");
-  document.body.appendChild(root);
-  render(
-    <MemoryRouter initialEntries={["/CreateGem"]}>
-      <App />
-    </MemoryRouter>,
-    root
-  );
 
-  act(() => {
-    const goCreateGemLink = document.querySelector("/CreateGem");
-    goCreateGemLink.dispatchEvent(new MouseEvent("click", { bubbles: true }));
-  });
-
-  // Check correct page content showed up
-  expect(document.body.textContent).toBe("Home");
-});
