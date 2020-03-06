@@ -5,7 +5,7 @@ import axios from "axios";
 function Map({ latitude, longitude }) {
   const [viewport, setViewport] = useState({
     latitude: 37.754354,
-    longitude: -122.446929,
+    longitude: -122.446929, 
     width: "80%",
     height: "800px",
     zoom: 11.6
