@@ -11,11 +11,9 @@ return(
     
         <NavLink to = '/ViewGem'>View Gems</NavLink>
     
-    {/* <Route path = '/CreateGem' component = {CreateGem}/>
-    <button onClick= {toggleGem}>View Gems</button>
-    </Router> */}
     </div>
-);
+        
+    );
 }
 
 export default NavBar;
