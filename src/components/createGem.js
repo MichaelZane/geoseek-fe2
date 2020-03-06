@@ -89,7 +89,7 @@ export default function CreateGem (props) {
                 <Input
                     name='title'
                     placeholder='The location to Mi booty'
-                    value={form.title}
+                    value={form.name}
                     onChange={(e) => {
                         setForm({
                             ...form,
