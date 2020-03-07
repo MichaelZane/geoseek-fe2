@@ -7,6 +7,7 @@ import styled from 'styled-components'
 
 import {BrowserRouter as Router, Route, } from "react-router-dom";
 function App () {
+
   const MapAndGems = styled.div`
   display: flex;
   height: 100vh;
@@ -14,7 +15,7 @@ function App () {
   `
 
   const [[latitude, longitude], setLatLong] = useState([36.955992, -121.971428])
-
+  const [refresh, setRefresh] = useState(false);
   const updatePosition = (latitude, longitude) => {
     setLatLong([latitude, longitude])
   }
@@ -25,9 +26,11 @@ function App () {
         <NavBar />
         <div>
           <MapAndGems>
-            <Map latitude={latitude} longitude={longitude} />
+            <Map refresh={refresh} latitude={latitude} longitude={longitude} />
+            <Route exact path='/' />
             <Route path='/ViewGem' component={() => <ViewGem updatePosition={updatePosition} />} />
-            <Route path='/CreateGem' component={CreateGem} />
+            <Route path='/CreateGem'
+              render={(props) => <CreateGem {...props} latitude={latitude} longitude={longitude} updatePosition={updatePosition} setRefresh={setRefresh} />} />
           </MapAndGems>
         </div>
       </div>
