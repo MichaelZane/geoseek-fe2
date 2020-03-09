@@ -2,18 +2,28 @@ import React, { useState, useEffect } from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import axios from "axios";
 
-function Map({ latitude, longitude }) {
-  const [viewport, setViewport] = useState({
-    latitude: 37.754354,
-    longitude: -122.446929, 
-    width: "80%",
-    height: "800px",
-    zoom: 11.6
-  });
+// function Map({ latitude, longitude }) {
+//   const [viewport, setViewport] = useState({
+//     latitude: 37.754354,
+//     longitude: -122.446929, 
+//     width: "80%",
+//     height: "800px",
+//     zoom: 11.6
+//   });
 
-  const [gems, setGems] = useState([]);
+function Map ({latitude, longitude, refresh}) {
+    const [viewport, setViewport] = useState({
 
-  const [selectedGem, setSelectedGem] = useState(null);
+        latitude: 37.754,
+        longitude: -122.443,
+        width: "100%",
+        height: "90%",
+        zoom: 11.6
+    });
+
+    const [gems, setGems] = useState([])
+
+    const [selectedGem, setSelectedGem] = useState(null)
 
   useEffect(() => {
     setViewport({ ...viewport, latitude, longitude });
@@ -40,7 +50,7 @@ function Map({ latitude, longitude }) {
             .catch(err => {
                 console.log(err)
             })
-    }, [])
+    }, [refresh])
 
 
 

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {Link} from "react-router-dom"
+import {Link, Route} from "react-router-dom"
 import axios from 'axios'
 import GemCard from './gem'
 import styled from 'styled-components'
@@ -72,6 +72,7 @@ export default function ViewGem ({updatePosition}) {
     return (
         <Container>
             {gems.map((gem) => {
+
                 return (
                     <Card>
                         <GemCard key={gem.id} title={gem.title} latitude={gem.latitude} longitude={gem.longitude} />
