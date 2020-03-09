@@ -26,6 +26,7 @@ export default function ViewGem ({updatePosition}) {
     display: flex;
     width: 200px;
     justify-content: space-between;
+    
     `
 
     const Card2 = styled.div`
@@ -38,6 +39,7 @@ export default function ViewGem ({updatePosition}) {
     max-height: 100%;
     min-height: 100vh;
     height: 100vh;
+    overflow-y: auto;
     `
 
     return (

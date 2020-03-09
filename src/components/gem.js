@@ -1,4 +1,6 @@
 import React from 'react'
+import styled from 'styled-components'
+
 
 
 function GemCard ({title, latitude, longitude}) {
