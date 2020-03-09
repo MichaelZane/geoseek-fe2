@@ -26,7 +26,13 @@ function Map({ latitude, longitude }) {
 
 
     useEffect(() => {
-        axios.get('https://geoseek-be-stage.herokuapp.com/api/gems')
+      let body = {
+        "longitude": -122.446929,
+        "latitude": 37.754354,
+        "threshold": 15
+      }
+    axios.post('https://geoseek-be-test.herokuapp.com/api/gems/findNearby', body)
+       
             .then(res => {
                 console.log(res)
                 setGems(res.data)
