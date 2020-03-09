@@ -1,6 +1,7 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
+import {Redirect} from 'react-router-dom'
 
 const FormContainer = styled.div`
 width: 20%;
@@ -61,19 +62,28 @@ export default function CreateGem (props) {
     const [form, setForm] = useState({
         //created_by_user: '',
         title: '',
-        longitude: ''
+        longitude: '',
+        latitude: '',
     })
 
-    return(
-        <form onSubmit={(e)=>{
-            e.preventDefault()
-            axios.post('https://geoseek-be-test.herokuapp.com/api/gems', form)
-            .then(res=>{
-                console.log(res)
-            })
-            .catch(err=>{console.log(err)})
-        }}>
-            {/* <input
+    const submitGem = () => {
+        console.log('this is the gem2 >>>>>>>>');
+        props.setRefresh(!props.refresh);
+    }
+
+    return (
+        <FormContainer>
+            <form onSubmit={(e) => {
+                e.preventDefault();
+                axios.post('https://geoseek-be-stage.herokuapp.com/api/gems', form)
+                    .then(res => {
+                        console.log(res.data);
+                        submitGem();
+                        props.history.push('/');
+                    })
+                    .catch(err => {console.log(err)})
+            }}>
+
                 {/* <input
             name='created_by_user'
             placeholder='created_by_user'
@@ -88,7 +98,7 @@ export default function CreateGem (props) {
                 <Label>TITLE</Label>
                 <Input
                     name='title'
-                    placeholder='The location to Mi booty'
+                    placeholder='Title.'
                     value={form.name}
                     onChange={(e) => {
                         setForm({
@@ -100,7 +110,7 @@ export default function CreateGem (props) {
                 <Label>LONGITUDE</Label>
                 <Input
                     name='longitude'
-                    placeholder='-77.086620'
+                    placeholder='Longitude'
                     value={form.name}
                     onChange={(e) => {
                         setForm({
@@ -112,7 +122,7 @@ export default function CreateGem (props) {
                 <Label>LATITUDE</Label>
                 <Input
                     name='latitude'
-                    placeholder='-12.042120'
+                    placeholder='Latitude'
                     value={form.name}
                     onChange={(e) => {
                         setForm({
@@ -136,7 +146,7 @@ export default function CreateGem (props) {
                 <Label>DESCRIPTION</Label>
                 <Input
                     name='description'
-                    placeholder=''
+                    placeholder='Describe or give clues to find your gem.'
                     value={form.name}
                     onChange={(e) => {
                         setForm({
@@ -145,8 +155,8 @@ export default function CreateGem (props) {
                         })
                     }}
                 />
-                <Button type='submit'>Add Gem!</Button>
+                <Button type='submit'>Create Gem!</Button>
             </form>
+        </FormContainer>
     )
 }
-
