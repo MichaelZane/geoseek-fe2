@@ -3,8 +3,7 @@ import React, {useState, useEffect} from 'react';
 import ReactMapGL, {Marker, Popup} from 'react-map-gl'
 import axios from 'axios'
 
-function Map ({latitude, longitude}) {
-
+function Map ({latitude, longitude, refresh}) {
     const [viewport, setViewport] = useState({
 
         latitude: 37.754,
@@ -34,7 +33,7 @@ function Map ({latitude, longitude}) {
             .catch(err => {
                 console.log(err)
             })
-    }, [])
+    }, [refresh])
 
 
 

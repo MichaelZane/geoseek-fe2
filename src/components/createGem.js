@@ -1,6 +1,7 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
+import {Redirect} from 'react-router-dom'
 
 const FormContainer = styled.div`
 width: 20%;
@@ -61,15 +62,24 @@ export default function CreateGem (props) {
     const [form, setForm] = useState({
         //created_by_user: '',
         title: '',
-        longitude: ''
+        longitude: '',
+        latitude: '',
     })
+
+    const submitGem = () => {
+        console.log('this is the gem2 >>>>>>>>');
+        props.setRefresh(!props.refresh);
+    }
+
     return (
         <FormContainer>
             <form onSubmit={(e) => {
-                e.preventDefault()
+                e.preventDefault();
                 axios.post('https://geoseek-be-stage.herokuapp.com/api/gems', form)
                     .then(res => {
-                        console.log(res)
+                        console.log(res.data);
+                        submitGem();
+                        props.history.push('/');
                     })
                     .catch(err => {console.log(err)})
             }}>
@@ -145,9 +155,8 @@ export default function CreateGem (props) {
                         })
                     }}
                 />
-                <Button type='submit'>Add Gem!</Button>
+                <Button type='submit'>Create Gem!</Button>
             </form>
         </FormContainer>
     )
 }
-
