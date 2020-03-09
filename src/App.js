@@ -1,11 +1,14 @@
 import React, {useState} from 'react';
-import NavBar from './components/navbar'
+import NavBar from './components/NavBar'
 import Map from './components/map'
 import ViewGem from './components/viewGem'
 import CreateGem from './components/createGem'
 import styled from 'styled-components'
 
 import {BrowserRouter as Router, Route, } from "react-router-dom";
+
+
+
 function App () {
 
   const MapAndGems = styled.div`
