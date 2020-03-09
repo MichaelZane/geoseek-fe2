@@ -32,7 +32,7 @@ function Map ({latitude, longitude, refresh}) {
         "latitude": 37.754354,
         "threshold": 15
       }
-    axios.post('https://geoseek-be-test.herokuapp.com/api/gems/findNearby', body)
+    axios.post('https://geoseek-be-stage.herokuapp.com/api/gems/findNearby', body)
        
             .then(res => {
                 console.log(res)

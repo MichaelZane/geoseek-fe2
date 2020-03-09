@@ -98,7 +98,7 @@ export default function CreateGem (props) {
                 <Label>TITLE</Label>
                 <Input
                     name='title'
-                    placeholder='The location to Mi booty'
+                    placeholder='Title.'
                     value={form.name}
                     onChange={(e) => {
                         setForm({
@@ -110,7 +110,7 @@ export default function CreateGem (props) {
                 <Label>LONGITUDE</Label>
                 <Input
                     name='longitude'
-                    placeholder='-77.086620'
+                    placeholder='Longitude'
                     value={form.name}
                     onChange={(e) => {
                         setForm({
@@ -122,7 +122,7 @@ export default function CreateGem (props) {
                 <Label>LATITUDE</Label>
                 <Input
                     name='latitude'
-                    placeholder='-12.042120'
+                    placeholder='Latitude'
                     value={form.name}
                     onChange={(e) => {
                         setForm({
@@ -146,7 +146,7 @@ export default function CreateGem (props) {
                 <Label>DESCRIPTION</Label>
                 <Input
                     name='description'
-                    placeholder=''
+                    placeholder='Describe or give clues to find your gem.'
                     value={form.name}
                     onChange={(e) => {
                         setForm({
