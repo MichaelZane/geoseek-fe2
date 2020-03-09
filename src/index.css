@@ -33,6 +33,11 @@ code {
   background:none;
   border: none;
   cursor: pointer;
+  outline: none;
+}
+
+.marker-btn img:active {
+ color: red;
 }
 
 .marker-btn img {
@@ -57,4 +62,20 @@ code {
   padding:3px;
   border-radius: 5px;
   color:#8E588B;
+}
+
+/* INPUT AUTOFILL COLOR OVERRIDE */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid #30364A;
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0px 1000px #3E4958 inset;
+  transition: background-color 5000s ease-in-out 0s;
 }

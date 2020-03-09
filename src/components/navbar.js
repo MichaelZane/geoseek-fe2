@@ -46,6 +46,7 @@ function NavBar () {
 
     .link {
         text-decoration: none;
+        outline: none;
     }
 
     h1 {

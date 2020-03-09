@@ -51,7 +51,10 @@ function Map ({latitude, longitude, refresh}) {
                         e.preventDefault()
                         setSelectedGem(gem)
                     }} >
-                        <img src='/gem.png' alt="Gem Icon" />
+                        {selectedGem === gem ? (
+                            <img src='/gem-copy2.png' alt="Gem Icon2" />
+                        ) :
+                            <img src='/gem.png' alt="Gem Icon" />}
                     </button>
                 </Marker>
             ))}
@@ -59,7 +62,7 @@ function Map ({latitude, longitude, refresh}) {
                 <Popup latitude={selectedGem.latitude} longitude={selectedGem.longitude} onClose={() => setSelectedGem(null)}>
                     <div>
                         <h2>{`Title: ${ selectedGem.title }`}</h2>
-                        <p>{`Dificulty: ${ selectedGem.difficulty }`}</p>
+                        <p>{`Difficulty: ${ selectedGem.difficulty }`}</p>
                         <p>{`Description: ${ selectedGem.description }`}</p>
                     </div>
                 </Popup>
