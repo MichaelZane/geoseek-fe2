@@ -17,11 +17,13 @@ const Input = styled.input`
     font-size: .9rem;
     border: none;
     height: 44px;
-    border-radius: 15px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     margin: 15px auto;
     background-color: #3E4958;
+    outline: none;
+    color: white;
     
     `
 
@@ -29,6 +31,7 @@ const Button = styled.button`
     width: 330px;
     height: 50px;
     border-radius: 15px;
+    outline: none;
    
    background-color: #C66DB2;
    border: none;
@@ -62,13 +65,13 @@ export default function CreateGem (props) {
     const [form, setForm] = useState({
         //created_by_user: '',
         title: '',
-        longitude: '',
         latitude: '',
+        longitude: ''
     })
 
     const submitGem = () => {
-        console.log('this is the gem2 >>>>>>>>');
         props.setRefresh(!props.refresh);
+        props.updatePosition(Number(form.latitude), Number(form.longitude));
     }
 
     return (
@@ -77,7 +80,6 @@ export default function CreateGem (props) {
                 e.preventDefault();
                 axios.post('https://geoseek-be-stage.herokuapp.com/api/gems', form)
                     .then(res => {
-                        console.log(res.data);
                         submitGem();
                         props.history.push('/');
                     })
@@ -97,8 +99,9 @@ export default function CreateGem (props) {
             /> */}
                 <Label>TITLE</Label>
                 <Input
+                    className='input'
                     name='title'
-                    placeholder='Title.'
+                    placeholder='Title'
                     value={form.name}
                     onChange={(e) => {
                         setForm({
@@ -109,6 +112,7 @@ export default function CreateGem (props) {
                 />
                 <Label>LONGITUDE</Label>
                 <Input
+                    className='input'
                     name='longitude'
                     placeholder='Longitude'
                     value={form.name}
@@ -121,6 +125,7 @@ export default function CreateGem (props) {
                 />
                 <Label>LATITUDE</Label>
                 <Input
+                    className='input'
                     name='latitude'
                     placeholder='Latitude'
                     value={form.name}
@@ -133,6 +138,7 @@ export default function CreateGem (props) {
                 />
                 <Label>DIFFICULTY</Label>
                 <Input
+                    className='input'
                     name='difficulty'
                     placeholder='Choose 1-5 for difficulty '
                     value={form.name}
@@ -145,6 +151,7 @@ export default function CreateGem (props) {
                 />
                 <Label>DESCRIPTION</Label>
                 <Input
+                    className='input'
                     name='description'
                     placeholder='Describe or give clues to find your gem.'
                     value={form.name}
