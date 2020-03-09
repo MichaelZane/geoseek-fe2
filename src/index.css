@@ -51,3 +51,10 @@ code {
   display: flex;
 }
 
+.viewLink{
+  text-decoration: none;
+  background-color:#F44076;
+  padding:3px;
+  border-radius: 5px;
+  color:#8E588B;
+}
