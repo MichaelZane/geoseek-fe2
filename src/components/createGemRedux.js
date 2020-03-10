@@ -211,15 +211,19 @@ const Label = styled.label`
                 
 
 {/* <GeocodingRedux/> */}
-<Label>ADDRESS</Label>
-  <Input
+        <Label>ADDRESS</Label>
+         <Input
             name='address'
             placeholder='Enter an address'
             onChange={handleAddressChanges}
             />
             {console.log('address state', address)}
             <CoordButton onClick={handleGeocodeSubmit}> Get your Coordinates</CoordButton> 
-                <div><h2>Latitude: {newGem.latitude} <br /> Longitude: {newGem.longitude}</h2></div>
+
+               <Label>Latitude</Label> 
+                <Input value={newGem.latitude} name='latitude' onChange={handleChanges}/>
+                <Label>Longitude</Label>
+                <Input value={newGem.longitude} name='longitude' onChange={handleChanges}/>
 
                 <Label>DIFFICULTY</Label>
                 <Input
