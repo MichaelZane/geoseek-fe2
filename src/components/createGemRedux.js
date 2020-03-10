@@ -3,7 +3,7 @@ import axios from 'axios'
 import styled from 'styled-components'
 import {Redirect} from 'react-router-dom'
 import {connect} from "react-redux"
-import { geocode, createGemAction } from '../actions/index copy'
+import { postGem } from '../actions/index copy'
 import GeocodingRedux from './GeocodingRedux';
 
 const FormContainer = styled.div`
@@ -58,6 +58,37 @@ const Button = styled.button`
        border: 2px solid black;
    }
    `
+
+const CoordButton = styled.button`
+width: 230px;
+height: 50px;
+border-radius: 15px;
+outline: none;
+
+background-color: #C66DB2;
+border: none;
+color: white;
+text-align: center;
+font-size: 20px;
+margin: 10px 10px 10px 55px;
+transition: 0.3s;
+text-decoration: none;
+cursor: pointer;
+transition: opacity .55s ease-in-out;
+-moz-transition: opacity .55s ease-in-out;
+-webkit-transition: opacity .55s ease-in-out;
+
+:hover {
+   opacity: 1.0;
+   transition: opacity .55s ease-in-out;
+   -moz-transition: opacity .55s ease-in-out;
+   -webkit-transition: opacity .55s ease-in-out;
+   background-color: #FF69B4;
+   border: 2px solid black;
+}
+`
+
+   
 const Label = styled.label`
        margin-left: 10%;
        color: white;
@@ -69,8 +100,8 @@ const Label = styled.label`
         title: '',
         longitude: '' ,
         latitude: '',
-        difficulty: '',
-        description: ''
+        // difficulty: '',
+        // description: ''
     })
 
     const [address, setAddress] = useState('')
@@ -137,19 +168,25 @@ const Label = styled.label`
             }
               )
             
+              
         })  
           .catch(err => {
             console.log("***********************gecode err********************************", err)
           })
       }
-      geocode(address)
-  
+      geocode(address)   
         }
-        console.log(newGem)
-
+        console.log("----------------->",newGem, "<----------------------")
+ 
+    
+           
+    const handleSubmit = e =>{
+        e.preventDefault()
+        props.postGem(newGem)
+    }
     return (
         <FormContainer>
-            <form onSubmit={handleGeocodeSubmit}>
+            <form onSubmit={handleSubmit}>
             
 
                 {/* <input
@@ -181,6 +218,8 @@ const Label = styled.label`
             onChange={handleAddressChanges}
             />
             {console.log('address state', address)}
+            <CoordButton onClick={handleGeocodeSubmit}> Get your Coordinates</CoordButton> 
+                <div><h2>Latitude: {newGem.latitude} <br /> Longitude: {newGem.longitude}</h2></div>
 
                 <Label>DIFFICULTY</Label>
                 <Input
@@ -198,7 +237,6 @@ const Label = styled.label`
                     value={newGem.name}
                     onChange={handleChanges}
                 />
-                <div><h1>Latitude: {newGem.latitude} <br /> Longitude: {newGem.longitude}</h1></div>
                 <Button type='submit'>Create Gem!</Button>
             </form>
         </FormContainer>
@@ -219,10 +257,18 @@ const mapStateToProps = state => {
 console.log('map state', mapStateToProps)
 
 export default connect(mapStateToProps, 
-    { geocode, createGemAction }
+    { postGem }
     )(CreateGem)
 
 
+
+
+
+
+
+
+
+    
 
 /////////////////// MY REDUX CODE COPY ///////////////////////
 

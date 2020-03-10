@@ -5,6 +5,7 @@ const axiosWithAuth = () => {
 
   return axios.create({
     baseURL: 'https://geoseek-be-stage.herokuapp.com',
+              
     headers: {
       Authorization: token
     }
