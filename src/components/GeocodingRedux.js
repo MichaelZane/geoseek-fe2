@@ -10,10 +10,6 @@ function GeocodingRedux (props) {
 
     const [address, setAddress] = useState('')
     
-  
-
-
-
     const handleChanges = e =>{
         setAddress({
             ...address,
@@ -21,11 +17,9 @@ function GeocodingRedux (props) {
         })
     }
 
-
     const handleGeocodeSubmit = e =>{
         e.preventDefault();
-        props.geocode(address)
-       
+        props.geocode(address)       
     }
     console.log(props.coordinates, '*****these are the coordinates')
     

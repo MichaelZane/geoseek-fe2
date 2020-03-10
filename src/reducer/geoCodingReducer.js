@@ -10,7 +10,11 @@ import{
   
     isfetching: false,
     error: '',
-    coordinates: {}
+    longitude: '',
+    latitude: '',
+    // title: '',
+    // difficulty: '',
+    // description: ''
   }
   
 export const geoCodingReducer = (state = initialState, action) =>{
@@ -23,7 +27,8 @@ export const geoCodingReducer = (state = initialState, action) =>{
         case GEOCODING_SUCCESS:
             return{
                 ...state,
-            coordinates: action.payload,
+            longitude: action.payload.x,
+            latitude: action.payload.y
             }
         case GEOCODING_FAILURE:
             return{
