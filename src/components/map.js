@@ -1,6 +1,11 @@
-import React, { useState, useEffect } from "react";
-import ReactMapGL, { Marker, Popup } from "react-map-gl";
-import axios from "axios";
+import React, {useState, useEffect} from 'react';
+import ReactMapGL, {Marker, Popup} from 'react-map-gl'
+import axios from 'axios'
+import styled from 'styled-components'
+
+
+
+
 
 function Map ({latitude, longitude, refresh}) {
     const [viewport, setViewport] = useState({
@@ -16,9 +21,6 @@ function Map ({latitude, longitude, refresh}) {
 
     const [selectedGem, setSelectedGem] = useState(null)
 
-  useEffect(() => {
-    setViewport({ ...viewport, latitude, longitude });
-  }, [latitude, longitude]);
 
     useEffect(() => {
         setViewport({...viewport, latitude, longitude})
@@ -27,13 +29,7 @@ function Map ({latitude, longitude, refresh}) {
 
 
     useEffect(() => {
-      let body = {
-        "longitude": -122.446929,
-        "latitude": 37.754354,
-        "threshold": 15
-      }
-    axios.post('https://geoseek-be-stage.herokuapp.com/api/gems/findNearby', body)
-       
+        axios.get('https://geoseek-be-stage.herokuapp.com/api/gems')
             .then(res => {
                 console.log(res)
                 setGems(res.data)
@@ -67,7 +63,7 @@ function Map ({latitude, longitude, refresh}) {
                 </Marker>
             ))}
             {selectedGem && (
-                <Popup latitude={selectedGem.latitude} longitude={selectedGem.longitude} onClose={() => setSelectedGem(null)}>
+                <Popup className='popup' latitude={selectedGem.latitude} longitude={selectedGem.longitude} onClose={() => setSelectedGem(null)}>
                     <div>
                         <h2>{`Title: ${ selectedGem.title }`}</h2>
                         <p>{`Difficulty: ${ selectedGem.difficulty }`}</p>
@@ -82,4 +78,4 @@ function Map ({latitude, longitude, refresh}) {
     );
 }
 
-export default Map;
+export default Map

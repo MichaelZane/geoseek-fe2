@@ -66,10 +66,14 @@ function NavBar () {
 
     return (
         <Nav>
+            <div>
             <Link to='/'><img src={Logo} alt="Main Logo" /></Link>
             {/* <Router> */}
+            </div>
             <div>
                 <button><Link className='link' to='/CreateGem'>Create a Gem</Link></button>
+            </div>
+            <div>
                 <button><Link className='link' to='/ViewGem'>View Gems</Link></button>
             </div>
 
