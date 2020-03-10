@@ -3,11 +3,11 @@ import React, {useState} from 'react'
 import {connect} from "react-redux"
 
 
-import { postGem, geocode} from '../actions/index copy'
+import { postGem } from '../actions/index copy'
+import GeocodingRedux from './GeocodingRedux';
 
 function CreateGem (props) {
-    const [longitude,setLongitude] = useState();
-    const [latitude, setLatitude] = useState();
+
 
 
     const [newGem, setNewGem ] = useState({
@@ -34,12 +34,13 @@ function CreateGem (props) {
             difficulty: '',
             description: ''
         })
-
-    const handleGeocode = e=>{
-        e.preventDefault()
-        props.geocode(address)
-        }
     }
+
+    // const handleGeocodeSubmit = e=>{
+    //     e.preventDefault()
+    //     props.geocode(address)
+    //     }
+    // }
 
     
     return(
@@ -48,25 +49,11 @@ function CreateGem (props) {
             name='title'
             placeholder='Title'
             value={newGem.name}
-            onChange={(e)=>{
-                setNewGem({
-                    ...newGem,
-            [e.target.name]:e.target.value
-        })
-            }}
-            />
-            <input
-            name='longitude'
-            placeholder='Logitude.'
-            value={newGem.longitude}
             onChange={handleChanges}
             />
-            <input
-            name='latitude'
-            placeholder='Latitude.'
-            value={newGem.latitude}
-            onChange={handleChanges}
-            />
+
+            <GeocodingRedux/>
+
             <input
             name='difficulty'
             placeholder='Dificulty. 1-5'
@@ -85,19 +72,19 @@ function CreateGem (props) {
 }
 const mapStateToProps = state => {
     return{
- 
+        state
     }
 
 }
 
 export default connect(mapStateToProps, 
-    { postGem, geocode }
+    { postGem }
     )(CreateGem)
 
 
 
 
-    
+
 ///////////copy of form before changes for address
 //     <form onSubmit={handleSubmit}>
 //     <input

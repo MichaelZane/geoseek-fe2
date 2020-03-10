@@ -21,11 +21,11 @@ useEffect(()=> {
     setViewport({ ...viewport, latitude, longitude})
 },[latitude, longitude])
 
-function submitGemHandler(formData) {
+// function submitGemHandler(formData) {
 // handle form data submit
 // Update state with new data.
 // call setGems this will trigger a remounting of component
-}
+
 
 // Refactor such that createGem component becomes child component of Map.
 // Pass the submitGemHandler down through props

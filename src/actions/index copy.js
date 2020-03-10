@@ -10,6 +10,22 @@ export const GEOCODING_SUCCESS = 'GEOCODING_SUCCESS'
 export const GEOCODING_FAILURE = 'GEOCODING_FAILURE'
 
 
+export const geocode = address => dispatch => {
+  dispatch({ type: GEOCODING_START });
+  axios
+  .get(`https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?f=json&singleLine=${address.address}&outFields=Match_addr,Addr_type`)
+  .then(response => {
+    console.log('*****geocoding cordinates from get*****', response.data.candidates[0].location)
+           
+    dispatch({ type: GEOCODING_SUCCESS, payload: response.data.candidates[0].location });
+    
+  })
+  .catch(error=>{
+    console.log(error, '*******GEOCODING ERROR*********')
+    dispatch({ type: GEOCODING_FAILURE, payload: error.response})
+  })
+}
+
 export const postGem = newGem => dispatch => {
     dispatch({ type: CREATE_GEM_START });
     axiosWithAuth()
@@ -20,7 +36,7 @@ export const postGem = newGem => dispatch => {
       })
 
     .catch(error => {
-      
+        console.log("*****Gem Posting error*****",error)
         dispatch({ type: CREATE_GEM_FAIL, payload: error.response });
       });
   };
@@ -28,16 +44,6 @@ export const postGem = newGem => dispatch => {
 
 
 
-export const geocode = address => dispatch => {
-  dispatch ({ type: GEOCODING_START });
-  axios
-  .get(`https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?f=json&singleLine=${address}&outFields=Match_addr,Addr_type`)
-  .then(res => {
-    console.log(res)
-    dispatch({ type: CREATE_GEM_SUCCESS, payload: address });
-  })
-  .catch(error=>{
-    dispatch({ type: GEOCODING_FAILURE, payload: error.response})
-  })
-}
- 
+
+
+
