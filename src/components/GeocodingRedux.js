@@ -1,55 +1,59 @@
-import React, {useState} from 'react'
+// import React, {useState} from 'react'
 
-import {connect} from "react-redux"
-import axios from 'axios'
+// import {connect} from "react-redux"
+// import axios from 'axios'
 
-import { geocode } from '../actions/index copy'
+// import { geocode } from '../actions/index copy'
 
 
-function GeocodingRedux (props) {
+// function GeocodingRedux (props) {
 
-    const [address, setAddress] = useState('')
+//     const [address, setAddress] = useState('')
     
-    const handleChanges = e =>{
-        setAddress({
-            ...address,
-            [e.target.name]: e.target.value
-        })
-    }
+//     const handleChanges = e =>{
+//         setAddress({
+//             ...address,
+//             [e.target.name]: e.target.value
+//         })
+//     }
 
-    const handleGeocodeSubmit = e =>{
-        e.preventDefault();
-        props.geocode(address)       
-    }
-    console.log(props.latitude, props.longitude, '*****these are the coordinates')
+//     const handleGeocodeSubmit = e =>{
+//         e.preventDefault();
+//         props.geocode(address)       
+//     }
+//     console.log(props.latitude, props.longitude, '*****these are the coordinates')
     
-    return(
-       <form onSubmit ={handleGeocodeSubmit}>
-            <input
-            name='address'
-            placeholder='Enter an address'
-            onChange={handleChanges}
-            />
-            {console.log('address state', address)}
-            {/* <button onClick={handleGeocodeSubmit}>address get request</button> */}
-     </form>
-    )
-}
+//     return(
+//        <form onSubmit ={handleGeocodeSubmit}>
+//             <input
+//             name='address'
+//             placeholder='Enter an address'
+//             onChange={handleChanges}
+//             />
+//             {console.log('address state', address)}
+//             {/* <button onClick={handleGeocodeSubmit}>address get request</button> */}
+//      </form>
+//     )
+// }
 
 
-const mapStateToProps = state => {
-    return{
-        state,
-        longitude: state.longitude,
-        latitude: state.latitude
-        // address: state.address
-    }
-}
+// const mapStateToProps = state => {
+//     return{
+//         state,
+//         longitude: state.longitude,
+//         latitude: state.latitude
+//         // address: state.address
+//     }
+// }
 
-export default connect(
-    mapStateToProps, 
-    { geocode }
-    )(GeocodingRedux)
+// export default connect(
+//     mapStateToProps, 
+//     { geocode }
+//     )(GeocodingRedux)
+
+
+
+
 
 
 

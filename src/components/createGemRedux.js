@@ -3,7 +3,7 @@ import axios from 'axios'
 import styled from 'styled-components'
 import {Redirect} from 'react-router-dom'
 import {connect} from "react-redux"
-import { geocode } from '../actions/index copy'
+import { geocode, createGemAction } from '../actions/index copy'
 import GeocodingRedux from './GeocodingRedux';
 
 const FormContainer = styled.div`
@@ -67,7 +67,7 @@ const Label = styled.label`
 
     const [newGem, setNewGem ] = useState({
         title: '',
-        longitude: '',
+        longitude: '' ,
         latitude: '',
         difficulty: '',
         description: ''
@@ -105,23 +105,52 @@ const Label = styled.label`
     //     // history.push('/');
     // }
 
-    const handleSubmit = e =>{
+ ////////////////////////     MY CODE FOR REDUX  //////////////////////////////////////
+
+    // const handleSubmit = e =>{
+    //     e.preventDefault()
+    //     props.geocode(address)
+    //     // createGemAction(newGem)
+    //     setNewGem({
+    //         ...newGem        
+    //     })  
+    // }
+    // // console.log(props.coordinates, '*****these are the coordinates')
+    // console.log( "********new gem-->", newGem, "<--new gem*********")
+    // console.log('longitude.....', props.longitude, 'latitude.....', props.latitude, '&&&&&&&&&&&&&&&&&&')
+    // console.log(newGem.longitude)
+
+
+//-------------------------------- END OF MY REDUX ------------------------------------------------------------//
+
+   const handleGeocodeSubmit = e => {
         e.preventDefault()
-        props.geocode(address)  
-        setNewGem({
-            ...newGem,
-            longitude: props.longitude,
-            latitude: props.latitude
-        })
-    }
-    // console.log(props.coordinates, '*****these are the coordinates')
-    console.log(newGem, "**********new gem*********")
-    // console.log('***____-- y coordinate ********', props.state.coordinates)
+             function geocode (address) {
+        axios
+          .get(`https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?f=json&singleLine=${address.address}&outFields=Match_addr,Addr_type`)
+          .then(res => {
+              console.log(res, '********get req********************')
+              setNewGem(
+               { ...newGem,
+                longitude: res.data.candidates[0].location.x,
+                latitude: res.data.candidates[0].location.y
+            }
+              )
+            
+        })  
+          .catch(err => {
+            console.log("***********************gecode err********************************", err)
+          })
+      }
+      geocode(address)
+  
+        }
+        console.log(newGem)
 
     return (
         <FormContainer>
-            <form onSubmit={handleSubmit}>
-            {console.log('longitude.....', props.longitude, 'latitude.....', props.latitude, '&&&&&&&&&&&&&&&&&&')}
+            <form onSubmit={handleGeocodeSubmit}>
+            
 
                 {/* <input
             name='created_by_user'
@@ -142,22 +171,7 @@ const Label = styled.label`
                     value={newGem.name}
                     onChange={handleChanges}
                 />
-                {/* <Label>LONGITUDE</Label>
-                <Input
-                    className='input'
-                    name='longitude'
-                    placeholder='Longitude'
-                    value={form.name}
-                    onChange={handleChanges}
-                />
-                <Label>LATITUDE</Label>
-                <Input
-                    className='input'
-                    name='latitude'
-                    placeholder='Latitude'
-                    value={form.name}
-                    onChange={handleChanges}
-                /> */}
+                
 
 {/* <GeocodingRedux/> */}
 <Label>ADDRESS</Label>
@@ -184,6 +198,7 @@ const Label = styled.label`
                     value={newGem.name}
                     onChange={handleChanges}
                 />
+                <div><h1>Latitude: {newGem.latitude} <br /> Longitude: {newGem.longitude}</h1></div>
                 <Button type='submit'>Create Gem!</Button>
             </form>
         </FormContainer>
@@ -192,14 +207,19 @@ const Label = styled.label`
 
 const mapStateToProps = state => {
     return{
-        state,
+        
         longitude: state.longitude,
-        latitude: state.latitude
+        latitude: state.latitude,
+        title: state.title,
+        difficulty: state.difficulty,
+        description: state.description
+        
     }
-}
+} 
+console.log('map state', mapStateToProps)
 
 export default connect(mapStateToProps, 
-    { geocode }
+    { geocode, createGemAction }
     )(CreateGem)
 
 

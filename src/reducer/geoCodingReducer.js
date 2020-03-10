@@ -1,7 +1,10 @@
 import{
         GEOCODING_START,
         GEOCODING_SUCCESS,
-        GEOCODING_FAILURE
+        GEOCODING_FAILURE,
+
+     COORDINATE_VALUES,
+     CREATE_GEM_START
 
 } from "../actions/index copy"
 
@@ -11,10 +14,10 @@ import{
     isfetching: false,
     error: '',
     longitude: '',
-    latitude: '',
-    // title: '',
-    // difficulty: '',
-    // description: ''
+    latitude:  '',
+    title: '',
+    difficulty: '',
+    description: ''
   }
   
 export const geoCodingReducer = (state = initialState, action) =>{
@@ -30,11 +33,19 @@ export const geoCodingReducer = (state = initialState, action) =>{
             longitude: action.payload.x,
             latitude: action.payload.y
             }
+        
+            case CREATE_GEM_START:
+                return{
+                    ...state,
+            
+
+                }
+
+
         case GEOCODING_FAILURE:
             return{
                 ...state, 
                 error: action.payload
-
             }
 
         default: return state

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import NavBar from './components/navbar'
 import Map from './components/map'
-import ViewGem from './components/viewGemRedux'
+import ViewGem from './components/viewGem'
 import CreateGem from './components/createGemRedux'
 
 import { BrowserRouter as Router, Route, } from "react-router-dom"; 

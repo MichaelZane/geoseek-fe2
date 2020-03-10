@@ -8,7 +8,7 @@ export const CREATE_GEM_FAIL = 'CREATE_GEM_FAIL';
 export const GEOCODING_START = 'GEOCODING_START'
 export const GEOCODING_SUCCESS = 'GEOCODING_SUCCESS'
 export const GEOCODING_FAILURE = 'GEOCODING_FAILURE'
-
+export const COORDINATE_VALUES = "COORDINATE_VALUES"
 
 export const geocode = address => dispatch => {
   dispatch({ type: GEOCODING_START });
@@ -18,13 +18,18 @@ export const geocode = address => dispatch => {
     console.log('*****geocoding cordinates from get*****', response.data.candidates[0].location)
            
     dispatch({ type: GEOCODING_SUCCESS, payload: response.data.candidates[0].location });
-    
   })
+  
   .catch(error=>{
     console.log(error, '*******GEOCODING ERROR*********')
     dispatch({ type: GEOCODING_FAILURE, payload: error.response})
   })
+  dispatch({ type: CREATE_GEM_START})
 }
+
+export const createGemAction = newGem => dispatch =>{
+  dispatch({ type: CREATE_GEM_START, payload: newGem })
+} 
 
 export const postGem = newGem => dispatch => {
     dispatch({ type: CREATE_GEM_START });
