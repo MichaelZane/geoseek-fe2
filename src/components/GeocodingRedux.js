@@ -21,17 +21,17 @@ function GeocodingRedux (props) {
         e.preventDefault();
         props.geocode(address)       
     }
-    console.log(props.coordinates, '*****these are the coordinates')
+    console.log(props.latitude, props.longitude, '*****these are the coordinates')
     
     return(
-       <form>
+       <form onSubmit ={handleGeocodeSubmit}>
             <input
             name='address'
             placeholder='Enter an address'
             onChange={handleChanges}
             />
             {console.log('address state', address)}
-            <button onClick={handleGeocodeSubmit}>address get request</button>
+            {/* <button onClick={handleGeocodeSubmit}>address get request</button> */}
      </form>
     )
 }
@@ -40,7 +40,8 @@ function GeocodingRedux (props) {
 const mapStateToProps = state => {
     return{
         state,
-        coordinates: state.coordinates
+        longitude: state.longitude,
+        latitude: state.latitude
         // address: state.address
     }
 }

@@ -121,7 +121,7 @@ const Label = styled.label`
     return (
         <FormContainer>
             <form onSubmit={handleSubmit}>
-            {console.log(props.longitude, '&&&&&&&&&&&&&&&&&&')}
+            {console.log('longitude.....', props.longitude, 'latitude.....', props.latitude, '&&&&&&&&&&&&&&&&&&')}
 
                 {/* <input
             name='created_by_user'
@@ -160,7 +160,8 @@ const Label = styled.label`
                 /> */}
 
 {/* <GeocodingRedux/> */}
-  <input
+<Label>ADDRESS</Label>
+  <Input
             name='address'
             placeholder='Enter an address'
             onChange={handleAddressChanges}
