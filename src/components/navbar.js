@@ -56,9 +56,13 @@ img {
 a {
     color:white
 }
+.link {
+    text-decoration: none;
+    outline: none;
+}
 `
-
 function NavBar () {
+    
 
     return (
         <Nav>
@@ -74,7 +78,7 @@ function NavBar () {
     </Router> */}
         </Nav>
     );
-}
 
+}
 export default NavBar;
 

@@ -20,6 +20,7 @@ function App () {
   const [[latitude, longitude], setLatLong] = useState([36.955992, -121.971428])
   const [refresh, setRefresh] = useState(false);
   const updatePosition = (latitude, longitude) => {
+    console.log("this is the lat and lng >>>>>>>>>>>", latitude, longitude);
     setLatLong([latitude, longitude])
   }
 
