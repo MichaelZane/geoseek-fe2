@@ -7,15 +7,15 @@ import styled from 'styled-components'
 
 import {BrowserRouter as Router, Route, } from "react-router-dom";
 
-
+const MapAndGems = styled.div`
+display: flex;
+height: 100vh;
+min-height: 100vh;
+`
 
 function App () {
 
-  const MapAndGems = styled.div`
-  display: flex;
-  height: 100vh;
-  min-height: 100vh;
-  `
+
 
   const [[latitude, longitude], setLatLong] = useState([36.955992, -121.971428])
   const [refresh, setRefresh] = useState(false);

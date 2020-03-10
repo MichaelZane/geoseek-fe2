@@ -1,22 +1,19 @@
-
-import mockAxios from 'axios'
-
-// import viewGem from '../components/viewGem'
-
-import { cleanup, fireEvent, render} from '@testing-library/react'
-
-
+import React from 'react';
+import { shallow, configure } from 'enzyme';
+// import toJson from 'enzyme-to-json'
+import ViewGem from '../components/viewGem'
+import Adapter from 'enzyme-adapter-react-16';
+import axios from 'axios';
 
 
-it.skip('calls axios and returns a list of gems', async() => {
-    mockAxios.get.mockImplementationOnce(() => Promise.resolve({
-        data: { 
-            results: []
-        }
-      })
-    
-    )
-    const list = await viewGem('gems')
-    expect(list).toEqual([])
-})
+configure({ adapter: new Adapter() });
+ 
+
+ 
+describe('viewGem component', () => {
+  
+});
+
+ 
+
 

@@ -26,7 +26,9 @@ export default function ViewGem ({updatePosition}) {
     display: flex;
     width: 200px;
     justify-content: space-between;
-    
+    a {
+        color: white
+    } 
     `
 
     const Container = styled.div`
@@ -42,6 +44,7 @@ export default function ViewGem ({updatePosition}) {
     min-height: 100vh;
     height: 100vh;
     overflow-y: auto;
+
     `
     
 
