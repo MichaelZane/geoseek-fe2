@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {Link, Route} from "react-router-dom"
+import {Link} from "react-router-dom"
 import axios from 'axios'
 import GemCard from './gem'
 import styled from 'styled-components'
@@ -27,9 +27,9 @@ justify-content: space-evenly;
 flex-wrap: wrap;
 width: 350px;
 padding: 0px;
-max-height: 100%;
-min-height: 100vh;
-height: 100vh;
+
+
+height: 82vh;
 overflow-y: auto;
 
 `
@@ -58,7 +58,7 @@ export default function ViewGem ({updatePosition}) {
                     <div>
                         <Card>
                             <div>
-                                <GemCard key={gem.id} title={gem.title} latitude={gem.latitude} longitude={gem.longitude} />
+                                <GemCard data-testid='gemcard' key={gem.id} title={gem.title} latitude={gem.latitude} longitude={gem.longitude} />
                                 <div onClick={() => updatePosition(gem.latitude, gem.longitude)}>
                                     <Link className = 'viewLink'>Click To View Location</Link>
                                 </div>

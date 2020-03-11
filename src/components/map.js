@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import ReactMapGL, {Marker, Popup} from 'react-map-gl'
 import axios from 'axios'
-import styled from 'styled-components'
+
 
 
 
@@ -13,7 +13,7 @@ function Map ({latitude, longitude, refresh}) {
         latitude: 37.754,
         longitude: -122.443,
         width: "100%",
-        height: "90%",
+        height: "82%",
         zoom: 11.6
     });
 
@@ -24,9 +24,10 @@ function Map ({latitude, longitude, refresh}) {
 
     useEffect(() => {
         setViewport({...viewport, latitude, longitude})
+
     }, [latitude, longitude])
 
-
+    
 
     useEffect(() => {
         axios.get('https://geoseek-be-stage.herokuapp.com/api/gems')
@@ -39,7 +40,7 @@ function Map ({latitude, longitude, refresh}) {
             })
     }, [refresh])
 
-
+    
 
     return (
         <ReactMapGL className='Map'
@@ -48,6 +49,7 @@ function Map ({latitude, longitude, refresh}) {
             mapStyle="mapbox://styles/geoseek/ck7b5gau8002g1ip7b81etzj4"
             onViewportChange={viewport => {setViewport(viewport)}}
             onClick={() => setSelectedGem(null)}
+            
         >
             {gems.map((gem) => (
                 <Marker key={gem.id} latitude={gem.latitude} longitude={gem.longitude}>

@@ -1,11 +1,11 @@
 import React from 'react';
 import { cleanup } from '@testing-library/react';
-
+import {Link} from "react-router-dom"
 import { shallow, configure } from 'enzyme'
-import App from '../App' 
+import expect, { createSpy } from 'expect';
 import  NavBar  from '../components/NavBar'
 import Adapter from 'enzyme-adapter-react-16';
-import logo from '../images/logo.png'
+import Logo from '../images/logo.png'
 
 
 configure({ adapter: new Adapter() });
@@ -22,3 +22,12 @@ describe('Navbar ', () => {
 
 
 })
+describe('nav', () => {
+  it('should have 2 links', () => {
+    let wrapper = shallow(<NavBar />)
+    expect(wrapper.containsAnyMatchingElements(<Link to ="/CreateGem">Create a Gem</Link>))
+    expect(wrapper.containsAnyMatchingElements(<Link to ="/ViewGem">View Gems</Link>))
+  })
+  
+})
+

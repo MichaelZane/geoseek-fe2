@@ -61,6 +61,7 @@ a {
     outline: none;
 }
 `
+
 function NavBar () {
     
 
@@ -71,10 +72,12 @@ function NavBar () {
             {/* <Router> */}
             </div>
             <div>
+            
                 <button><Link className='link' to='/CreateGem'>Create a Gem</Link></button>
-            </div>
-            <div>
+            
+            
                 <button><Link className='link' to='/ViewGem'>View Gems</Link></button>
+            
             </div>
 
             {/* <Route path = '/CreateGem' component = {CreateGem}/>

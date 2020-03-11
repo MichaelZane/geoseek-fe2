@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
-import {Redirect} from 'react-router-dom'
+
 
 const FormContainer = styled.div`
 width: 20%;
@@ -73,7 +73,12 @@ export default function CreateGem (props) {
         props.setRefresh(!props.refresh);
         props.updatePosition(Number(form.latitude), Number(form.longitude));
     }
-
+    const onFormChange = e => {
+        setForm({
+            ...form,
+            [e.target.name]: e.target.value
+        })
+    }
     return (
         <FormContainer>
             <form onSubmit={(e) => {
@@ -103,12 +108,7 @@ export default function CreateGem (props) {
                     name='title'
                     placeholder='Title'
                     value={form.name}
-                    onChange={(e) => {
-                        setForm({
-                            ...form,
-                            [e.target.name]: e.target.value
-                        })
-                    }}
+                    onChange={onFormChange}
                 />
                 <Label>LONGITUDE</Label>
                 <Input
@@ -116,12 +116,7 @@ export default function CreateGem (props) {
                     name='longitude'
                     placeholder='Longitude'
                     value={form.name}
-                    onChange={(e) => {
-                        setForm({
-                            ...form,
-                            [e.target.name]: e.target.value
-                        })
-                    }}
+                    onChange={onFormChange}
                 />
                 <Label>LATITUDE</Label>
                 <Input
@@ -129,12 +124,7 @@ export default function CreateGem (props) {
                     name='latitude'
                     placeholder='Latitude'
                     value={form.name}
-                    onChange={(e) => {
-                        setForm({
-                            ...form,
-                            [e.target.name]: e.target.value
-                        })
-                    }}
+                    onChange={onFormChange}
                 />
                 <Label>DIFFICULTY</Label>
                 <Input
@@ -142,12 +132,7 @@ export default function CreateGem (props) {
                     name='difficulty'
                     placeholder='Choose 1-5 for difficulty '
                     value={form.name}
-                    onChange={(e) => {
-                        setForm({
-                            ...form,
-                            [e.target.name]: e.target.value
-                        })
-                    }}
+                    onChange={onFormChange}
                 />
                 <Label>DESCRIPTION</Label>
                 <Input
@@ -155,12 +140,7 @@ export default function CreateGem (props) {
                     name='description'
                     placeholder='Describe or give clues to find your gem.'
                     value={form.name}
-                    onChange={(e) => {
-                        setForm({
-                            ...form,
-                            [e.target.name]: e.target.value
-                        })
-                    }}
+                    onChange={onFormChange}
                 />
                 <Button type='submit'>Create Gem!</Button>
             </form>
