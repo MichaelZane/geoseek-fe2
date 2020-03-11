@@ -6,33 +6,6 @@ import styled from 'styled-components'
 
 
 
-const Card = styled.div`
-margin: 20px;
-padding: 10px;
-border-radius: 10px;
-display: flex;
-width: 200px;
-justify-content: space-between;
-a {
-    color: white
-} 
-`
-
-const Container = styled.div`
-border-left: 2px solid black;
-display: flex;
-overflow-y: auto;
-background-color:  #30364A;
-justify-content: space-evenly;
-flex-wrap: wrap;
-width: 350px;
-padding: 0px;
-
-
-height: 82vh;
-overflow-y: auto;
-
-`
 
 
 export default function ViewGem ({updatePosition}) {
@@ -48,6 +21,29 @@ export default function ViewGem ({updatePosition}) {
             })
     }, [])
 
+    const Card = styled.div`
+    margin: 20px;
+    padding: 5px;
+    border-radius: 10px;
+    display: flex;
+    width:250px;
+    justify-content: space-between;
+    
+    
+    `
+
+    const Container = styled.div`
+    border-left: 2px solid black;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 350px;
+    padding: 0px;
+    max-height: 100%;
+    min-height: 100vh;
+    height: 100vh;
+    overflow-y: auto;
+    `
     
 
     return (

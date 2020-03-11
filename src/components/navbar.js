@@ -48,20 +48,12 @@ h1 {
     margin-left: 20px;
 }
 
-img {
-    width: 80px;
-    height: 3%;
-    margin: 10px 0px 10px 20px;
-}
-a {
-    color:white
-}
-.link {
-    text-decoration: none;
-    outline: none;
-}
+    .link {
+        text-decoration: none;
+        outline: none;
+        color:white;
+    }
 `
-
 function NavBar () {
     
 
@@ -72,7 +64,8 @@ function NavBar () {
             {/* <Router> */}
             </div>
             <div>
-            
+                <button><Link className='link' to='/Register'>Register</Link></button>
+                <button><Link className='link' to='/Login'>Log In</Link></button>
                 <button><Link className='link' to='/CreateGem'>Create a Gem</Link></button>
             
             
