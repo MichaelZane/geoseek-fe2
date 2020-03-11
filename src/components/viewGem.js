@@ -22,13 +22,14 @@ export default function ViewGem ({updatePosition}) {
     padding: 5px;
     border-radius: 10px;
     display: flex;
-    width: 200px;
+    width:250px;
     justify-content: space-between;
+    
     
     `
 
     const Card2 = styled.div`
-    border: 2px solid teal;
+    border-left: 2px solid black;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;

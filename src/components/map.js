@@ -9,7 +9,7 @@ function Map ({latitude, longitude, refresh}) {
         latitude: 37.754,
         longitude: -122.443,
         width: "100%",
-        height: "90%",
+        height: "100%",
         zoom: 11.6
     });
 
