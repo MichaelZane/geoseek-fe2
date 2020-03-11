@@ -13,6 +13,8 @@ describe('viewGem component', () => {
   let wrapper = shallow(<ViewGem /> )
   it('renders without crashing', () => {
       expect(wrapper).toBeDefined()
+      expect(wrapper.find('.viewLink'))
+      
   })
   
   
