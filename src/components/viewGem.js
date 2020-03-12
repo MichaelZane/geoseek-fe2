@@ -41,6 +41,23 @@ export default function ViewGem ({updatePosition}) {
                 console.log(err)
             })
     }, [])
+
+    function markComplete(gemId){
+        // console.log(gemId, 'the gemId')
+        let body={
+            gem_id: gemId,
+            completed_by: 1
+        }
+        axios.post('http://localhost:5000/api/completed/', body)
+            .then(res=>{
+                console.log(res)
+            })
+            .catch(err=>{
+                console.log(err)
+            })
+    }
+    
+    if(!search){
     return (
         <Card2>
             <form>
@@ -53,9 +70,43 @@ export default function ViewGem ({updatePosition}) {
                         console.log(search)
                         const filteredGems= gems.filter(gem=>{
                             const ls= gem.title.toLowerCase()
-                            // console.log(ls, 'ls')
-                            // setFiltered(ls.search(search))
-                            // console.log(filtered, 'filtered')
+                            return ls.search(search) !== -1
+                        })
+                        setFiltered(filteredGems)
+                    }}
+                />
+            </form>
+            {gems.map((gem) => {
+                return (
+                    <div>
+                        <Card>
+                            <div>
+                                <GemCard key={gem.id} title={gem.title} latitude={gem.latitude} longitude={gem.longitude} />
+                                <div onClick={() => updatePosition(gem.latitude, gem.longitude)}>
+                                    <Link className = 'viewLink'>Click To View Location</Link>
+                                    <button onClick={()=>markComplete(gem.id)}>Mark As Complete</button>
+                                </div>
+                            </div>
+                        </Card>
+                    </div>
+                )
+            })}
+        </Card2>
+    )
+}
+else{
+    return (
+        <Card2>
+            <form>
+                <input
+                    name= 'searchForm'
+                    placeholder= 'Search Gems'
+                    value= {search}
+                    onChange= {e=>{
+                        setSearch(e.target.value.toLowerCase())
+                        console.log(search)
+                        const filteredGems= gems.filter(gem=>{
+                            const ls= gem.title.toLowerCase()
                             return ls.search(search) !== -1
                         })
                         setFiltered(filteredGems)
@@ -70,6 +121,7 @@ export default function ViewGem ({updatePosition}) {
                                 <GemCard key={gem.id} title={gem.title} latitude={gem.latitude} longitude={gem.longitude} />
                                 <div onClick={() => updatePosition(gem.latitude, gem.longitude)}>
                                     <Link className = 'viewLink'>Click To View Location</Link>
+                                    <button onClick={()=>markComplete(gem.id)}>Mark As Complete</button>
                                 </div>
                             </div>
                         </Card>
@@ -78,5 +130,6 @@ export default function ViewGem ({updatePosition}) {
             })}
         </Card2>
     )
+}
 }
 
