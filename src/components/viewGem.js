@@ -28,7 +28,6 @@ export default function ViewGem ({updatePosition}) {
     `
 
     const Card2 = styled.div`
-    border: 2px solid teal;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -39,7 +38,7 @@ export default function ViewGem ({updatePosition}) {
     height: 100vh;
     overflow-y: auto;
     `
-    
+
 
     return (
         <Card2>
@@ -48,11 +47,8 @@ export default function ViewGem ({updatePosition}) {
                 return (
                     <div>
                         <Card>
-                            <div>
+                            <div onClick={() => updatePosition(gem.latitude, gem.longitude)}>
                                 <GemCard key={gem.id} title={gem.title} latitude={gem.latitude} longitude={gem.longitude} />
-                                <div onClick={() => updatePosition(gem.latitude, gem.longitude)}>
-                                    <Link className = 'viewLink'>Click To View Location</Link>
-                                </div>
                             </div>
                         </Card>
                     </div>

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import NavBar from './components/navbar'
 import Map from './components/map'
 import ViewGem from './components/viewGem'
-import CreateGem from './components/createGem'
+import CreateGem from './components/createGemRedux'
 import styled from 'styled-components'
 
 import {BrowserRouter as Router, Route, } from "react-router-dom";
@@ -14,12 +14,12 @@ function App () {
   min-height: 100vh;
   `
 
-  const [[latitude, longitude], setLatLong] = useState([36.955992, -121.971428])
-  const [refresh, setRefresh] = useState(false);
-  const updatePosition = (latitude, longitude) => {
-    console.log("this is the lat and lng >>>>>>>>>>>", latitude, longitude);
-    setLatLong([latitude, longitude])
-  }
+  // const [[latitude, longitude], setLatLong] = useState([36.955992, -121.971428])
+  // const [refresh, setRefresh] = useState(false);
+  // const updatePosition = (latitude, longitude) => {
+  //   console.log("this is the lat and lng >>>>>>>>>>>", latitude, longitude);
+  //   setLatLong([latitude, longitude])
+  // }
 
   return (
     <Router>
@@ -30,8 +30,8 @@ function App () {
             <Map refresh={refresh} latitude={latitude} longitude={longitude} />
             <Route exact path='/' />
             <Route path='/ViewGem' component={() => <ViewGem updatePosition={updatePosition} />} />
-            <Route path='/CreateGem'
-              render={(props) => <CreateGem {...props} latitude={latitude} longitude={longitude} updatePosition={updatePosition} setRefresh={setRefresh} />} />
+            {/* <Route path='/CreateGem'
+              render={(props) => <CreateGem latitude={latitude} longitude={longitude} updatePosition={updatePosition} setRefresh={setRefresh} />} /> */}
           </MapAndGems>
         </div>
       </div>

@@ -68,38 +68,38 @@ export default function CreateGem (props) {
         latitude: '',
         longitude: ''
     })
-    
-    const [longitude,setLongitude] = useState();
+
+    const [longitude, setLongitude] = useState();
     const [latitude, setLatitude] = useState();
 
     function geocode (address) {
         axios
-          .get(`https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?f=json&singleLine=${address}&outFields=Match_addr,Addr_type`)
-          .then(res => {
-              console.log(res)
-            if (res) {
-                setLongitude(res.data.candidates[0].location.x)
-                setLatitude(res.data.candidates[0].location.y)
-            }
-        })
-                
-            
-          .catch(err => {
-            console.log("gecode err", err)
-            setLongitude({ loading: "Problem geocoding, please try again" });
-            setLatitude({ loading: "Problem geocoding, please try again" });
-          })
-      }
-    
+            .get(`https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?f=json&singleLine=${ address }&outFields=Match_addr,Addr_type`)
+            .then(res => {
+                console.log(res)
+                if (res) {
+                    setLongitude(res.data.candidates[0].location.x)
+                    setLatitude(res.data.candidates[0].location.y)
+                }
+            })
 
-    
-    console.log(`LONGITUDE!!!!! >>>> ${longitude}`)
-    console.log(`LATITUDE!!!!! >>>> ${latitude}`)
 
-    const submitGem = () => {
-        props.setRefresh(!props.refresh);
-        props.updatePosition(Number(form.latitude), Number(form.longitude));
+            .catch(err => {
+                console.log("gecode err", err)
+                setLongitude({loading: "Problem geocoding, please try again"});
+                setLatitude({loading: "Problem geocoding, please try again"});
+            })
     }
+
+
+
+    console.log(`LONGITUDE!!!!! >>>> ${ longitude }`)
+    console.log(`LATITUDE!!!!! >>>> ${ latitude }`)
+
+    // const submitGem = () => {
+    //     props.setRefresh(!props.refresh);
+    //     props.updatePosition(latitude, longitude);
+    // }
 
     return (
         <FormContainer>

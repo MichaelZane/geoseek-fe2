@@ -4,15 +4,15 @@ import ReactMapGL, {Marker, Popup} from 'react-map-gl'
 import axios from 'axios'
 
 function Map ({latitude, longitude, refresh}) {
+
     const [viewport, setViewport] = useState({
 
         latitude: 37.754,
         longitude: -122.443,
-        width: "100%",
-        height: "90%",
+        width: "100vw",
+        height: "87.5vh",
         zoom: 11.6
     });
-
     const [gems, setGems] = useState([])
 
     const [selectedGem, setSelectedGem] = useState(null)

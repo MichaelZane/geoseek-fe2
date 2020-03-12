@@ -2,23 +2,26 @@ import React from 'react'
 import {Link} from "react-router-dom"
 import styled from 'styled-components'
 import Logo from '../images/logo.png'
+import '../Logo.css'
 
-function NavBar () {
-    const NavBar = styled.div`
+const NavBarS = styled.div`
     border-bottom: 3px solid black;
+    height: 120px;
+    width: 100%;
     background-color:  #30364A;
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    div {
-        margin-right: 2%;
-    }
+    // div {
+    //     margin-right: 2%;
+    // }
 
-    button {
+    .link {
         margin: 0px 25px;
+        padding: 10px;
         font-size: 1.5rem;
-        width: 150px;
+        width: 800px;
         height: 50px;
         border-radius: 10px;
         background-color: #C66DB2;
@@ -29,6 +32,7 @@ function NavBar () {
         transition: 0.3s;
         text-decoration: none;
         cursor: pointer;
+        outline: none;
         // opacity: 0.6;
         // transition: opacity .55s ease-in-out;
         // -moz-transition: opacity .55s ease-in-out;
@@ -36,22 +40,17 @@ function NavBar () {
    
        :hover {
            opacity: 1.0;
-           transition: opacity .55s ease-in-out;
+           transform: scale(3.3);
            -moz-transition: opacity .55s ease-in-out;
            -webkit-transition: opacity .55s ease-in-out;
            background-color: #FF69B4;
-           border: 2px solid black;
+
        }
     }
 
-    .link {
-        text-decoration: none;
-        outline: none;
-    }
-
     h1 {
-        color: white;
-        margin-left: 20px;
+        color: #FF69B4;
+        font-size: 2.5rem;
     }
     
     img {
@@ -60,19 +59,27 @@ function NavBar () {
         margin: 10px 0px 10px 20px;
     }
     `
+
+
+function NavBar () {
+
     return (
-        <NavBar>
-            <Link to='/'><img src={Logo} alt="Main Logo" /></Link>
+        <NavBarS>
+            {/* <a href='/'><img src={Logo} alt="Main Logo" /></a> */}
             {/* <Router> */}
+            <a href='/' className="sign">
+                <span className="fast-flicker">g</span><span>eos</span><span className="flicker">e</span><span>ek</span>
+            </a>
+            {/* <h1>GeoSeek!</h1> */}
             <div>
-                <button><Link className='link' to='/CreateGem'>Create a Gem</Link></button>
-                <button><Link className='link' to='/ViewGem'>View Gems</Link></button>
+                <Link className='link' to='/CreateGem'>Create a Gem</Link>
+                <Link className='link' to='/ViewGem'>View Gems</Link>
             </div>
 
             {/* <Route path = '/CreateGem' component = {CreateGem}/>
     <button onClick= {toggleGem}>View Gems</button>
     </Router> */}
-        </NavBar>
+        </NavBarS>
     );
 }
 
