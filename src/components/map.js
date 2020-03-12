@@ -4,25 +4,20 @@ import ReactMapGL, {Marker, Popup} from 'react-map-gl'
 import axios from 'axios'
 
 function Map ({latitude, longitude, refresh}) {
-
     const [viewport, setViewport] = useState({
-
         latitude: 37.754,
         longitude: -122.443,
         width: "100vw",
         height: "87.5vh",
         zoom: 11.6
     });
+
     const [gems, setGems] = useState([])
-
     const [selectedGem, setSelectedGem] = useState(null)
-
 
     useEffect(() => {
         setViewport({...viewport, latitude, longitude})
     }, [latitude, longitude])
-
-
 
     useEffect(() => {
         axios.get('https://geoseek-be-stage.herokuapp.com/api/gems')
@@ -34,8 +29,6 @@ function Map ({latitude, longitude, refresh}) {
                 console.log(err)
             })
     }, [refresh])
-
-
 
     return (
         <ReactMapGL className='Map'
@@ -68,9 +61,6 @@ function Map ({latitude, longitude, refresh}) {
                 </Popup>
             )}
         </ReactMapGL>
-
-
-
     );
 }
 

@@ -72,8 +72,11 @@ function NavBar () {
             </a>
             {/* <h1>GeoSeek!</h1> */}
             <div>
+                <Link className='link' to='/Register'>Register</Link>
+                <Link className='link' to='/Login'>Log In</Link>
                 <Link className='link' to='/CreateGem'>Create a Gem</Link>
                 <Link className='link' to='/ViewGem'>View Gems</Link>
+
             </div>
 
             {/* <Route path = '/CreateGem' component = {CreateGem}/>

@@ -53,8 +53,8 @@ code {
 
 .Map {
   padding: 0px;
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 800px;
   margin: 0px;
 }
 
@@ -67,7 +67,7 @@ code {
   background-color:#F44076;
   padding:3px;
   border-radius: 5px;
-  color:#8E588B;
+  color:white;
 }
 
 /* INPUT AUTOFILL COLOR OVERRIDE */

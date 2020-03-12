@@ -3,6 +3,8 @@ import NavBar from './components/navbar'
 import Map from './components/map'
 import ViewGem from './components/viewGem'
 import CreateGem from './components/createGemRedux'
+import Register from './components/register'
+import Login from './components/Login'
 import styled from 'styled-components'
 
 import {BrowserRouter as Router, Route, } from "react-router-dom";
@@ -27,22 +29,6 @@ function App () {
   }
 
   return (
-    // <Router>
-    //   <div>
-    //     <NavBar />
-    //     <div style={{display: 'flex'}}>
-    //       <div style={{flexBasis: '80%'}}>
-    //         <Map refresh={refresh} latitude={latitude} longitude={longitude} />
-    //       </div>
-    //       <aside style={{flexBasis: '20%'}}>
-    //         <Route path='/CreateGem'
-    //           render={(props) => <CreateGem latitude={latitude} longitude={longitude} updatePosition={updatePosition} setRefresh={setRefresh} />} />
-    //         <Route path='/ViewGem' component={() => <ViewGem updatePosition={updatePosition} />} />
-
-    //       </aside>
-    //     </div>
-    //   </div>
-    // </Router>
     <Router>
       <AppContainer>
         <NavBar />

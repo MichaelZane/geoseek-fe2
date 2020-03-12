@@ -22,8 +22,9 @@ export default function ViewGem ({updatePosition}) {
     padding: 5px;
     border-radius: 10px;
     display: flex;
-    width: 200px;
+    width:250px;
     justify-content: space-between;
+    
     
     `
 
