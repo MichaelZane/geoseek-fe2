@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/navbar";
 import Map from "./components/map";
 import ViewGem from "./components/viewGem";
 import CreateGem from "./components/createGem";
-import { Register } from "./components/register";
 import styled from "styled-components";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+
+const BACKEND_URL = process.env.BACKEND_URL
 
 function App() {
   const MapAndGems = styled.div`
@@ -47,7 +48,6 @@ function App() {
                 />
               )}
             />
-            <Route path="/Register" component={Register} />
           </MapAndGems>
         </div>
       </div>
