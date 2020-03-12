@@ -4,6 +4,10 @@
 
 🚫 Each student has a required minimum number of meaningful PRs each week per the rubric. Contributing to docs does NOT count as a PR to meet your weekly requirements.
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/19602e51aa1666635be7/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/geoseek-fe/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/19602e51aa1666635be7/test_coverage)](https://codeclimate.com/github/Lambda-School-Labs/geoseek-fe/test_coverage)
+
+
 # 1️⃣ Title of project goes here
 
 1️⃣ You can find the deployed project at [🚫URL NAME GOES HERE](🚫copy and paste URL here).
