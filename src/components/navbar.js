@@ -70,16 +70,6 @@ function NavBar() {
       </div>
       <div>
         <button>
-          <Link className="link" to="/Register">
-            Register
-          </Link>
-        </button>
-        <button>
-          <Link className="link" to="/Login">
-            Log In
-          </Link>
-        </button>
-        <button>
           <Link className="link" to="/CreateGem">
             Create a Gem
           </Link>
