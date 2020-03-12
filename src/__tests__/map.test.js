@@ -1,7 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { render } from "react-dom";
-
 import MapGL, {
   mockGpsPath,
   mockPathColor,
@@ -9,8 +7,6 @@ import MapGL, {
   mockBearing
 } from "react-map-gl";
 import { unmountComponentAtNode } from "react-dom";
-import App from "../App";
-import { act } from "react-dom/test-utils";
 
 let container = null;
 beforeEach(() => {
@@ -32,7 +28,6 @@ describe("MapGL test", () => {
   it("renders without crashing", () => {
     const div = document.createElement("div");
     ReactDOM.render(
-     
       <div>
         <MapGL
           gpsPath={mockGpsPath}
@@ -42,8 +37,6 @@ describe("MapGL test", () => {
         />
       </div>,
       div
-      
     );
   });
 });
-

@@ -1,36 +1,41 @@
-import React, { useState } from 'react';
-import NavBar from './components/navbar'
-import Map from './components/map'
-import ViewGem from './components/viewGem'
-import CreateGem from './components/createGemRedux'
-import Register from './components/register'
-import Login from './components/Login'
-
-import { BrowserRouter as Router, Route, } from "react-router-dom";
+import React, { useState } from "react";
+import NavBar from "./components/navbar";
+import Map from "./components/map";
+import ViewGem from "./components/viewGem";
+import CreateGem from "./components/createGemRedux";
+import Register from "./components/register";
+import Login from "./components/Login";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 function App() {
-  const [[latitude, longitude], setLatLong] = useState([36.955992, -121.971428]) 
+  const [[latitude, longitude], setLatLong] = useState([
+    36.955992,
+    -121.971428
+  ]);
 
-  const updatePosition = (latitude,longitude) => {
-    setLatLong([ latitude, longitude ])
-  }
+  const updatePosition = (latitude, longitude) => {
+    setLatLong([latitude, longitude]);
+  };
 
   return (
     <Router>
-    <div>
-      <NavBar/>
-      <div style={{display: 'flex'}}>
-        <div style={{flexBasis: '80%'}}>
-          <Map latitude={latitude} longitude={longitude}/>
+      <div>
+        <NavBar />
+        <div style={{ display: "flex" }}>
+          <div style={{ flexBasis: "80%" }}>
+            <Map latitude={latitude} longitude={longitude} />
+          </div>
+          <aside style={{ flexBasis: "20%" }}>
+            <Route path="/CreateGem" component={CreateGem} />
+            <Route
+              path="/ViewGem"
+              component={() => <ViewGem updatePosition={updatePosition} />}
+            />
+            <Route path="/Register" component={Register} />
+            <Route path="/login" component={Login} />
+          </aside>
         </div>
-        <aside style={{flexBasis:'20%'}}>
-          <Route path = '/CreateGem' component = {CreateGem}/>
-          <Route path = '/ViewGem' component = {()=><ViewGem updatePosition={updatePosition}/>}/>
-          <Route path='/Register' component={Register} />
-          <Route path ='/login' component={Login}/>
-        </aside>
-        </div>
-    </div>
+      </div>
     </Router>
   );
 }
