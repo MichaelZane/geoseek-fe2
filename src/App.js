@@ -1,25 +1,27 @@
-import React, {useState} from 'react';
-import NavBar from './components/navbar'
-import Map from './components/map'
-import ViewGem from './components/viewGem'
-import CreateGem from './components/createGem'
-import styled from 'styled-components'
+import React, { useState } from "react";
+import NavBar from "./components/NavBar";
+import Map from "./components/map";
+import ViewGem from "./components/viewGem";
+import CreateGem from "./components/createGem";
+import { Register } from "./components/register";
+import styled from "styled-components";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import {BrowserRouter as Router, Route, } from "react-router-dom";
-function App () {
-
+function App() {
   const MapAndGems = styled.div`
-  display: flex;
-  height: 100vh;
-  min-height: 100vh;
-  `
+    display: flex;
+    height: 100vh;
+    min-height: 100vh;
+  `;
 
-  const [[latitude, longitude], setLatLong] = useState([36.955992, -121.971428])
+  const [[latitude, longitude], setLatLong] = useState([
+    36.955992,
+    -121.971428
+  ]);
   const [refresh, setRefresh] = useState(false);
   const updatePosition = (latitude, longitude) => {
-    console.log("this is the lat and lng >>>>>>>>>>>", latitude, longitude);
-    setLatLong([latitude, longitude])
-  }
+    setLatLong([latitude, longitude]);
+  };
 
   return (
     <Router>
@@ -28,10 +30,24 @@ function App () {
         <div>
           <MapAndGems>
             <Map refresh={refresh} latitude={latitude} longitude={longitude} />
-            <Route exact path='/' />
-            <Route path='/ViewGem' component={() => <ViewGem updatePosition={updatePosition} />} />
-            <Route path='/CreateGem'
-              render={(props) => <CreateGem {...props} latitude={latitude} longitude={longitude} updatePosition={updatePosition} setRefresh={setRefresh} />} />
+            <Route exact path="/" />
+            <Route
+              path="/ViewGem"
+              component={() => <ViewGem updatePosition={updatePosition} />}
+            />
+            <Route
+              path="/CreateGem"
+              render={props => (
+                <CreateGem
+                  {...props}
+                  latitude={latitude}
+                  longitude={longitude}
+                  updatePosition={updatePosition}
+                  setRefresh={setRefresh}
+                />
+              )}
+            />
+            <Route path="/Register" component={Register} />
           </MapAndGems>
         </div>
       </div>
