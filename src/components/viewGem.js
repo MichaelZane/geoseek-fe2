@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import {Link, Route} from "react-router-dom"
 import axios from 'axios'
 import GemCard from './gem'
 import styled from 'styled-components'

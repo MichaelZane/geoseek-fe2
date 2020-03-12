@@ -1,10 +1,8 @@
 import React, {useState} from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
-import {Redirect} from 'react-router-dom'
 import {connect} from "react-redux"
 import {postGem} from '../actions/index copy'
-import GeocodingRedux from './GeocodingRedux';
 
 const FormContainer = styled.div`
 max-width: 400px;
@@ -102,7 +100,6 @@ transition: opacity .55s ease-in-out;
 }
 `
 
-
 const Label = styled.label`
        margin-left: 10%;
        color: white;
@@ -114,8 +111,6 @@ function CreateGem (props) {
         title: '',
         longitude: '',
         latitude: '',
-        // difficulty: '',
-        // description: ''
     })
 
     const [address, setAddress] = useState('')
@@ -126,47 +121,12 @@ function CreateGem (props) {
         })
     }
 
-    // const submitGem = () => {
-    //     props.setRefresh(!props.refresh);
-    //     props.updatePosition(newGem.latitude, newGem.longitude);
-    // }
-
     const handleChanges = e => {
         setNewGem({
             ...newGem,
             [e.target.name]: e.target.value
         })
     }
-    // const handleSubmit = e =>{
-    //     e.preventDefault()
-    //     props.postGem(newGem)
-    //     setNewGem({
-    //         title: '',
-    //         longitude: '',
-    //         latitude: '',
-    //         difficulty: '',
-    //         description: ''
-    //     })
-    //     // history.push('/');
-    // }
-
-    ////////////////////////     MY CODE FOR REDUX  //////////////////////////////////////
-
-    // const handleSubmit = e =>{
-    //     e.preventDefault()
-    //     props.geocode(address)
-    //     // createGemAction(newGem)
-    //     setNewGem({
-    //         ...newGem        
-    //     })  
-    // }
-    // // console.log(props.coordinates, '*****these are the coordinates')
-    // console.log( "********new gem-->", newGem, "<--new gem*********")
-    // console.log('longitude.....', props.longitude, 'latitude.....', props.latitude, '&&&&&&&&&&&&&&&&&&')
-    // console.log(newGem.longitude)
-
-
-    //-------------------------------- END OF MY REDUX ------------------------------------------------------------//
 
     const handleGeocodeSubmit = e => {
         e.preventDefault()
@@ -182,8 +142,6 @@ function CreateGem (props) {
                             latitude: res.data.candidates[0].location.y
                         }
                     )
-
-
                 })
                 .catch(err => {
                     console.log("***********************gecode err********************************", err)
@@ -191,16 +149,15 @@ function CreateGem (props) {
         }
         geocode(address)
     }
-    console.log("----------------->", newGem, "<----------------------")
-
-    console.log('These are the props ::::::::>>>>>>>>>', props);
 
     const handleSubmit = e => {
         e.preventDefault()
         props.postGem(newGem)
-        props.setRefresh(!props.refresh)
-        props.updatePosition(newGem.latitude, newGem.longitude)
-        props.history.push('/')
+        setTimeout(() => {
+            props.setRefresh(!props.refresh)
+            props.updatePosition(Number(newGem.latitude), Number(newGem.longitude))
+            props.history.push('/')
+        }, 1000)
     }
 
     return (

@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
 
 
 const FormContainer = styled.div`
@@ -45,7 +44,7 @@ const Button = styled.button`
        border: 2px solid black;
    }
    `
-   const Label = styled.label`
+const Label = styled.label`
        margin-left: 10%;
        color: white;
    `
@@ -65,49 +64,50 @@ const Input = styled.input`
     color: white;
     `
 
-    function Login (){
-        const [form, setForm] = useState({
-            username: '',
-            password: ''
-        })
+function Login () {
+    const [form, setForm] = useState({
+        username: '',
+        password: ''
+    })
 
-        function handleSubmit(form){
-            axios.post('https://geoseek-be-stage.herokuapp.com/api/users/login', form)
-            .then(res=>{console.log(res)
-            localStorage.setItem("token",res.data.token)
+    function handleSubmit (form) {
+        axios.post('https://geoseek-be-stage.herokuapp.com/api/users/login', form)
+            .then(res => {
+                console.log(res)
+                localStorage.setItem("token", res.data.token)
             })
-            .catch(err=>{console.log(err)})
-        }
-
-        function handleChange(e){
-            setForm({
-                ...form,
-                [e.target.name]: e.target.value
-            })
-        }
-        return(
-            <FormContainer>
-            <form onSubmit = {(e)=>{
-            e.preventDefault();
-            handleSubmit(form)
-            }}>
-                <Label>Username:</Label>
-                <Input  
-                name = 'username'
-                placeholder='Username'
-                onChange = {(e)=>{handleChange(e)}}
-                 />
-                <Label>Password:</Label>
-                <Input  
-                name = 'password'
-                type='password'
-                placeholder='Password'
-                onChange = {(e)=>{handleChange(e)}}
-                 />
-                <Button type = 'submit'>Log in</Button>
-            </form>
-            </FormContainer>
-        )
+            .catch(err => {console.log(err)})
     }
 
-    export default Login ; 
+    function handleChange (e) {
+        setForm({
+            ...form,
+            [e.target.name]: e.target.value
+        })
+    }
+    return (
+        <FormContainer>
+            <form onSubmit={(e) => {
+                e.preventDefault();
+                handleSubmit(form)
+            }}>
+                <Label>Username:</Label>
+                <Input
+                    name='username'
+                    placeholder='Username'
+                    onChange={(e) => {handleChange(e)}}
+                />
+                <Label>Password:</Label>
+                <Input
+                    name='password'
+                    type='password'
+                    placeholder='Password'
+                    onChange={(e) => {handleChange(e)}}
+                />
+                <Button type='submit'>Log in</Button>
+            </form>
+        </FormContainer>
+    )
+}
+
+export default Login; 

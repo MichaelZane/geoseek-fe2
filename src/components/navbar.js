@@ -1,7 +1,6 @@
 import React from 'react'
 import {Link} from "react-router-dom"
 import styled from 'styled-components'
-import Logo from '../images/logo.png'
 import '../Logo.css'
 
 const NavBarS = styled.div`

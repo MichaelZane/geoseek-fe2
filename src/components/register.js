@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
 
 const FormContainer = styled.div`
 width: 20%;
@@ -65,56 +64,56 @@ const Input = styled.input`
     `
 
 function Register () {
-    
-    const [form,setForm] = useState({
+
+    const [form, setForm] = useState({
         username: "",
         email: "",
-        password:""
+        password: ""
+    })
+
+    function handleSubmit (form) {
+        console.log(form)
+        axios.post('https://geoseek-be-stage.herokuapp.com/api/users/register', form)
+            .then(res => {console.log(res)})
+            .catch(err => {console.log(err)})
+    }
+
+    function handleChange (e) {
+        setForm({
+            ...form,
+            [e.target.name]: e.target.value
         })
-
-        function handleSubmit(form){
-            console.log(form)
-            axios.post('https://geoseek-be-stage.herokuapp.com/api/users/register', form)
-            .then(res=>{console.log(res)})
-            .catch(err=>{console.log(err)})
-        }
-
-        function handleChange(e){
-            setForm({
-                ...form,
-                [e.target.name]: e.target.value
-            })
-        }
+    }
 
 
     return (
         <FormContainer>
-        <form onSubmit = {(e)=>{
-            e.preventDefault();
-            handleSubmit(form)
+            <form onSubmit={(e) => {
+                e.preventDefault();
+                handleSubmit(form)
             }}>
-            <Label>Username:</Label>
-            <Input
-            name='username'
-            placeholder = 'Username'
-            onChange= {(e)=>{handleChange(e)}}
-            />
-            <Label>Email:</Label>
-            <Input
-            name='email'
-            type = 'email'
-            placeholder = 'Email'
-            onChange= {(e)=>{handleChange(e)}}
-            />
-            <Label>Password:</Label>
-            <Input
-            name='password'
-            type = 'password'
-            placeholder = 'Password'
-            onChange= {(e)=>{handleChange(e)}}
-            />
-            <Button type= 'submit'>Register</Button>
-        </form>
+                <Label>Username:</Label>
+                <Input
+                    name='username'
+                    placeholder='Username'
+                    onChange={(e) => {handleChange(e)}}
+                />
+                <Label>Email:</Label>
+                <Input
+                    name='email'
+                    type='email'
+                    placeholder='Email'
+                    onChange={(e) => {handleChange(e)}}
+                />
+                <Label>Password:</Label>
+                <Input
+                    name='password'
+                    type='password'
+                    placeholder='Password'
+                    onChange={(e) => {handleChange(e)}}
+                />
+                <Button type='submit'>Register</Button>
+            </form>
         </FormContainer>
     )
 };
