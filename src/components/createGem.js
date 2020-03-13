@@ -1,6 +1,8 @@
-import React, { useState } from "react";
-import axios from "axios";
-import styled from "styled-components";
+import React, {useState, useEffect} from 'react'
+import axios from 'axios'
+import styled from 'styled-components'
+
+const backendUrl = process.env.REACT_APP_BACKEND_URL
 
 const FormContainer = styled.div`
   width: 20%;
@@ -11,37 +13,40 @@ const FormContainer = styled.div`
 `;
 
 const Input = styled.input`
-  width: 300px;
-  padding-left: 10px;
-  font-size: 0.9rem;
-  border: none;
-  height: 44px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  margin: 15px auto;
-  background-color: #3e4958;
-  outline: none;
-  color: white;
-`;
+    width: 300px;
+    padding-left: 5%;
+    font-size: .9rem;
+    border: none;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin: 15px auto;
+    background-color: #3E4958;
+    outline: none;
+    color: white;
+    
+    `
 
 const Button = styled.button`
-  width: 330px;
-  height: 50px;
-  border-radius: 15px;
-  outline: none;
-  background-color: #c66db2;
-  border: none;
-  color: white;
-  text-align: center;
-  font-size: 20px;
-  margin: 100px 10px 0px 15px;
-  transition: 0.3s;
-  text-decoration: none;
-  cursor: pointer;
-  transition: opacity 0.55s ease-in-out;
-  -moz-transition: opacity 0.55s ease-in-out;
-  -webkit-transition: opacity 0.55s ease-in-out;
+    width: 300px;
+    height: 50px;
+    border-radius: 15px;
+    outline: none;
+   
+   background-color: #C66DB2;
+   border: none;
+   color: white;
+   text-align: center;
+   font-size: 20px;
+   margin: 100px 0px 0px 15px;
+  
+   transition: 0.3s;
+   text-decoration: none;
+   cursor: pointer;
+   transition: opacity .55s ease-in-out;
+   -moz-transition: opacity .55s ease-in-out;
+   -webkit-transition: opacity .55s ease-in-out;
 
   :hover {
     opacity: 1;
@@ -58,34 +63,17 @@ const Label = styled.label`
 `;
 
 export default function CreateGem(props) {
-  const [form, setForm] = useState({
-    title: "",
-    latitude: "",
-    longitude: ""
-  });
+ 
 
-  const [longitude, setLongitude] = useState();
-  const [latitude, setLatitude] = useState();
-
-  function geocode(address) {
-    axios
-      .get(
-        `https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?f=json&singleLine=${address}&outFields=Match_addr,Addr_type`
-      )
-      .then(res => {
-        console.log(res);
-        if (res) {
-          setLongitude(res.data.candidates[0].location.x);
-          setLatitude(res.data.candidates[0].location.y);
-        }
-      })
-
-      .catch(err => {
-        console.log("gecode err", err);
-        setLongitude({ loading: "Problem geocoding, please try again" });
-        setLatitude({ loading: "Problem geocoding, please try again" });
-      });
-  }
+    const [form, setForm] = useState({
+        
+        title: '',
+        latitude: '',
+        longitude: '',
+        difficulty: '',
+        description:''
+    })
+    
 
   const submitGem = () => {
     props.setRefresh(!props.refresh);
@@ -114,48 +102,86 @@ export default function CreateGem(props) {
         }}
       >
 
-        <Label>TITLE</Label>
-        <Input
-          className="input"
-          name="title"
-          placeholder="Title"
-          value={form.name}
-          onChange={onFormChange}
-        />
-        <Label>LONGITUDE</Label>
-        <Input
-          className="input"
-          name="longitude"
-          placeholder="Longitude"
-          value={form.name}
-          onChange={onFormChange}
-        />
-        <Label>LATITUDE</Label>
-        <Input
-          className="input"
-          name="latitude"
-          placeholder="Latitude"
-          value={form.name}
-          onChange={onFormChange}
-        />
-        <Label>DIFFICULTY</Label>
-        <Input
-          className="input"
-          name="difficulty"
-          placeholder="Choose 1-5 for difficulty "
-          value={form.name}
-          onChange={onFormChange}
-        />
-        <Label>DESCRIPTION</Label>
-        <Input
-          className="input"
-          name="description"
-          placeholder="Describe or give clues to find your gem."
-          value={form.name}
-          onChange={onFormChange}
-        />
-        <Button type="submit">Create Gem!</Button>
-      </form>
-    </FormContainer>
-  );
+    return (
+        <FormContainer>
+            <form onSubmit={(e) => {
+                e.preventDefault();
+                axios.post(`${backendUrl}/api/gems`, form)
+                    .then(res => {
+                        submitGem();
+                        props.history.push('/');
+                    })
+                    .catch(err => {console.log(err)})
+            }}>
+
+                
+                <Label>TITLE</Label>
+                <Input
+                    className='input'
+                    name='title'
+                    placeholder='Title'
+                    value={form.name}
+                    onChange={(e) => {
+                        setForm({
+                            ...form,
+                            [e.target.name]: e.target.value
+                        })
+                    }}
+                />
+                <Label>LONGITUDE</Label>
+                <Input
+                    className='input'
+                    name='longitude'
+                    placeholder='Longitude'
+                    value={form.name}
+                    onChange={(e) => {
+                        setForm({
+                            ...form,
+                            [e.target.name]: e.target.value
+                        })
+                    }}
+                />
+                <Label>LATITUDE</Label>
+                <Input
+                    className='input'
+                    name='latitude'
+                    placeholder='Latitude'
+                    value={form.name}
+                    onChange={(e) => {
+                        setForm({
+                            ...form,
+                            [e.target.name]: e.target.value
+                        })
+                    }}
+                />
+                <Label>DIFFICULTY</Label>
+                <Input
+                    className='input'
+                    name='difficulty'
+                    placeholder='Choose 1-5 for difficulty '
+                    value={form.name}
+                    onChange={(e) => {
+                        setForm({
+                            ...form,
+                            [e.target.name]: e.target.value
+                        })
+                    }}
+                />
+                <Label>DESCRIPTION</Label>
+                <Input
+                    className='input'
+                    name='description'
+                    placeholder='Describe or give clues to find your gem.'
+                    value={form.name}
+                    onChange={(e) => {
+                        setForm({
+                            ...form,
+                            [e.target.name]: e.target.value
+                        })
+                    }}
+                />
+                <Button type='submit'>Create Gem!</Button>
+            </form>
+        </FormContainer>
+    )
 }

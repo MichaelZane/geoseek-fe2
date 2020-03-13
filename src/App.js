@@ -15,10 +15,7 @@ function App() {
     min-height: 100vh;
   `;
 
-  const [[latitude, longitude], setLatLong] = useState([
-    36.955992,
-    -121.971428
-  ]);
+  const [[latitude, longitude], setLatLong] = useState([33.812468, -117.918989])
   const [refresh, setRefresh] = useState(false);
   const updatePosition = (latitude, longitude) => {
     setLatLong([latitude, longitude]);

@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
-import GemCard from "./gem";
-import styled from "styled-components";
+import React, {useState, useEffect} from 'react'
+import {Link} from "react-router-dom"
+import axios from 'axios'
+import GemCard from './gem'
+import styled from 'styled-components'
 
 export default function ViewGem({ updatePosition }) {
   const [gems, setGems] = useState([]);
@@ -27,7 +27,7 @@ export default function ViewGem({ updatePosition }) {
     justify-content: space-between;
   `;
 
-  const Container = styled.div`
+    const Container = styled.div`
     border-left: 2px solid black;
     display: flex;
     justify-content: space-evenly;
