@@ -19,8 +19,7 @@ function Map ({latitude, longitude, refresh}) {
 
     const [selectedGem, setSelectedGem] = useState(null)
 
-    const backendUrl = process.env.REACT_APP_BACKEND_URL
-    console.log(process.env)
+
 
     useEffect(() => {
         setViewport({...viewport, latitude, longitude})
@@ -29,7 +28,7 @@ function Map ({latitude, longitude, refresh}) {
 
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/gems`)
+        axios.get('https://geoseek-be-stage.herokuapp.com/api/gems')
             .then(res => {
                 console.log(res)
                 setGems(res.data)
