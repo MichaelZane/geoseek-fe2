@@ -1,21 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './AppRedux';
+import App from './App';
 import * as serviceWorker from './serviceWorker';
-import thunk from "redux-thunk";
-import logger from "redux-logger";
-import { Provider } from "react-redux";
-import {geoCodingReducer} from "./reducer/geoCodingReducer";
 
-import { createStore, applyMiddleware } from "redux";
 
-const store = createStore(geoCodingReducer, applyMiddleware(thunk, logger));
+
+
+
+
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+    <App />,
   document.getElementById("root")
 );
 

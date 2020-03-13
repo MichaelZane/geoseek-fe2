@@ -47,6 +47,7 @@ function NavBar () {
     .link {
         text-decoration: none;
         outline: none;
+        color:white;
     }
 
     h1 {
@@ -62,7 +63,7 @@ function NavBar () {
     `
     return (
         <NavBar>
-            <Link to='/'><img src={Logo} alt="Main Logo" /></Link>
+            <a href='/'><img src={Logo} alt="Main Logo" /></a>
             {/* <Router> */}
             <div>
                 <button><Link className='link' to='/CreateGem'>Create a Gem</Link></button>

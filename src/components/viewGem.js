@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {Link, Route} from "react-router-dom"
+import {Link} from "react-router-dom"
 import axios from 'axios'
 import GemCard from './gem'
 import styled from 'styled-components'
@@ -28,7 +28,7 @@ export default function ViewGem ({updatePosition}) {
     `
 
     const Card2 = styled.div`
-    border: 2px solid teal;
+    border-left: 2px solid black;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;

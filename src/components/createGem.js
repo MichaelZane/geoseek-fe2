@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
-import {Redirect} from 'react-router-dom'
+
+const backendUrl = process.env.REACT_APP_BACKEND_URL
 
 const FormContainer = styled.div`
 width: 20%;
@@ -13,7 +14,7 @@ padding-top: 30px;
 
 const Input = styled.input`
     width: 300px;
-    padding-left: 10px;
+    padding-left: 5%;
     font-size: .9rem;
     border: none;
     height: 44px;
@@ -28,7 +29,7 @@ const Input = styled.input`
     `
 
 const Button = styled.button`
-    width: 330px;
+    width: 300px;
     height: 50px;
     border-radius: 15px;
     outline: none;
@@ -38,7 +39,8 @@ const Button = styled.button`
    color: white;
    text-align: center;
    font-size: 20px;
-   margin: 100px 10px 0px 15px;
+   margin: 100px 0px 0px 15px;
+  
    transition: 0.3s;
    text-decoration: none;
    cursor: pointer;
@@ -63,38 +65,14 @@ const Label = styled.label`
 export default function CreateGem (props) {
 
     const [form, setForm] = useState({
-        //created_by_user: '',
+        
         title: '',
         latitude: '',
-        longitude: ''
+        longitude: '',
+        difficulty: '',
+        description:''
     })
     
-    const [longitude,setLongitude] = useState();
-    const [latitude, setLatitude] = useState();
-
-    function geocode (address) {
-        axios
-          .get(`https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?f=json&singleLine=${address}&outFields=Match_addr,Addr_type`)
-          .then(res => {
-              console.log(res)
-            if (res) {
-                setLongitude(res.data.candidates[0].location.x)
-                setLatitude(res.data.candidates[0].location.y)
-            }
-        })
-                
-            
-          .catch(err => {
-            console.log("gecode err", err)
-            setLongitude({ loading: "Problem geocoding, please try again" });
-            setLatitude({ loading: "Problem geocoding, please try again" });
-          })
-      }
-    
-
-    
-    console.log(`LONGITUDE!!!!! >>>> ${longitude}`)
-    console.log(`LATITUDE!!!!! >>>> ${latitude}`)
 
     const submitGem = () => {
         props.setRefresh(!props.refresh);
@@ -105,7 +83,7 @@ export default function CreateGem (props) {
         <FormContainer>
             <form onSubmit={(e) => {
                 e.preventDefault();
-                axios.post('https://geoseek-be-stage.herokuapp.com/api/gems', form)
+                axios.post(`${backendUrl}/api/gems`, form)
                     .then(res => {
                         submitGem();
                         props.history.push('/');
@@ -113,17 +91,7 @@ export default function CreateGem (props) {
                     .catch(err => {console.log(err)})
             }}>
 
-                {/* <input
-            name='created_by_user'
-            placeholder='created_by_user'
-            value={}
-            onChange={(e)=>{
-                setForm({
-                    ...form,
-            [e.target.name]:e.target.value
-        })
-            }}
-            /> */}
+                
                 <Label>TITLE</Label>
                 <Input
                     className='input'
