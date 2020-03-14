@@ -1,29 +1,29 @@
 
-
 # GeoSeek
 
-1️⃣ You can find the deployed project at [Deployed Project]( geoseeklambdalabs.xyz).
+ You can find the deployed project at [Deployed Project]( geoseeklambdalabs.xyz).
 
 ## Contributors
 
-🚫Add contributor info below, make sure add images and edit the social links for each member. Add to or delete these place-holders as needed
+|                                       [John Marshall](https://github.com/fishmanjohn)                                        |                                       [Michael Stevens](https://github.com/mzstevens69)                                        |                                       [Dante Bui](https://github.com/dantebui)                                        
+| :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: 
+|                      [<img src="https://ca.slack-edge.com/T4JUEB3ME-UNJVAAVR6-3886a9ec902e-72" width = "200" />](https://github.com/fishmanjohn)                       |                      [<img src="https://ca.slack-edge.com/T4JUEB3ME-UNE3PAE4B-bf258b73a9be-72" width = "200" />](https://github.com/mzstevens69)                       |                      [<img src="https://ca.slack-edge.com/T4JUEB3ME-ULWH387EU-6812c9665cb0-72" width = "200" />](https://github.com/dantebui)                       
+|                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/honda0306)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)           |
+| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) |
 
-|                                       [Student 1](https://github.com/)                                        |                                       [Student 2](https://github.com/)                                        |                                       [Student 3](https://github.com/)                                        |                                       [Student 4](https://github.com/)                                        |                                       [Student 5](https://github.com/)                                        |
-| :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: |
-|                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)                       |
-|                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/honda0306)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)           |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/wvandolah)             |
-| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) |
-
+|                                       [George Raymond](https://github.com/georgeraymond98)                                        |                                       [Chase Redford](https://github.com/redfordch1)                                        |                                       [Anthony Lopez](https://github.com/anthony1120)                                        
+| :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: |
+|                      [<img src="https://ca.slack-edge.com/T4JUEB3ME-UNJVA94AC-ff89659ecee0-48" width = "200" />](https://github.com/georgeraymond98)                       |                      [<img src="https://ca.slack-edge.com/T4JUEB3ME-UNLQW699V-30384bab5949-48" width = "200" />](https://github.com/redfordch1)                       |                      [<img src="https://ca.slack-edge.com/T4JUEB3ME-ULYR9J3BR-fe7413d4bb61-48" width = "200" />](https://github.com/anthony1120)                       
+|                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/honda0306)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)           |
+| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) |
 <br>
 <br>
-
-🚫 4️⃣ Optional examples of using images with links for your tech stack, make sure to change these to fit your project
 
 ![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
 ![React](https://img.shields.io/badge/react-v16.7.0--alpha.2-blue.svg)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
-🚫 more info on using badges [here](https://github.com/badges/shields)
+ [here](https://github.com/badges/shields)
 
 ## Project Overview
 
@@ -33,90 +33,67 @@
 
 [UX Design files](https://www.figma.com/file/quJK5ecqz8FtbmyVB7RirE/Wireframe-Drafts?node-id=0%3A1) 
 
-
-
-GeoSeek aims to be a known name for creating engaging experiences through technology while promoting community growth and physical activity.
-
+Our app GeoSeek aims to be a known name for creating engaging experiences through technology while promoting community growth and physical activity.
 
 ### Key Features
 
--    Seeing Gems on a map
--    Create a Gem
--    Marking the gem Complete
--    LeaderBoard
--    Seeing the difficulty of a gem
+- Seeing Gems on a map
+- Create a Gem
+- Seeing the difficulty of a gem
+- Marking the gem Complete
+- LeaderBoard
 
-##  Tech Stack
+## Tech Stack
 
-### Front end built using: React/Redux, MapBox/ReactMap-Gl
+### Front end built using
 
-#### _Front end framework goes here_
+ React/Redux, MapBox/ReactMap-Gl
 
-🚫 Why did you choose this framework?
+#### Our Front end framework details
 
--   React/Redux was used for reusable and to create a large web application that can exchange data fast and simple.
--   Mapbox so we could gain the mapping skills and marker placements that is coupled with the ReactMap-gl.
-
-
-🚫List the rest of the front end features and libraries in the same format as the framework above.
+- React/Redux was used for reusable and to create a large web application that can exchange data fast and simple.
+- Mapbox so we could gain the mapping skills and marker placements that is coupled with the ReactMap-gl.
 
 #### Front end deployed to `Heroku`
 
-#### [Back end](https://github.com/Lambda-School-Labs/geoseek-be) built using:
+#### [Back end](https://github.com/Lambda-School-Labs/geoseek-be) built using
 
-#### 🚫 back end framework goes here: Nodejs
+#### Nodejs
 
--    fast deployment to get product to users.
--    point two
--    point three
+- fast deployment to get product to users.
 
--   Express, Knex, PostgreSQL for DB
-
-
+- Express, Knex, PostgreSQL for DB
 
 # APIs
 
-##  Authentication API here
+## Authentication API here
 
 JWT
 
-#  Environment Variables
+# Environment Variables
 
-In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
+In order for the app to function correctly, the user must set up their own environment variables. There should be a .env.local file containing the following:
 
-🚫These are just examples, replace them with the specifics for your app
+    *  REACT_APP_DATABASE_URL - in the Heroku dashboard
+    *  REACT_APP_MAPBOX_TOKEN - in the Mapbox dashboard
 
-    *  REACT_APP_apiKey - this is your Google API key, which can be generated in the Google Cloud Console
-    *  REACT_APP_authDomain - when you set up your Firebase project, this information will be in the dashboard
-    *  REACT_APP_databaseURL - in the Firebase dashboard
-    *  REACT_APP_projectID - in the Firebase dashboard
-    *  REACT_APP_storageBucket - in the Firebase dashboard
-    *  REACT_APP_messagingSenderId - in the Firebase dashboard
-    *  REACT_APP_stripe_API - this is your public Stripe API key, generated in the Stripe dashboard
-    *  REACT_APP_backendURL - optional for your local development server
-    *  REACT_APP_clientid - this is the Stripe_connect clientID, generated in Stripe_connect settings
-    *  REACT_APP_stripe_plan - this is the ID for a second Stripe subscription plan, generated under Stripe products
-
-# 5️⃣ Content Licenses
-
-🚫For all content - images, icons, etc, use this table to document permission of use. Remove the two placeholders and add you content to this table
+# Content Licenses
 
 | Image Filename | Source / Creator | License                                                                      |
 | -------------- | ---------------- | ---------------------------------------------------------------------------- |
 | doodles.png    | Nicole Bennett   | [Creative Commons](https://www.toptal.com/designers/subtlepatterns/doodles/) |
 | rings.svg      | Sam Herbert      | [MIT](https://github.com/SamHerbert/SVG-Loaders)                             |
 
-# 4️⃣ Testing
+# Testing
 
-🚫Document what you used for testing and why
+- Jest and Enzyme are being used for tests
+    Jest combined with Enzyme allow for effortless testing of React components with integration and unit tests.
 
-# 4️⃣ Installation Instructions
+# Installation Instructions
 
-🚫explain how to install the required dependencies to get this project up and running with yarn and NPM
+
 
 ## Other Scripts
-
-🚫replace these examples with your own
 
     * typecheck - runs the TypeScript compiler
     * build - creates a build of the application
@@ -133,8 +110,11 @@ Please note we have a [code of conduct](./CODE_OF_CONDUCT.md). Please follow it 
    
  **If you are having an issue with the existing project code, please submit a bug report under the following guidelines:**
  - Check first to see if your issue has already been reported.
+
  - Check to see if the issue has recently been fixed by attempting to reproduce the issue using the latest master branch in the repository.
+
  - Create a live example of the problem.
+ 
  - Submit a detailed bug report including your environment & browser, steps to reproduce the issue, actual and expected outcomes,  where you believe the issue is originating from, and any potential solutions you have considered.
 
 ### Feature Requests

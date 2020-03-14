@@ -6,8 +6,6 @@ import CreateGem from "./components/createGem";
 import styled from "styled-components";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-const BACKEND_URL = process.env.BACKEND_URL
-
 function App() {
   const MapAndGems = styled.div`
     display: flex;
@@ -15,7 +13,10 @@ function App() {
     min-height: 100vh;
   `;
 
-  const [[latitude, longitude], setLatLong] = useState([33.812468, -117.918989])
+  const [[latitude, longitude], setLatLong] = useState([
+    33.812468,
+    -117.918989
+  ]);
   const [refresh, setRefresh] = useState(false);
   const updatePosition = (latitude, longitude) => {
     setLatLong([latitude, longitude]);
@@ -27,8 +28,9 @@ function App() {
         <NavBar />
         <div>
           <MapAndGems>
-            <Map refresh={refresh} latitude={latitude} longitude={longitude} />
             <Route exact path="/" />
+            <Map refresh={refresh} latitude={latitude} longitude={longitude} />
+
             <Route
               path="/ViewGem"
               component={() => <ViewGem updatePosition={updatePosition} />}
