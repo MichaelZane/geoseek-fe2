@@ -194,11 +194,12 @@ function CreateGem (props) {
                     name='address'
                     placeholder='Enter an address'
                     onChange={handleAddressChanges}
+                    onBlur={handleGeocodeSubmit}
                 />
                 {console.log('address state', address)}
-                <ButtonContainer>
+                {/* <ButtonContainer>
                     <CoordButton onClick={handleGeocodeSubmit}> Get your Coordinates</CoordButton>
-                </ButtonContainer>
+                </ButtonContainer> */}
 
                 <Label>LATITUDE</Label>
                 <Input value={newGem.latitude} name='latitude' onChange={handleChanges} placeholder='Enter a Latitude coordinate' />
