@@ -7,7 +7,7 @@ import styled from 'styled-components'
 export default function ViewGem ({updatePosition}) {
     const [gems, setGems] = useState([])
     useEffect(() => {
-        axios.get('https://geoseek-be-stage.herokuapp.com/api/gems')
+        axios.get('https://geoseek-be.herokuapp.com/api/gems')
             .then(res => {
                 console.log(res)
                 setGems(res.data)
