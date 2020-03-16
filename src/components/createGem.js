@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
 
-const backendUrl = process.env.REACT_APP_BACKEND_URL
 
 const FormContainer = styled.div`
 width: 20%;

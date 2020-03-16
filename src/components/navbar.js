@@ -64,15 +64,10 @@ function NavBar () {
     return (
         <NavBar>
             <a href='/'><img src={Logo} alt="Main Logo" /></a>
-            {/* <Router> */}
             <div>
                 <button><Link className='link' to='/CreateGem'>Create a Gem</Link></button>
                 <button><Link className='link' to='/ViewGem'>View Gems</Link></button>
             </div>
-
-            {/* <Route path = '/CreateGem' component = {CreateGem}/>
-    <button onClick= {toggleGem}>View Gems</button>
-    </Router> */}
         </NavBar>
     );
 }
