@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
 import {connect} from "react-redux"
-import {postGem} from '../actions/index copy'
+import {postGem} from '../actions'
 
 const FormContainer = styled.div`
 max-width: 400px;
@@ -247,5 +247,3 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps,
     {postGem}
 )(CreateGem)
-
-

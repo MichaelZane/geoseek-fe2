@@ -2,7 +2,7 @@ import {
   CREATE_GEM_START,
   CREATE_GEM_SUCCESS,
   CREATE_GEM_FAIL
-} from "../actions/index copy";
+} from "../actions";
 
 export const initialState = {
   isfetching: false,
