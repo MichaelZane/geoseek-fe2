@@ -47,6 +47,7 @@ function NavBar () {
     .link {
         text-decoration: none;
         outline: none;
+        color:white;
     }
 
     h1 {
@@ -62,16 +63,11 @@ function NavBar () {
     `
     return (
         <NavBar>
-            <Link to='/'><img src={Logo} alt="Main Logo" /></Link>
-            {/* <Router> */}
+            <a href='/'><img src={Logo} alt="Main Logo" /></a>
             <div>
                 <button><Link className='link' to='/CreateGem'>Create a Gem</Link></button>
                 <button><Link className='link' to='/ViewGem'>View Gems</Link></button>
             </div>
-
-            {/* <Route path = '/CreateGem' component = {CreateGem}/>
-    <button onClick= {toggleGem}>View Gems</button>
-    </Router> */}
         </NavBar>
     );
 }

@@ -3,19 +3,22 @@ import React, {useState, useEffect} from 'react';
 import ReactMapGL, {Marker, Popup} from 'react-map-gl'
 import axios from 'axios'
 
+
+
 function Map ({latitude, longitude, refresh}) {
     const [viewport, setViewport] = useState({
 
-        latitude: 37.754,
-        longitude: -122.443,
+        latitude: 33.812468,
+        longitude: -117.918989,
         width: "100%",
         height: "90%",
-        zoom: 11.6
+        zoom: 15
     });
 
     const [gems, setGems] = useState([])
 
     const [selectedGem, setSelectedGem] = useState(null)
+
 
 
     useEffect(() => {
@@ -25,7 +28,7 @@ function Map ({latitude, longitude, refresh}) {
 
 
     useEffect(() => {
-        axios.get('https://geoseek-be-stage.herokuapp.com/api/gems')
+        axios.get('https://geoseek-be.herokuapp.com/api/gems')
             .then(res => {
                 console.log(res)
                 setGems(res.data)
@@ -52,9 +55,9 @@ function Map ({latitude, longitude, refresh}) {
                         setSelectedGem(gem)
                     }} >
                         {selectedGem === gem ? (
-                            <img src='/gem-copy2.png' alt="Gem Icon2" />
+                            <img src='/pinkGem.png' alt="Selected Gem Icon" />
                         ) :
-                            <img src='/gem.png' alt="Gem Icon" />}
+                            <img src='/blueGem.png' alt="Gem Icon" />}
                     </button>
                 </Marker>
             ))}

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {Link, Route} from "react-router-dom"
+import {Link} from "react-router-dom"
 import axios from 'axios'
 import GemCard from './gem'
 import styled from 'styled-components'
@@ -33,7 +33,7 @@ export default function ViewGem ({updatePosition}) {
     const [filtered, setFiltered]= useState([])
 
     useEffect(() => {
-        axios.get('https://geoseek-be-stage.herokuapp.com/api/gems')
+        axios.get('https://geoseek-be.herokuapp.com/api/gems')
             .then(res => {
                 setGems(res.data)
             })

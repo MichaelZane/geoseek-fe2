@@ -4,7 +4,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `yarn start`
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/19602e51aa1666635be7/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/geoseek-fe/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/19602e51aa1666635be7/test_coverage)](https://codeclimate.com/github/Lambda-School-Labs/geoseek-fe/test_coverage)
+
+
+# 1️⃣ Title of project goes here
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -66,3 +71,5 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+THIS IS A CHANGE
