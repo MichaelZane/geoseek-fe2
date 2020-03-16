@@ -11,11 +11,11 @@ height: 87%;
 background-color: #30364A;
 overflow-y: auto;
 
-.Link {
+  .Link {
     text-decoration: none;
     outline: none;
-}
-`
+  }
+`;
 
 const Button = styled.button`
     width: 330px;
@@ -37,34 +37,34 @@ const Button = styled.button`
    -moz-transition: opacity .55s ease-in-out;
    -webkit-transition: opacity .55s ease-in-out;
 
-   :hover {
-       opacity: 1.0;
-       transition: opacity .55s ease-in-out;
-       -moz-transition: opacity .55s ease-in-out;
-       -webkit-transition: opacity .55s ease-in-out;
-       background-color: #FF69B4;
-       border: 2px solid black;
-   }
-   `
+  :hover {
+    opacity: 1;
+    transition: opacity 0.55s ease-in-out;
+    -moz-transition: opacity 0.55s ease-in-out;
+    -webkit-transition: opacity 0.55s ease-in-out;
+    background-color: #ff69b4;
+    border: 2px solid black;
+  }
+`;
 const Label = styled.label`
-margin-left: 10%;
-color: white;
-`
+  margin-left: 10%;
+  color: white;
+`;
 
 const Input = styled.input`
-    width: 300px;
-    padding-left: 10px;
-    font-size: .9rem;
-    border: none;
-    height: 44px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    margin: 15px auto;
-    background-color: #3E4958;
-    outline: none;
-    color: white;
-    `
+  width: 300px;
+  padding-left: 10px;
+  font-size: 0.9rem;
+  border: none;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 15px auto;
+  background-color: #3e4958;
+  outline: none;
+  color: white;
+`;
 
 const RegisterDiv = styled.div`
     width: 100vw;
@@ -88,77 +88,77 @@ const Form = styled.form`
 `
 
 function Register (props) {
-    const [form, setForm] = useState({
-        username: "",
-        email: "",
-        password: ""
+  const [form, setForm] = useState({
+    username: "",
+    email: "",
+    password: ""
+  })
+
+  function handleSubmit (form) {
+    console.log(form)
+    axios.post('https://geoseek-be-stage.herokuapp.com/api/users/register', form)
+      .then(res => {
+      })
+      .catch(err => {console.log(err)})
+  }
+
+  function handleChange (e) {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value
     })
+  }
 
-    function handleSubmit (form) {
-        console.log(form)
-        axios.post('https://geoseek-be-stage.herokuapp.com/api/users/register', form)
-            .then(res => {
-            })
-            .catch(err => {console.log(err)})
-    }
+  useEffect(() => {
+    props.setRegLogRendered(true)
+  }, [])
 
-    function handleChange (e) {
-        setForm({
-            ...form,
-            [e.target.name]: e.target.value
-        })
-    }
+  return (
+    <FormContainer>
+      <RegisterDiv>
+        <div className='Register_Hero_Image_Container'>
+          <div className='Register_Hero_Image' />
+          <div className='Hero_Text'>
+            <h1 className='Hero_H1'>Join GeoSeek</h1>
+            <p className='Hero_P'>The world is full of adventure. Come explore with us.</p>
+          </div>
+        </div>
+      </RegisterDiv>
 
-    useEffect(() => {
-        props.setRegLogRendered(true)
-    }, [])
-
-    return (
-        <FormContainer>
-            <RegisterDiv>
-                <div className='Register_Hero_Image_Container'>
-                    <div className='Register_Hero_Image' />
-                    <div className='Hero_Text'>
-                        <h1 className='Hero_H1'>Join GeoSeek</h1>
-                        <p className='Hero_P'>The world is full of adventure. Come explore with us.</p>
-                    </div>
-                </div>
-            </RegisterDiv>
-
-            <Form onSubmit={(e) => {
-                e.preventDefault();
-                handleSubmit(form)
-                props.history.push('/')
-            }}>
-                <h1>Sign Up</h1>
-                <Label>USERNAME</Label>
-                <Input
-                    name='username'
-                    placeholder='Username'
-                    value={form.name}
-                    onChange={(e) => {handleChange(e)}}
-                />
-                <Label>EMAIL</Label>
-                <Input
-                    name='email'
-                    type='email'
-                    placeholder='Email'
-                    value={form.name}
-                    onChange={(e) => {handleChange(e)}}
-                />
-                <Label>PASSWORD</Label>
-                <Input
-                    name='password'
-                    type='password'
-                    value={form.name}
-                    placeholder='Password'
-                    onChange={(e) => {handleChange(e)}}
-                />
-                <Button type='submit'>Register</Button>
-                <p>Already have an account? <Link className='Form_Link' to='/Login'>Sign In</Link></p>
-            </Form>
-        </FormContainer>
-    )
+      <Form onSubmit={(e) => {
+        e.preventDefault();
+        handleSubmit(form)
+        props.history.push('/')
+      }}>
+        <h1>Sign Up</h1>
+        <Label>USERNAME</Label>
+        <Input
+          name='username'
+          placeholder='Username'
+          value={form.name}
+          onChange={(e) => {handleChange(e)}}
+        />
+        <Label>EMAIL</Label>
+        <Input
+          name='email'
+          type='email'
+          placeholder='Email'
+          value={form.name}
+          onChange={(e) => {handleChange(e)}}
+        />
+        <Label>PASSWORD</Label>
+        <Input
+          name='password'
+          type='password'
+          value={form.name}
+          placeholder='Password'
+          onChange={(e) => {handleChange(e)}}
+        />
+        <Button type='submit'>Register</Button>
+        <p>Already have an account? <Link className='Form_Link' to='/Login'>Sign In</Link></p>
+      </Form>
+    </FormContainer>
+  )
 };
 
 export default Register;

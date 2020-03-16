@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
 import {connect} from "react-redux"
-import {postGem} from '../actions/index copy'
+import {postGem} from '../actions'
 
 const FormContainer = styled.div`
 max-width: 400px;
@@ -130,6 +130,7 @@ function CreateGem (props) {
 
     const handleGeocodeSubmit = e => {
         e.preventDefault()
+        if(address === ''){alert('enter an address') && setAddress('')}else{
         function geocode (address) {
             axios
                 .get(`https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?f=json&singleLine=${ address.address }&outFields=Match_addr,Addr_type`)
@@ -149,6 +150,7 @@ function CreateGem (props) {
         }
         geocode(address)
     }
+}
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -196,11 +198,12 @@ function CreateGem (props) {
                     name='address'
                     placeholder='Enter an address'
                     onChange={handleAddressChanges}
+                    onBlur={handleGeocodeSubmit}
                 />
                 {console.log('address state', address)}
-                <ButtonContainer>
+                {/* <ButtonContainer>
                     <CoordButton onClick={handleGeocodeSubmit}> Get your Coordinates</CoordButton>
-                </ButtonContainer>
+                </ButtonContainer> */}
 
                 <Label>LATITUDE</Label>
                 <Input value={newGem.latitude} name='latitude' onChange={handleChanges} placeholder='Enter a Latitude coordinate' />
@@ -248,128 +251,3 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps,
     {postGem}
 )(CreateGem)
-
-
-
-
-
-
-
-
-
-
-
-/////////////////// MY REDUX CODE COPY ///////////////////////
-
-
-// function CreateGem (props) {
-
-
-
-//     const [newGem, setNewGem ] = useState({
-//             title: '',
-//             longitude: '',
-//             latitude: '',
-//             difficulty: '',
-//             description: ''
-//     })
-
-//     const handleChanges = e =>{
-//         setNewGem({
-//             ...newGem,
-//             [e.target.name]: e.target.value
-//         })
-//     }
-//     const handleSubmit = e =>{
-//         e.preventDefault()
-//         // props.postGem(newGem)
-//         setNewGem({
-//             title: '',
-//             longitude: '',
-//             latitude: '',
-//             difficulty: '',
-//             description: ''
-//         })
-//     }
-
-//     return(
-//         <form onSubmit={handleSubmit}>
-//             <input
-//             name='title'
-//             placeholder='Title'
-//             value={newGem.name}
-//             onChange={handleChanges}
-//             />
-
-//             <GeocodingRedux/>
-
-//             <input
-//             name='difficulty'
-//             placeholder='Dificulty. 1-5'
-//             value={newGem.difficulty}
-//             onChange={handleChanges}
-//             />
-//             <input
-//             name='description'
-//             placeholder='Description.'
-//             value={newGem.description}
-//             onChange={handleChanges}
-//             />
-//             <button type='submit'>Add Gem!</button>
-//         </form>
-//     )
-// }
-// const mapStateToProps = state => {
-//     return{
-//         state
-//     }
-
-// }
-
-// export default connect(mapStateToProps, 
-//     { postGem }
-//     )(CreateGem)
-
-
-
-
-
-///////////copy of form before changes for address
-//     <form onSubmit={handleSubmit}>
-//     <input
-//     name='title'
-//     placeholder='Title'
-//     value={newGem.name}
-//     onChange={(e)=>{
-//         setNewGem({
-//             ...newGem,
-//     [e.target.name]:e.target.value
-// })
-//     }}
-//     />
-//     <input
-//     name='longitude'
-//     placeholder='Logitude.'
-//     value={newGem.longitude}
-//     onChange={handleChanges}
-//     />
-//     <input
-//     name='latitude'
-//     placeholder='Latitude.'
-//     value={newGem.latitude}
-//     onChange={handleChanges}
-//     />
-//     <input
-//     name='difficulty'
-//     placeholder='Dificulty. 1-5'
-//     value={newGem.difficulty}
-//     onChange={handleChanges}
-//     />
-//     <input
-//     name='description'
-//     placeholder='Description.'
-//     value={newGem.description}
-//     onChange={handleChanges}
-//     />
-//     <button type='submit'>Add Gem!</button>
-// </form>
