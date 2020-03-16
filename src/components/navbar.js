@@ -65,6 +65,8 @@ function NavBar () {
         <NavBar>
             <a href='/'><img src={Logo} alt="Main Logo" /></a>
             <div>
+                <button><Link className='link' to='/Register'>Register</Link></button>
+                <button><Link className='link' to='/Login'>Log In</Link></button>
                 <button><Link className='link' to='/CreateGem'>Create a Gem</Link></button>
                 <button><Link className='link' to='/ViewGem'>View Gems</Link></button>
             </div>

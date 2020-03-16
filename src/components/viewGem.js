@@ -43,12 +43,13 @@ export default function ViewGem ({updatePosition}) {
     }, [])
 
     function markComplete(gemId){
-        // console.log(gemId, 'the gemId')
+        const userToken= localStorage.getItem('userID')
         let body={
             gem_id: gemId,
-            completed_by: 1
+            completed_by: userToken
         }
-        axios.post('http://localhost:5000/api/completed/', body)
+        console.log(body, 'body')
+        axios.post('https://geoseek-be.herokuapp.com/api/completed/', body)
             .then(res=>{
                 console.log(res)
             })

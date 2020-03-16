@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import thunk from "redux-thunk";
+import logger from "redux-logger";
+import { Provider } from "react-redux";
 
 
+import { createStore, applyMiddleware } from "redux";
+import { gemReducer } from './reducer/gemReducer';
 
-
-
-
+const store = createStore(gemReducer, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
     <App />,
