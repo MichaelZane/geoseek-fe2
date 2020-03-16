@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {Link} from "react-router-dom"
 import styled from 'styled-components'
 import '../Logo.css'
@@ -60,7 +60,7 @@ const NavBarS = styled.div`
     `
 
 
-function NavBar () {
+function NavBar (props) {
 
     return (
         <NavBarS>
@@ -75,7 +75,6 @@ function NavBar () {
                 <Link className='link' to='/Login'>Log In</Link>
                 <Link className='link' to='/CreateGem'>Create a Gem</Link>
                 <Link className='link' to='/ViewGem'>View Gems</Link>
-
             </div>
 
             {/* <Route path = '/CreateGem' component = {CreateGem}/>

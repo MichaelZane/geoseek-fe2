@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
 import {connect} from "react-redux"
@@ -159,6 +159,10 @@ function CreateGem (props) {
             props.history.push('/')
         }, 1000)
     }
+
+    useEffect(() => {
+        props.setRegLogRendered(false)
+    }, [])
 
     return (
         <FormContainer>

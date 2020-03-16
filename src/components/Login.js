@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
 
@@ -64,7 +64,7 @@ const Input = styled.input`
     color: white;
     `
 
-function Login () {
+function Login (props) {
     const [form, setForm] = useState({
         username: '',
         password: ''
@@ -85,6 +85,10 @@ function Login () {
             [e.target.name]: e.target.value
         })
     }
+
+    useEffect(() => {
+        props.setRegLogRendered(true)
+    }, [])
     return (
         <FormContainer>
             <form onSubmit={(e) => {
