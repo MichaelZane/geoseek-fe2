@@ -56,7 +56,7 @@ export default function ViewGem ({updatePosition}) {
                 console.log(err)
             })
     }
-    
+
     if(!search){
     return (
         <Card2>
