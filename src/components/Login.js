@@ -4,11 +4,11 @@ import styled from 'styled-components'
 
 
 const FormContainer = styled.div`
-  width: 20%;
-  height: 87%;
-  background-color: #30364a;
-  border-left: 3px solid black;
-  padding-top: 30px;
+display: flex;
+width: 99.5vw;
+height: 87%;
+background-color: #30364A;
+overflow-y: auto;
 
   .Link {
     text-decoration: none;
@@ -21,13 +21,13 @@ const Button = styled.button`
   height: 50px;
   border-radius: 15px;
   outline: none;
-
+  display:block;
   background-color: #c66db2;
   border: none;
   color: white;
   text-align: center;
   font-size: 20px;
-  margin: 100px 10px 0px 15px;
+  margin: 100px auto 0px auto;
   transition: 0.3s;
   text-decoration: none;
   cursor: pointer;
@@ -63,6 +63,26 @@ const Input = styled.input`
   outline: none;
   color: white;
 `;
+const RegisterDiv = styled.div`
+    width: 100vw;
+    height: 85vh;
+`
+const Form = styled.form`
+    width: 100vw;
+    
+    h1 {
+        margin: 70px 0px 80px 40px;
+        color: white;
+    }
+    p {
+        color: white;
+        margin: 50px 0px 0px 0px;
+        text-align: center;
+    }
+    .Form_Link {
+        color: #FF69B4;
+    }
+`
 
 function Login (props) {
   const [form, setForm] = useState({
@@ -94,10 +114,22 @@ function Login (props) {
   }, [])
   return (
     <FormContainer>
-      <form onSubmit={(e) => {
+        <RegisterDiv>
+        <div className='RegLog_Hero_Image_Container'>
+          <div className='Login_Hero_Image' />
+          <div className='Hero_Text'>
+            <h1 className='Hero_H1'>Welcome Back!</h1>
+            <p className='Hero_P'>Sign in to find the hidden gems all around you.</p>
+          </div>
+        </div>
+      </RegisterDiv>
+
+      <Form onSubmit={(e) => {
         e.preventDefault();
         handleSubmit(form)
+        props.history.push('/')
       }}>
+        <h1>Sign in.</h1>
         <Label>Username:</Label>
         <Input
           name='username'
@@ -112,7 +144,7 @@ function Login (props) {
           onChange={(e) => {handleChange(e)}}
         />
         <Button type='submit'>Log in</Button>
-      </form>
+      </Form>
     </FormContainer>
   )
 }

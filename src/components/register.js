@@ -98,6 +98,7 @@ function Register (props) {
     console.log(form)
     axios.post('https://geoseek-be-stage.herokuapp.com/api/users/register', form)
       .then(res => {
+        console.log(res)
       })
       .catch(err => {console.log(err)})
   }
@@ -116,7 +117,7 @@ function Register (props) {
   return (
     <FormContainer>
       <RegisterDiv>
-        <div className='Register_Hero_Image_Container'>
+        <div className='RegLog_Hero_Image_Container'>
           <div className='Register_Hero_Image' />
           <div className='Hero_Text'>
             <h1 className='Hero_H1'>Join GeoSeek</h1>
@@ -128,7 +129,7 @@ function Register (props) {
       <Form onSubmit={(e) => {
         e.preventDefault();
         handleSubmit(form)
-        props.history.push('/')
+        props.history.push('/Login')
       }}>
         <h1>Sign Up</h1>
         <Label>USERNAME</Label>

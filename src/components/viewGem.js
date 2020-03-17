@@ -4,7 +4,7 @@ import axios from "axios";
 import GemCard from "./gem";
 import styled from "styled-components";
 
-export default function ViewGem({ updatePosition }) {
+export default function ViewGem({ updatePosition, setRegLogRendered }) {
   const [gems, setGems] = useState([]);
   useEffect(() => {
     axios
@@ -17,6 +17,10 @@ export default function ViewGem({ updatePosition }) {
         console.log(err);
       });
   }, []);
+
+  useEffect(() => {
+    setRegLogRendered(false)
+}, [])
 
   const Card = styled.div`
     margin: 20px;
@@ -57,7 +61,7 @@ export default function ViewGem({ updatePosition }) {
                 <div
                   onClick={() => updatePosition(gem.latitude, gem.longitude)}
                 >
-                  <Link className="viewLink">Click To View Location</Link>
+                  <Link className="viewLink" >Click To View Location</Link>
                 </div>
               </div>
             </Card>
