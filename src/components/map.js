@@ -7,12 +7,11 @@ import axios from 'axios'
 
 function Map ({latitude, longitude, refresh}) {
     const [viewport, setViewport] = useState({
-
         latitude: 33.812468,
         longitude: -117.918989,
         width: "100%",
-        height: "90%",
-        zoom: 15
+        height: "100%",
+        zoom: 11.6
     });
 
     const [gems, setGems] = useState([])
