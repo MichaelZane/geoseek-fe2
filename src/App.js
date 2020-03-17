@@ -1,12 +1,14 @@
-import React, { useState } from "react";
-import NavBar from "./components/navbar";
-import Map from "./components/map";
-import ViewGem from "./components/viewGem";
-import CreateGem from "./components/createGem";
-import styled from "styled-components";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import React, {useState} from 'react';
+import NavBar from './components/navbar'
+import Map from './components/map'
+import ViewGem from './components/viewGem'
+import CreateGem from './components/createGem'
+import Register from './components/register'
+import Login from './components/Login'
+import styled from 'styled-components'
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
-function App() {
+function App () {
   const MapAndGems = styled.div`
     display: flex;
     height: 100vh;

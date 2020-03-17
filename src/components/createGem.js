@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import axios from "axios";
-import styled from "styled-components";
+import React, {useState, useEffect} from 'react'
+import axios from 'axios'
+import styled from 'styled-components'
+
 
 const FormContainer = styled.div`
   width: 40%;
@@ -68,98 +69,86 @@ export default function CreateGem(props) {
     description: ""
   });
 
-  const submitGem = () => {
-    props.setRefresh(!props.refresh);
-    props.updatePosition(Number(form.longitude, Number(form.latitude)));
-  };
+    return (
+        <FormContainer>
+            <form onSubmit={(e) => {
+                e.preventDefault();
+                axios.post('https://geoseek-be.herokuapp.com/api/gems', form)
+                    .then(res => {
+                        submitGem();
+                        props.history.push('/');
+                    })
+                    .catch(err => {console.log(err)})
+            }}>
 
-  return (
-    <FormContainer>
-      <form
-        onSubmit={e => {
-          e.preventDefault();
-          axios
-            .post(
-              `https://${process.env.REACT_APP_DATABASE_URL}/api/gems`,
-              form
-            )
-            .then(res => {
-              console.log(form);
-              setForm(form);
-              submitGem();
-            })
-            .catch(err => {
-              console.log(err);
-            });
-        }}
-      >
-        <Label>TITLE</Label>
-        <Input
-          className="input"
-          name="title"
-          placeholder="Title"
-          value={form.name}
-          onChange={e => {
-            setForm({
-              ...form,
-              [e.target.name]: e.target.value
-            });
-          }}
-        />
-        <Label>LONGITUDE</Label>
-        <Input
-          className="input"
-          name="longitude"
-          placeholder="Longitude"
-          value={form.name}
-          onChange={e => {
-            setForm({
-              ...form,
-              [e.target.name]: e.target.value
-            });
-          }}
-        />
-        <Label>LATITUDE</Label>
-        <Input
-          className="input"
-          name="latitude"
-          placeholder="Latitude"
-          value={form.name}
-          onChange={e => {
-            setForm({
-              ...form,
-              [e.target.name]: e.target.value
-            });
-          }}
-        />
-        <Label>DIFFICULTY</Label>
-        <Input
-          className="input"
-          name="difficulty"
-          placeholder="Choose 1-5 for difficulty "
-          value={form.name}
-          onChange={e => {
-            setForm({
-              ...form,
-              [e.target.name]: e.target.value
-            });
-          }}
-        />
-        <Label>DESCRIPTION</Label>
-        <Input
-          className="input"
-          name="description"
-          placeholder="Describe or give clues to find your gem."
-          value={form.name}
-          onChange={e => {
-            setForm({
-              ...form,
-              [e.target.name]: e.target.value
-            });
-          }}
-        />
-        <Button type="submit">Create Gem!</Button>
-      </form>
-    </FormContainer>
-  );
+                
+                <Label>TITLE</Label>
+                <Input
+                    className='input'
+                    name='title'
+                    placeholder='Title'
+                    value={form.name}
+                    onChange={(e) => {
+                        setForm({
+                            ...form,
+                            [e.target.name]: e.target.value
+                        })
+                    }}
+                />
+                <Label>LONGITUDE</Label>
+                <Input
+                    className='input'
+                    name='longitude'
+                    placeholder='Longitude'
+                    value={form.name}
+                    onChange={(e) => {
+                        setForm({
+                            ...form,
+                            [e.target.name]: e.target.value
+                        })
+                    }}
+                />
+                <Label>LATITUDE</Label>
+                <Input
+                    className='input'
+                    name='latitude'
+                    placeholder='Latitude'
+                    value={form.name}
+                    onChange={(e) => {
+                        setForm({
+                            ...form,
+                            [e.target.name]: e.target.value
+                        })
+                    }}
+                />
+                <Label>DIFFICULTY</Label>
+                <Input
+                    className='input'
+                    name='difficulty'
+                    placeholder='Choose 1-5 for difficulty '
+                    value={form.name}
+                    onChange={(e) => {
+                        setForm({
+                            ...form,
+                            [e.target.name]: e.target.value
+                        })
+                    }}
+                />
+                <Label>DESCRIPTION</Label>
+                <Input
+                    className='input'
+                    name='description'
+                    placeholder='Describe or give clues to find your gem.'
+                    value={form.name}
+                    onChange={(e) => {
+                        setForm({
+                            ...form,
+                            [e.target.name]: e.target.value
+                        })
+                    }}
+                />
+                <Button type='submit'>Create Gem!</Button>
+            </form>
+        </FormContainer>
+    )
 }
