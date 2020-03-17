@@ -48,7 +48,6 @@ export default function ViewGem ({updatePosition}) {
             gem_id: gemId,
             completed_by: userToken
         }
-        console.log(body, 'body')
         axios.post('https://geoseek-be.herokuapp.com/api/completed/', body)
             .then(res=>{
                 console.log(res)
@@ -85,7 +84,9 @@ export default function ViewGem ({updatePosition}) {
                                 <GemCard key={gem.id} title={gem.title} latitude={gem.latitude} longitude={gem.longitude} />
                                 <div onClick={() => updatePosition(gem.latitude, gem.longitude)}>
                                     <Link className = 'viewLink'>Click To View Location</Link>
-                                    <button onClick={()=>markComplete(gem.id)}>Mark As Complete</button>
+                                    {localStorage.getItem("token") && (
+                                        <Link className= 'viewLink' onClick={()=>markComplete(gem.id)}>Mark As Complete</Link>
+                                    )}
                                 </div>
                             </div>
                         </Card>
@@ -122,7 +123,9 @@ else{
                                 <GemCard key={gem.id} title={gem.title} latitude={gem.latitude} longitude={gem.longitude} />
                                 <div onClick={() => updatePosition(gem.latitude, gem.longitude)}>
                                     <Link className = 'viewLink'>Click To View Location</Link>
-                                    <button onClick={()=>markComplete(gem.id)}>Mark As Complete</button>
+                                    {localStorage.getItem("token") && (
+                                        <Link className= 'viewLink' onClick={()=>markComplete(gem.id)}>Mark As Complete</Link>
+                                    )}
                                 </div>
                             </div>
                         </Card>
