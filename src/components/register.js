@@ -5,6 +5,7 @@ import '../index.css'
 import {Link} from 'react-router-dom'
 
 const FormContainer = styled.div`
+
 display: flex;
 width: 99.5vw;
 height: 87%;
@@ -24,7 +25,7 @@ const Button = styled.button`
     outline: none;
     display: block;
    
-   background-color: #C66DB2;
+   background-color: #ff69b4;
    border: none;
    color: white;
    text-align: center;
@@ -42,8 +43,7 @@ const Button = styled.button`
     transition: opacity 0.55s ease-in-out;
     -moz-transition: opacity 0.55s ease-in-out;
     -webkit-transition: opacity 0.55s ease-in-out;
-    background-color: #ff69b4;
-    border: 2px solid black;
+    background-color: #C66DB2;
   }
 `;
 const Label = styled.label`
@@ -71,6 +71,7 @@ const RegisterDiv = styled.div`
     height: 85vh;
 `
 const Form = styled.form`
+border-left: 3px solid black;
     width: 100vw;
     
     h1 {

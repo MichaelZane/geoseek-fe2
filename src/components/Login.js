@@ -1,12 +1,13 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
+import {Link} from 'react-router-dom'
 
 
 const FormContainer = styled.div`
 display: flex;
 width: 99.5vw;
-height: 87%;
+height: 88vh;
 background-color: #30364A;
 overflow-y: auto;
 
@@ -22,7 +23,7 @@ const Button = styled.button`
   border-radius: 15px;
   outline: none;
   display:block;
-  background-color: #c66db2;
+  background-color: #ff69b4;
   border: none;
   color: white;
   text-align: center;
@@ -40,8 +41,7 @@ const Button = styled.button`
     transition: opacity 0.55s ease-in-out;
     -moz-transition: opacity 0.55s ease-in-out;
     -webkit-transition: opacity 0.55s ease-in-out;
-    background-color: #ff69b4;
-    border: 2px solid black;
+    background-color: #c66db2;
   }
 `;
 const Label = styled.label`
@@ -68,6 +68,7 @@ const RegisterDiv = styled.div`
     height: 85vh;
 `
 const Form = styled.form`
+border-left: 3px solid black;
     width: 100vw;
     
     h1 {
@@ -144,6 +145,7 @@ function Login (props) {
           onChange={(e) => {handleChange(e)}}
         />
         <Button type='submit'>Log in</Button>
+        <p>Don't have an account? <Link className='Form_Link' to='/Register'>Sign Up</Link></p>
       </Form>
     </FormContainer>
   )

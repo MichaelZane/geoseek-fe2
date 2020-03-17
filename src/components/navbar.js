@@ -10,7 +10,37 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 height: 100px;
-  div {   margin-right: 2%;  }  
+  div {   margin-right: 2%;  } 
+  
+  .button {
+    margin: 0px 25px;
+    font-size: 1.5rem;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    background-color:#FF69B4;
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    transition: 0.3s;
+    text-decoration: none;
+    cursor: pointer;
+    padding:10px; 
+    // opacity: 0.6;
+    // transition: opacity .55s ease-in-out;
+    // -moz-transition: opacity .55s ease-in-out;
+    // -webkit-transition: opacity .55s ease-in-out;
+
+   :hover {
+       opacity: 1.0;
+       transition: opacity .55s ease-in-out;
+       -moz-transition: opacity .55s ease-in-out;
+       -webkit-transition: opacity .55s ease-in-out;
+       background-color:#C66DB2;
+       //border: 2px solid black;
+   }
+} 
 .link {   
   margin: 10px;
   padding: 10px;
@@ -26,7 +56,7 @@ height: 100px;
     color: white;
   }
   }` 
-  
+
 function NavBar (props) {
 
   return (
@@ -36,10 +66,10 @@ function NavBar (props) {
         <span className="fast-flicker">g</span><span>eos</span><span className="flicker">e</span><span>ek</span>
       </a>
       <div>
-        <Link className='link' to='/Register'>Register</Link>
-        <Link className='link' to='/Login'>Log In</Link>
-        <Link className='link' to='/CreateGem'>Create a Gem</Link>
-        <Link className='link' to='/ViewGem'>View Gems</Link>
+        <Link className='button' to='/Register'>Register</Link>
+        <Link className='button' to='/Login'>Log In</Link>
+        <Link className='button' to='/CreateGem'>Create a Gem</Link>
+        <Link className='button' to='/ViewGem'>View Gems</Link>
       </div>
 
       {/* <Route path = '/CreateGem' component = {CreateGem}/>

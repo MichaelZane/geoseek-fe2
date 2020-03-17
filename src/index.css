@@ -65,13 +65,7 @@ code {
   display: flex;
 }
 
-.viewLink{
-  text-decoration: none;
-  background-color:#F44076;
-  padding:3px;
-  border-radius: 5px;
-  color:white;
-}
+
 
 /* INPUT AUTOFILL COLOR OVERRIDE */
 input:-webkit-autofill,

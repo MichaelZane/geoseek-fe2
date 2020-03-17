@@ -29,10 +29,39 @@ export default function ViewGem({ updatePosition, setRegLogRendered }) {
     display: flex;
     width: 250px;
     justify-content: space-between;
+
+    .button {
+      margin: 0px 3px;
+      width: 75px;
+      height: 25px;
+      border-radius: 5px;
+      background-color:#FF69B4;
+      border: none;
+      color: white;
+      text-align: center;
+      font-size: 20px;
+      transition: 0.3s;
+      text-decoration: none;
+      cursor: pointer;
+      padding:5px; 
+      // opacity: 0.6;
+      // transition: opacity .55s ease-in-out;
+      // -moz-transition: opacity .55s ease-in-out;
+      // -webkit-transition: opacity .55s ease-in-out;
+  
+     :hover {
+         opacity: 1.0;
+         transition: opacity .55s ease-in-out;
+         -moz-transition: opacity .55s ease-in-out;
+         -webkit-transition: opacity .55s ease-in-out;
+         background-color:#C66DB2;
+         //border: 2px solid black;
+     }
+  } 
   `;
 
   const Container = styled.div`
-    border-left: 2px solid black;
+    border-left: 3px solid black;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -61,7 +90,7 @@ export default function ViewGem({ updatePosition, setRegLogRendered }) {
                 <div
                   onClick={() => updatePosition(gem.latitude, gem.longitude)}
                 >
-                  <Link className="viewLink" >Click To View Location</Link>
+                  <Link className="button" >Click To View Location</Link>
                 </div>
               </div>
             </Card>

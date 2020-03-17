@@ -41,7 +41,7 @@ const Button = styled.button`
     border-radius: 15px;
     outline: none;
    
-   background-color: #C66DB2;
+   background-color: #FF69B4;
    border: none;
    color: white;
    text-align: center;
@@ -59,8 +59,8 @@ const Button = styled.button`
        transition: opacity .55s ease-in-out;
        -moz-transition: opacity .55s ease-in-out;
        -webkit-transition: opacity .55s ease-in-out;
-       background-color: #FF69B4;
-       border: 2px solid black;
+       background-color: #C66DB2;
+
    }
    `
 const ButtonContainer = styled.button`
@@ -227,9 +227,9 @@ function CreateGem (props) {
                     onChange={handleChanges}
                 />
 
-                <ButtonContainer>
+            
                     <Button type='submit'>Create Gem!</Button>
-                </ButtonContainer>
+                
             </Form>
         </FormContainer>
     )
