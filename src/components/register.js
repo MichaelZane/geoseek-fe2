@@ -73,7 +73,7 @@ function Register() {
   function handleSubmit(form) {
     console.log(form);
     axios
-      .post("https://geoseek-be-stage.herokuapp.com/api/users/register", form)
+      .post("http://localhost:5000/api/users/register", form)
       .then(res => {
         console.log(res);
       })

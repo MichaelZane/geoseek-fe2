@@ -69,11 +69,17 @@ export default function CreateGem(props) {
     description: ""
   });
 
+  const submitGem = () => {
+    props.setRefresh(!props.refresh);
+    props.updatePosition(Number(form.latitude), Number(form.longitude));
+}
+
+
     return (
         <FormContainer>
             <form onSubmit={(e) => {
                 e.preventDefault();
-                axios.post('https://geoseek-be.herokuapp.com/api/gems', form)
+                axios.post('http://localhost:5000/api/gems', form)
                     .then(res => {
                         submitGem();
                         props.history.push('/');

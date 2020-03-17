@@ -1,4 +1,3 @@
-
 import React, {useState, useEffect} from 'react';
 import ReactMapGL, {Marker, Popup} from 'react-map-gl'
 import axios from 'axios'
@@ -27,7 +26,7 @@ function Map ({latitude, longitude, refresh}) {
 
 
     useEffect(() => {
-        axios.get('https://geoseek-be.herokuapp.com/api/gems')
+        axios.get('http://localhost:5000/api/gems')
             .then(res => {
                 console.log(res)
                 setGems(res.data)
@@ -68,9 +67,12 @@ function Map ({latitude, longitude, refresh}) {
                         <p>{`Description: ${ selectedGem.description }`}</p>
                     </div>
                 </Popup>
-            )}    
-    </ReactMapGL>
-  );
+            )}
+        </ReactMapGL>
+
+
+
+    );
 }
 
-export default Map;
+export default Map

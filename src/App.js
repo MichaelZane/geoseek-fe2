@@ -10,46 +10,35 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 function App () {
   const MapAndGems = styled.div`
-    display: flex;
-    height: 100vh;
-    min-height: 100vh;
-  `;
+  display: flex;
+  height: 100vh;
+  min-height: 100vh;
+  `
 
-  const [[latitude, longitude], setLatLong] = useState([
-    33.812468,
-    -117.918989
-  ]);
+  const [[latitude, longitude], setLatLong] = useState([33.812468, -117.918989])
   const [refresh, setRefresh] = useState(false);
   const updatePosition = (latitude, longitude) => {
-    setLatLong([latitude, longitude]);
-  };
+    setLatLong([latitude, longitude])
+  }
 
   return (
     <Router>
       <div>
         <NavBar />
         <div>
+          
+        
+       
           <MapAndGems>
-            <Route exact path="/" />
             <Map refresh={refresh} latitude={latitude} longitude={longitude} />
-
-            <Route
-              path="/ViewGem"
-              component={() => <ViewGem updatePosition={updatePosition} />}
-            />
-            <Route
-              path="/CreateGem"
-              render={props => (
-                <CreateGem
-                  {...props}
-                  latitude={latitude}
-                  longitude={longitude}
-                  updatePosition={updatePosition}
-                  setRefresh={setRefresh}
-                />
-              )}
-            />
+            <Route exact path='/' />
+            <Route path='/ViewGem' component={() => <ViewGem updatePosition={updatePosition} />} />
+            <Route path='/CreateGem'
+              render={(props) => <CreateGem {...props} latitude={latitude} longitude={longitude} updatePosition={updatePosition} setRefresh={setRefresh} />} />
+              <Route path='/Register' component={Register} />
+              <Route path='/Login' component={Login} />
           </MapAndGems>
+          
         </div>
       </div>
     </Router>
