@@ -42,112 +42,96 @@ export default function ViewGem({ updatePosition }) {
       });
   }, []);
 
-  function markComplete(gemId) {
-    const userToken = localStorage.getItem("userID");
-    let body = {
-      gem_id: gemId,
-      completed_by: userToken
-    };
-    console.log(body, "body");
-    axios
-      .post("http://localhost:5000/api/completed/", body)
-      .then(res => {
-        console.log(res);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }
+    function markComplete(gemId){
+        const userToken= localStorage.getItem('userID')
+        let body={
+            gem_id: gemId,
+            completed_by: userToken
+        }
+        axios.post('https://geoseek-be.herokuapp.com/api/completed/', body)
+            .then(res=>{
+                console.log(res)
+            })
+            .catch(err=>{
+                console.log(err)
+            })
+    }
 
   if (!search) {
     return (
-      <Card2>
-        <form>
-          <input
-            name="searchForm"
-            placeholder="Search Gems"
-            value={search}
-            onChange={e => {
-              setSearch(e.target.value.toLowerCase());
-              console.log(search);
-              const filteredGems = gems.filter(gem => {
-                const ls = gem.title.toLowerCase();
-                return ls.search(search) !== -1;
-              });
-              setFiltered(filteredGems);
-            }}
-          />
-        </form>
-        {gems.map(gem => {
-          return (
-            <div>
-              <Card>
-                <div>
-                  <GemCard
-                    key={gem.id}
-                    title={gem.title}
-                    latitude={gem.latitude}
-                    longitude={gem.longitude}
-                  />
-                  <div
-                    onClick={() => updatePosition(gem.latitude, gem.longitude)}
-                  >
-                    <Link className="viewLink">Click To View Location</Link>
-                    <button onClick={() => markComplete(gem.id)}>
-                      Mark As Complete
-                    </button>
-                  </div>
-                </div>
-              </Card>
-            </div>
-          );
-        })}
-      </Card2>
-    );
-  } else {
+        <Card2>
+            <form>
+                <input
+                    name= 'searchForm'
+                    placeholder= 'Search Gems'
+                    value= {search}
+                    onChange= {e=>{
+                        setSearch(e.target.value.toLowerCase())
+                        console.log(search)
+                        const filteredGems= gems.filter(gem=>{
+                            const ls= gem.title.toLowerCase()
+                            return ls.search(search) !== -1
+                        })
+                        setFiltered(filteredGems)
+                    }}
+                />
+            </form>
+            {gems.map((gem) => {
+                return (
+                    <div>
+                        <Card>
+                            <div>
+                                <GemCard key={gem.id} title={gem.title} latitude={gem.latitude} longitude={gem.longitude} />
+                                <div onClick={() => updatePosition(gem.latitude, gem.longitude)}>
+                                    <Link className = 'viewLink'>Click To View Location</Link>
+                                    {localStorage.getItem("token") && (
+                                        <Link className= 'viewLink' onClick={()=>markComplete(gem.id)}>Mark As Complete</Link>
+                                    )}
+                                </div>
+                            </div>
+                        </Card>
+                    </div>
+                )
+            })}
+        </Card2>
+    )
+}
+else{
     return (
-      <Card2>
-        <form>
-          <input
-            name="searchForm"
-            placeholder="Search Gems"
-            value={search}
-            onChange={e => {
-              setSearch(e.target.value.toLowerCase());
-              console.log(search);
-              const filteredGems = gems.filter(gem => {
-                const ls = gem.title.toLowerCase();
-                return ls.search(search) !== -1;
-              });
-              setFiltered(filteredGems);
-            }}
-          />
-        </form>
-        {filtered.map(gem => {
-          return (
-            <div>
-              <Card>
-                <div>
-                  <GemCard
-                    key={gem.id}
-                    title={gem.title}
-                    latitude={gem.latitude}
-                    longitude={gem.longitude}
-                  />
-                  <div
-                    onClick={() => updatePosition(gem.latitude, gem.longitude)}
-                  >
-                    <Link className="viewLink">Click To View Location</Link>
-                    <button onClick={() => markComplete(gem.id)}>
-                      Mark As Complete
-                    </button>
-                  </div>
-                </div>
-              </Card>
-            </div>
-          );
-        })}
-      </Card2>
-    );
-  }
+        <Card2>
+            <form>
+                <input
+                    name= 'searchForm'
+                    placeholder= 'Search Gems'
+                    value= {search}
+                    onChange= {e=>{
+                        setSearch(e.target.value.toLowerCase())
+                        console.log(search)
+                        const filteredGems= gems.filter(gem=>{
+                            const ls= gem.title.toLowerCase()
+                            return ls.search(search) !== -1
+                        })
+                        setFiltered(filteredGems)
+                    }}
+                />
+            </form>
+            {filtered.map((gem) => {
+                return (
+                    <div>
+                        <Card>
+                            <div>
+                                <GemCard key={gem.id} title={gem.title} latitude={gem.latitude} longitude={gem.longitude} />
+                                <div onClick={() => updatePosition(gem.latitude, gem.longitude)}>
+                                    <Link className = 'viewLink'>Click To View Location</Link>
+                                    {localStorage.getItem("token") && (
+                                        <Link className= 'viewLink' onClick={()=>markComplete(gem.id)}>Mark As Complete</Link>
+                                    )}
+                                </div>
+                            </div>
+                        </Card>
+                    </div>
+                )
+            })}
+        </Card2>
+    )
 }
