@@ -5,17 +5,20 @@ import App from './AppRedux';
 import * as serviceWorker from './serviceWorker';
 import thunk from "redux-thunk";
 import logger from "redux-logger";
-import { Provider } from "react-redux";
+import {Provider} from "react-redux";
+import {BrowserRouter as Router} from "react-router-dom";
 
 
-import { createStore, applyMiddleware } from "redux";
-import { gemReducer } from './reducer/gemReducer';
+import {createStore, applyMiddleware} from "redux";
+import {gemReducer} from './reducer/gemReducer';
 
 const store = createStore(gemReducer, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router>
+      <App />
+    </Router>
   </Provider>,
   document.getElementById("root")
 );
