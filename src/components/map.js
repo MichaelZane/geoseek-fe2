@@ -68,23 +68,7 @@ function Map ({latitude, longitude, refresh}) {
                         <p>{`Description: ${ selectedGem.description }`}</p>
                     </div>
                 </Popup>
-            )}
-          </button>
-        </Marker>
-      ))}
-      {selectedGem && (
-        <Popup
-          latitude={selectedGem.latitude}
-          longitude={selectedGem.longitude}
-          onClose={() => setSelectedGem(null)}
-        >
-          <div>
-            <h2>{`Title: ${selectedGem.title}`}</h2>
-            <p>{`Difficulty: ${selectedGem.difficulty}`}</p>
-            <p>{`Description: ${selectedGem.description}`}</p>
-          </div>
-        </Popup>
-      )}
+            )}    
     </ReactMapGL>
   );
 }
