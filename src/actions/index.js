@@ -19,10 +19,3 @@ export const postGem = newGem => dispatch => {
       dispatch({type: CREATE_GEM_FAIL, payload: error.response});
     });
 };
-
-
-
-
-
-
-

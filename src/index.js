@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './AppRedux';
+import AppRedux from './AppRedux';
 import * as serviceWorker from './serviceWorker';
 import thunk from "redux-thunk";
 import logger from "redux-logger";
@@ -17,7 +17,7 @@ const store = createStore(gemReducer, applyMiddleware(thunk, logger));
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <App />
+      <AppRedux/>
     </Router>
   </Provider>,
   document.getElementById("root")

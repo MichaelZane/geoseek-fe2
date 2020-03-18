@@ -15,14 +15,11 @@ function App() {
     min-height: 100vh;
   `;
 
-  const [[latitude, longitude], setLatLong] = useState([
-    36.955992,
-    -121.971428
-  ]);
+  const [[latitude, longitude], setLatLong] = useState([36.955992,-121.971428])
   const [refresh, setRefresh] = useState(false);
   const updatePosition = (latitude, longitude) => {
-    setLatLong([latitude, longitude]);
-  };
+    setLatLong([latitude, longitude])
+  }
 
   return (
     <Router>
@@ -31,23 +28,12 @@ function App() {
         <div>
           <MapAndGems>
             <Map refresh={refresh} latitude={latitude} longitude={longitude} />
-            <Route exact path="/" />
-            <Route
-              path="/ViewGem"
-              component={() => <ViewGem updatePosition={updatePosition} />}
-            />
-            <Route
-              path="/CreateGem"
-              render={props => (
-                <CreateGem
-                  {...props}
-                  latitude={latitude}
-                  longitude={longitude}
-                  updatePosition={updatePosition}
-                  setRefresh={setRefresh}
-                />
-              )}
-            />
+            <Route exact path='/' />
+            <Route path='/ViewGem' component={() => <ViewGem updatePosition={updatePosition} />} />
+            <Route path='/CreateGem'
+              render={(props) => <CreateGem {...props} latitude={latitude} longitude={longitude} updatePosition={updatePosition} setRefresh={setRefresh} />} />
+              <Route path='/Register' component={Register} />
+              <Route path='/Login' component={Login} />
           </MapAndGems>
         </div>
       </div>

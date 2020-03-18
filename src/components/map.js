@@ -48,7 +48,7 @@ function Map ({latitude, longitude, refresh}) {
                         setSelectedGem(gem)
                     }} >
                         {selectedGem === gem ? (
-                            <img src='/pinkGem.png' alt="Gem Icon2" />
+                            <img src='/pinkGem.png' alt="Selected Gem Icon" />
                         ) :
                             <img src='/blueGem.png' alt="Gem Icon" />}
                     </button>

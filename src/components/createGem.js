@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import axios from "axios";
-import styled from "styled-components";
+import React, {useState, useEffect} from 'react'
+import axios from 'axios'
+import styled from 'styled-components'
+
 
 const FormContainer = styled.div`
   width: 20%;
@@ -59,9 +60,11 @@ const Label = styled.label`
 
 export default function CreateGem(props) {
   const [form, setForm] = useState({
-    title: "",
-    latitude: "",
-    longitude: ""
+        title: '',
+        latitude: '',
+        longitude: '',
+        difficulty: '',
+        description:''
   });
 
   const [longitude, setLongitude] = useState();
