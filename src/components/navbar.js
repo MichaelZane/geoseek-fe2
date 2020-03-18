@@ -56,7 +56,7 @@ height: 100px;
     color: white;
   }
   }` 
-
+ 
 function NavBar (props) {
   return (
     <Nav>
