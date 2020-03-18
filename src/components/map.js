@@ -2,32 +2,28 @@
 import React, {useState, useEffect} from 'react';
 import ReactMapGL, {Marker, Popup} from 'react-map-gl'
 import axios from 'axios'
-
-
+import {LngLatBounds} from 'mapbox-gl';
 
 function Map ({latitude, longitude, refresh}) {
     const [viewport, setViewport] = useState({
-        latitude: 33.812468,
-        longitude: -117.918989,
-        width: "100%",
-        height: "100%",
-        zoom: 11.6
+        latitude: 36.955992,
+        longitude: -121.971428,
+        width: "100vw",
+        height: "90vh",
+        zoom: 12
     });
+    
 
     const [gems, setGems] = useState([])
-
     const [selectedGem, setSelectedGem] = useState(null)
 
-
-
-    useEffect(() => {
-        setViewport({...viewport, latitude, longitude})
+     useEffect(() => {
+        const zoom = 12
+        setViewport({...viewport, latitude, longitude, zoom})
     }, [latitude, longitude])
 
-
-
     useEffect(() => {
-        axios.get('https://geoseek-be.herokuapp.com/api/gems')
+        axios.get('https://geoseek-be-stage.herokuapp.com/api/gems')
             .then(res => {
                 console.log(res)
                 setGems(res.data)
@@ -36,8 +32,6 @@ function Map ({latitude, longitude, refresh}) {
                 console.log(err)
             })
     }, [refresh])
-
-
 
     return (
         <ReactMapGL className='Map'
@@ -70,9 +64,6 @@ function Map ({latitude, longitude, refresh}) {
                 </Popup>
             )}
         </ReactMapGL>
-
-
-
     );
 }
 
