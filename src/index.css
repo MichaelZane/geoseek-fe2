@@ -8,7 +8,7 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #FF0000;
+  background: grey;
 }
 body {
   margin: 0;
@@ -53,7 +53,7 @@ code {
 
 .Map {
   padding: 0px;
-  width: 80%;
+  width: 800px;
   height: 800px;
   margin: 0px;
 }
@@ -65,13 +65,7 @@ code {
   display: flex;
 }
 
-.viewLink{
-  text-decoration: none;
-  background-color:#F44076;
-  padding:3px;
-  border-radius: 5px;
-  color:white;
-}
+
 
 /* INPUT AUTOFILL COLOR OVERRIDE */
 input:-webkit-autofill,
@@ -88,3 +82,60 @@ select:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0px 1000px #3E4958 inset;
   transition: background-color 5000s ease-in-out 0s;
 }
+
+.RegLog_Hero_Image_Container {
+ padding: 0px;
+ width: 68vw;
+ height: 100%;
+ position: relative;
+}
+
+.Hero_Text {
+  margin: 0px 0px 0px 0px;
+  color: white;
+  z-index: 2;
+  top: 40%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.Register_Hero_Image {
+  background-image: url(images/RegisterImg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center -420px;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  padding: 0px;
+  display: block;
+  z-index: -1;
+}
+
+.Login_Hero_Image {
+  background-image: url(images/explore-flag.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  padding: 0 ;
+  display: block;
+}
+
+.Hero_H1 {
+ font-size: 3.4rem;
+}
+
+.Hero_P {
+  font-size: 2.5rem;
+  width: 50vw;
+ }
+
+.Register_Form_Container {
+  border: 2px solid blue;
+  width: 55vh;
+ }
+

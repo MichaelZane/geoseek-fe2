@@ -1,13 +1,15 @@
-import React, { useState } from "react";
-import axios from "axios";
-import styled from "styled-components";
+import React, {useState, useEffect} from 'react'
+import axios from 'axios'
+import styled from 'styled-components'
+import {Link} from 'react-router-dom'
+
 
 const FormContainer = styled.div`
-  width: 20%;
-  height: 87%;
-  background-color: #30364a;
-  border-left: 3px solid black;
-  padding-top: 30px;
+display: flex;
+width: 99.5vw;
+height: 88vh;
+background-color: #30364A;
+overflow-y: auto;
 
   .Link {
     text-decoration: none;
@@ -20,13 +22,13 @@ const Button = styled.button`
   height: 50px;
   border-radius: 15px;
   outline: none;
-
-  background-color: #c66db2;
+  display:block;
+  background-color: #ff69b4;
   border: none;
   color: white;
   text-align: center;
   font-size: 20px;
-  margin: 100px 10px 0px 15px;
+  margin: 100px auto 0px auto;
   transition: 0.3s;
   text-decoration: none;
   cursor: pointer;
@@ -39,8 +41,7 @@ const Button = styled.button`
     transition: opacity 0.55s ease-in-out;
     -moz-transition: opacity 0.55s ease-in-out;
     -webkit-transition: opacity 0.55s ease-in-out;
-    background-color: #ff69b4;
-    border: 2px solid black;
+    background-color: #c66db2;
   }
 `;
 const Label = styled.label`
@@ -62,14 +63,35 @@ const Input = styled.input`
   outline: none;
   color: white;
 `;
+const RegisterDiv = styled.div`
+    width: 100vw;
+    height: 85vh;
+`
+const Form = styled.form`
+border-left: 3px solid black;
+    width: 100vw;
+    
+    h1 {
+        margin: 70px 0px 80px 40px;
+        color: white;
+    }
+    p {
+        color: white;
+        margin: 50px 0px 0px 0px;
+        text-align: center;
+    }
+    .Form_Link {
+        color: #FF69B4;
+    }
+`
 
-function Login() {
+function Login (props) {
   const [form, setForm] = useState({
-    username: "",
-    password: ""
-  });
+    username: '',
+    password: ''
+  })
 
-  function handleSubmit(form) {
+  function handleSubmit (form) {
     axios
       .post("http://localhost:5000/api/users/login", form)
       .then(res => {
@@ -81,41 +103,52 @@ function Login() {
       });
   }
 
-  function handleChange(e) {
+  function handleChange (e) {
     setForm({
       ...form,
       [e.target.name]: e.target.value
-    });
+    })
   }
+
+  useEffect(() => {
+    props.setRegLogRendered(true)
+  }, [])
   return (
     <FormContainer>
-      <form
-        onSubmit={e => {
-          e.preventDefault();
-          handleSubmit(form);
-        }}
-      >
+        <RegisterDiv>
+        <div className='RegLog_Hero_Image_Container'>
+          <div className='Login_Hero_Image' />
+          <div className='Hero_Text'>
+            <h1 className='Hero_H1'>Welcome Back!</h1>
+            <p className='Hero_P'>Sign in to find the hidden gems all around you.</p>
+          </div>
+        </div>
+      </RegisterDiv>
+
+      <Form onSubmit={(e) => {
+        e.preventDefault();
+        handleSubmit(form)
+        props.history.push('/')
+      }}>
+        <h1>Sign in.</h1>
         <Label>Username:</Label>
         <Input
-          name="username"
-          placeholder="Username"
-          onChange={e => {
-            handleChange(e);
-          }}
+          name='username'
+          placeholder='Username'
+          onChange={(e) => {handleChange(e)}}
         />
         <Label>Password:</Label>
         <Input
-          name="password"
-          type="password"
-          placeholder="Password"
-          onChange={e => {
-            handleChange(e);
-          }}
+          name='password'
+          type='password'
+          placeholder='Password'
+          onChange={(e) => {handleChange(e)}}
         />
-        <Button type="submit">Log in</Button>
-      </form>
+        <Button type='submit'>Log in</Button>
+        <p>Don't have an account? <Link className='Form_Link' to='/Register'>Sign Up</Link></p>
+      </Form>
     </FormContainer>
-  );
+  )
 }
 
 export default Login;
