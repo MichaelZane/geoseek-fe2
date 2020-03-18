@@ -1,21 +1,21 @@
-import React, {useState} from 'react';
-import NavBar from './components/navbar'
-import Map from './components/map'
-import ViewGem from './components/viewGem'
-import CreateGem from './components/createGem'
-import Register from './components/register'
-import Login from './components/Login'
-import styled from 'styled-components'
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import React, { useState } from "react";
+import NavBar from "./components/navbar";
+import Map from "./components/map";
+import ViewGem from "./components/viewGem";
+import CreateGem from "./components/createGem";
+import styled from "styled-components";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-function App () {
+const BACKEND_URL = process.env.BACKEND_URL
+
+function App() {
   const MapAndGems = styled.div`
-  display: flex;
-  height: 100vh;
-  min-height: 100vh;
-  `
+    display: flex;
+    height: 100vh;
+    min-height: 100vh;
+  `;
 
-  const [[latitude, longitude], setLatLong] = useState([33.812468, -117.918989])
+  const [[latitude, longitude], setLatLong] = useState([36.955992,-121.971428])
   const [refresh, setRefresh] = useState(false);
   const updatePosition = (latitude, longitude) => {
     setLatLong([latitude, longitude])
@@ -26,9 +26,6 @@ function App () {
       <div>
         <NavBar />
         <div>
-          
-        
-       
           <MapAndGems>
             <Map refresh={refresh} latitude={latitude} longitude={longitude} />
             <Route exact path='/' />
@@ -38,7 +35,6 @@ function App () {
               <Route path='/Register' component={Register} />
               <Route path='/Login' component={Login} />
           </MapAndGems>
-          
         </div>
       </div>
     </Router>
