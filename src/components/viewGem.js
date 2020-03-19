@@ -51,7 +51,7 @@ const Card = styled.div`
    `
 
       const Card2 = styled.div`
-    border: 3px solid black;
+    border-left: 3px solid black;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
