@@ -117,7 +117,7 @@ function Register (props) {
 
   function handleSubmit (form) {
     console.log(form)
-    axios.post('https://geoseek-be-stage.herokuapp.com/api/users/register', form)
+    axios.post('process.env.REACT_APP_BACKEND_URL + "/api/users/register', form)
       .then(res => {
         console.log(res)
       })

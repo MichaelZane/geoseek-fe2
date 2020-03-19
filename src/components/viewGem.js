@@ -76,7 +76,7 @@ export default function ViewGem ({updatePosition, setRegLogRendered}) {
 
   useEffect(() => {
     axios
-      .get("https://geoseek-be-stage.herokuapp.com/api/gems")
+      .get(process.env.REACT_APP_BACKEND_URL + "/api/gems")
       .then(res => {
         console.log(res);
         setGems(res.data);
@@ -96,7 +96,7 @@ export default function ViewGem ({updatePosition, setRegLogRendered}) {
       gem_id: gemId,
       completed_by: userToken
     }
-    axios.post('https://geoseek-be.herokuapp.com/api/completed/', body)
+    axios.post(process.env.REACT_APP_BACKEND_URL + "/api/completed/", body)
       .then(res => {
         console.log(res)
       })
@@ -181,7 +181,7 @@ export default function ViewGem ({updatePosition, setRegLogRendered}) {
 //     const [filtered, setFiltered]= useState([])
 
 //     useEffect(() => {
-//         axios.get('https://geoseek-be.herokuapp.com/api/gems')
+//         axios.get(process.env.REACT_APP_BACKEND_URL + "/api/gems")
 //             .then(res => {
 //                 setGems(res.data)
 //             })
@@ -196,7 +196,7 @@ export default function ViewGem ({updatePosition, setRegLogRendered}) {
 //             gem_id: gemId,
 //             completed_by: userToken
 //         }
-//         axios.post('https://geoseek-be.herokuapp.com/api/completed/', body)
+//         axios.post(process.env.REACT_APP_BACKEND_URL + "/api/completed/", body)
 //             .then(res=>{
 //                 console.log(res)
 //             })

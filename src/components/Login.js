@@ -113,7 +113,7 @@ function Login (props) {
 
   function handleSubmit (form) {
     axios
-      .post("https://geoseek-be-stage.herokuapp.com/api/users/login", form)
+      .post(process.env.REACT_APP_BACKEND_URL + "/api/users/login", form)
       .then(res => {
         console.log(res);
         localStorage.setItem("token", res.data.token);
