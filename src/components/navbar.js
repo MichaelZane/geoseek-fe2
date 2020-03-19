@@ -70,7 +70,9 @@ function NavBar (props) {
         <Link className='button' to='/Login'>Log In</Link>
         <Link className='button' to='/CreateGem'>Create a Gem</Link>
         <Link className='button' to='/ViewGem'>View Gems</Link>
-        <LogOut />
+        {localStorage.getItem("token") && (
+        <LogOut/>
+        )}
       </div>
     </Nav>
   );

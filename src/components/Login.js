@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react'
 import { useForm } from 'react-hook-form';
-import axios from 'axios'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 import axiosWithAuth from '../utils/axiosWithAuth';
@@ -85,6 +84,11 @@ border-left: 3px solid black;
     .Form_Link {
         color: #FF69B4;
     }
+    .error {
+      color: red;
+      margin: 0;
+      text-align: center;
+    }
 `
 
 
@@ -98,7 +102,6 @@ function Login (props) {
   console.log(errors);
 
  const onLoginSubmit = (e) => {
-
     axiosWithAuth()
       .post("/api/users/login", form)
       .then(res => {
@@ -114,6 +117,14 @@ function Login (props) {
   useEffect(() => {
     props.setRegLogRendered(true)
   }, [])
+
+  function handleChange (e) {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value
+    })
+  }
+  
   return (
     <FormContainer>
         <RegisterDiv>
@@ -132,17 +143,19 @@ function Login (props) {
         <Input
           name='username'
           placeholder='Username'
-          ref={register({required: true, minLength: { value: 2, message: 'must be 2 or more characters.' }, maxLength: 20})}
+          onChange={handleChange}
+          ref={register({required: true, minLength: 4, maxLength: 20})}
         />
-        {errors.username && <p>It must be a valid username</p>}
+        {errors.username && <p className='error' >❌ It must be a valid username ❕</p>}
         <Label>Password:</Label>
         <Input
           name='password'
           type='password'
           placeholder='Password'
-          ref={register({required: true, minLength: { value: 4, message: 'must be 4 or more characters.' }, maxLength: 20})}
+          onChange={handleChange}
+          ref={register({required: true, minLength: 4, maxLength: 20})}
         />
-        {errors.password && <p>It must be a valid password</p>}
+        {errors.password && <p className='error' >❌ It must be a valid password ❕</p>}
         <Button type='submit'>Log in</Button>
         <p>Don't have an account? <Link className='Form_Link' to='/Register'>Sign Up</Link></p>
        

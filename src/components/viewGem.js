@@ -130,7 +130,7 @@ overflow-y: auto;
                                 <div onClick={() => updatePosition(gem.latitude, gem.longitude)}>
                                     <Link className = 'button'>Click To View Location</Link>
                                     {localStorage.getItem("token") && (
-                                        <Link className= 'button' onClick={()=>markComplete(gem.id)}>Mark As Complete</Link>
+                                        <Link className= 'button' onClick={()=>markComplete(gem.id)}>Mark Complete</Link>
                                     )}
                                 </div>
                             </div>

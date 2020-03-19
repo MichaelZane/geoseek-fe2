@@ -35,8 +35,7 @@ function App() {
             <Route path='/ViewGem' component={() => <ViewGem updatePosition={updatePosition} />} />
             <Route path='/CreateGem'
               render={(props) => <CreateGem {...props} latitude={latitude} longitude={longitude} updatePosition={updatePosition} setRefresh={setRefresh} />} />
-              {/* <Route path='/Register' component={Register} /> */}
-              {/* <Route path='/Login' component={Login} /> */}
+
           </MapAndGems>
           
         </div>

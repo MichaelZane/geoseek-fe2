@@ -46,7 +46,7 @@ class LogOut extends React.Component {
       return <Redirect to="/" push={true} />;
     }
 
-    return <Btn className='logout-button' onClick={this.logout}>Log Out</Btn>;
+    return <Btn onClick={this.logout}>Log Out</Btn>;
   }
 }
 

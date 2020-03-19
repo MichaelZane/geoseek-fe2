@@ -86,9 +86,15 @@ border-left: 3px solid black;
         text-align: center;
     }
     .Form_Link {
-        color: #FF69B4;
-       
+        color: #FF69B4;  
     }
+
+    .error {
+      color: red;
+      margin: 0;
+      text-align: center;
+    }
+    
 `
 
 function Register (props) {
@@ -115,6 +121,12 @@ function Register (props) {
     props.setRegLogRendered(true)
   }, [])
 
+  function handleChange (e) {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value
+    })
+  }
   
   
   return (
@@ -129,34 +141,40 @@ function Register (props) {
         </div>
       </RegisterDiv>
 
-      <Form onSubmit={handleSubmit(onRegisterSubmit)}>
+      <Form onSubmit={handleSubmit(onRegisterSubmit)}
+      noValidate
+      >
         <h1>Sign Up</h1>
         <Label>USERNAME</Label>
         <Input
           name='username'
           placeholder='Username'
           value={form.name}
-          ref={register({required: true, minLength: 2, maxLength: 80})} 
+          onChange={handleChange}
+          ref={register({required: true, minLength: 4, maxLength: 20})} 
         />
-        {errors.username && <p>Your username is less than 2 characters</p>}
+        {errors.username && <p className='error' >❌ Your username is less than 4 characters ❗️</p>}
         <Label>EMAIL</Label>
         <Input
           name='email'
           type='email'
           placeholder='Email'
-          value={form.name}  
-          ref={register({required: true, pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,})} 
+          value={form.name}
+          onChange={handleChange}  
+          ref={register({required: true, pattern: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/, minLength: 4, maxLength: 30
+          })}
         />
-        {errors.email && <p>Your email must be valid</p>}
+        {errors.email && <p className='error' >❌ Must be a valid Email❕</p>}
         <Label>PASSWORD</Label>
         <Input
           name='password'
           type='password'
           value={form.name}
-          placeholder='Password' 
-          ref={register({required: true, minLength: { value: 4, message: 'must be 4 or more characters.' }, maxLength: 20})} 
+          placeholder='Password'
+          onChange={handleChange} 
+          ref={register({required: true, minLength: 4, maxLength: 20})} 
         />
-        {errors.password && <p>Your password is less than 4 characters</p>}
+        {errors.password && <p className='error' >❌ Your password is less than 4 characters ❗️</p>}
         <Button type='submit'>Register</Button>
         <p>Already have an account? <Link className='Form_Link' to='/Login'>Sign In</Link></p>
        
