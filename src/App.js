@@ -1,9 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, Component } from "react";
 import NavBar from "./components/navbar";
 import Map from "./components/map";
 import ViewGem from "./components/viewGem";
 import CreateGem from "./components/createGem";
 import styled from "styled-components";
+
+
+
+
+import './App.css';
+import Header from './components/Header/Header';
+import Gallery from './components/Gallery/Gallery';
+import Roadmap from './components/Roadmap/Roadmap'; // Dont delete
+import Footer from './components/Footer/Footer';
+import {Container} from 'reactstrap';
+
+
+
+
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 const BACKEND_URL = process.env.BACKEND_URL
@@ -49,6 +63,7 @@ function App() {
               )}
             />
           </MapAndGems>
+          <landingPage/>
         </div>
       </div>
     </Router>
