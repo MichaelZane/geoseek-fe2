@@ -36,7 +36,7 @@ class LogOut extends React.Component {
     navigate: false
   };
   logout = () => {
-    localStorage.clear("token");
+    localStorage.removeItem("token");
     this.setState({ navigate: true });
   };
   render() {
