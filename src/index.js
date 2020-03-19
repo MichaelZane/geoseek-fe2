@@ -3,11 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import AppRedux from './AppRedux';
 import * as serviceWorker from './serviceWorker';
-<<<<<<< HEAD
-;
-
-
-=======
 import thunk from "redux-thunk";
 import logger from "redux-logger";
 import {Provider} from "react-redux";
@@ -16,8 +11,8 @@ import {BrowserRouter as Router} from "react-router-dom";
 
 import {createStore, applyMiddleware} from "redux";
 import {gemReducer} from './reducer/gemReducer';
->>>>>>> 9b5e8e0fd5eac9360fd9255b200c150826b5295b
 
+const store = createStore(gemReducer, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
   <Provider store={store}>

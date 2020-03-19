@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react'
+import { useForm } from 'react-hook-form';
 import axios from 'axios'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
+import axiosWithAuth from '../utils/axiosWithAuth';
 
 
 const FormContainer = styled.div`
@@ -85,29 +87,28 @@ border-left: 3px solid black;
     }
 `
 
+
 function Login (props) {
+  const { register, handleSubmit, errors } = useForm();
   const [form, setForm] = useState({
     username: '',
     password: ''
   })
 
-  function handleSubmit (form) {
-    axios
-      .post("http://localhost:5000/api/users/login", form)
+  console.log(errors);
+
+ const onLoginSubmit = (e) => {
+
+    axiosWithAuth()
+      .post("/api/users/login", form)
       .then(res => {
+       localStorage.setItem("token", res.data.token);
+        props.history.push('/')
         console.log(res);
-        localStorage.setItem("token", res.data.token);
       })
       .catch(err => {
         console.log(err);
       });
-  }
-
-  function handleChange (e) {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value
-    })
   }
 
   useEffect(() => {
@@ -125,27 +126,26 @@ function Login (props) {
         </div>
       </RegisterDiv>
 
-      <Form onSubmit={(e) => {
-        e.preventDefault();
-        handleSubmit(form)
-        props.history.push('/')
-      }}>
+      <Form onSubmit={handleSubmit(onLoginSubmit)} >
         <h1>Sign in.</h1>
         <Label>Username:</Label>
         <Input
           name='username'
           placeholder='Username'
-          onChange={(e) => {handleChange(e)}}
+          ref={register({required: true, minLength: { value: 2, message: 'must be 2 or more characters.' }, maxLength: 20})}
         />
+        {errors.username && <p>It must be a valid username</p>}
         <Label>Password:</Label>
         <Input
           name='password'
           type='password'
           placeholder='Password'
-          onChange={(e) => {handleChange(e)}}
+          ref={register({required: true, minLength: { value: 4, message: 'must be 4 or more characters.' }, maxLength: 20})}
         />
+        {errors.password && <p>It must be a valid password</p>}
         <Button type='submit'>Log in</Button>
         <p>Don't have an account? <Link className='Form_Link' to='/Register'>Sign Up</Link></p>
+       
       </Form>
     </FormContainer>
   )

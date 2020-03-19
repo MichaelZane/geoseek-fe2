@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react'
+import { useForm } from 'react-hook-form';
 import axios from 'axios'
 import styled from 'styled-components'
 import '../index.css'
 import {Link} from 'react-router-dom'
+
 
 const FormContainer = styled.div`
 
@@ -80,48 +82,41 @@ border-left: 3px solid black;
     }
     p {
         color: white;
-        margin: 50px 0px 0px 0px;
+        margin: 20px 0px 0px 0px;
         text-align: center;
     }
     .Form_Link {
         color: #FF69B4;
+       
     }
 `
 
 function Register (props) {
+  const { register, handleSubmit, errors } = useForm();
   const [form, setForm] = useState({
     username: "",
     email: "",
     password: ""
   })
 
-<<<<<<< HEAD
-  function handleSubmit(form) {
-    console.log(form);
+  console.log(errors);
+
+  const onRegisterSubmit = form => {
     axios
-      .post("http://localhost:5000/api/users/register", form)
-=======
-  function handleSubmit (form) {
-    console.log(form)
-    axios.post('https://geoseek-be-stage.herokuapp.com/api/users/register', form)
->>>>>>> 9b5e8e0fd5eac9360fd9255b200c150826b5295b
+      .post('https://geoseek-be-stage.herokuapp.com/api/users/register', form)
       .then(res => {
-        console.log(res)
+        console.log(res.data)
+        props.history.push('/Login')
       })
       .catch(err => {console.log(err)})
-  }
-
-  function handleChange (e) {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value
-    })
   }
 
   useEffect(() => {
     props.setRegLogRendered(true)
   }, [])
 
+  
+  
   return (
     <FormContainer>
       <RegisterDiv>
@@ -134,37 +129,37 @@ function Register (props) {
         </div>
       </RegisterDiv>
 
-      <Form onSubmit={(e) => {
-        e.preventDefault();
-        handleSubmit(form)
-        props.history.push('/Login')
-      }}>
+      <Form onSubmit={handleSubmit(onRegisterSubmit)}>
         <h1>Sign Up</h1>
         <Label>USERNAME</Label>
         <Input
           name='username'
           placeholder='Username'
           value={form.name}
-          onChange={(e) => {handleChange(e)}}
+          ref={register({required: true, minLength: 2, maxLength: 80})} 
         />
+        {errors.username && <p>Your username is less than 2 characters</p>}
         <Label>EMAIL</Label>
         <Input
           name='email'
           type='email'
           placeholder='Email'
-          value={form.name}
-          onChange={(e) => {handleChange(e)}}
+          value={form.name}  
+          ref={register({required: true, pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,})} 
         />
+        {errors.email && <p>Your email must be valid</p>}
         <Label>PASSWORD</Label>
         <Input
           name='password'
           type='password'
           value={form.name}
-          placeholder='Password'
-          onChange={(e) => {handleChange(e)}}
+          placeholder='Password' 
+          ref={register({required: true, minLength: { value: 4, message: 'must be 4 or more characters.' }, maxLength: 20})} 
         />
+        {errors.password && <p>Your password is less than 4 characters</p>}
         <Button type='submit'>Register</Button>
         <p>Already have an account? <Link className='Form_Link' to='/Login'>Sign In</Link></p>
+       
       </Form>
     </FormContainer>
   )

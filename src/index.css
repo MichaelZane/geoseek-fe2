@@ -139,3 +139,7 @@ select:-webkit-autofill:focus {
   width: 55vh;
  }
 
+ #firstNameError {
+   width: 330px;
+   color: white;
+ }

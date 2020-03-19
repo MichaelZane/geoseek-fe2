@@ -6,7 +6,7 @@ import CreateGem from "./components/createGem";
 import styled from "styled-components";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-const BACKEND_URL = process.env.BACKEND_URL
+
 
 function App() {
   const MapAndGems = styled.div`
@@ -35,8 +35,8 @@ function App() {
             <Route path='/ViewGem' component={() => <ViewGem updatePosition={updatePosition} />} />
             <Route path='/CreateGem'
               render={(props) => <CreateGem {...props} latitude={latitude} longitude={longitude} updatePosition={updatePosition} setRefresh={setRefresh} />} />
-              <Route path='/Register' component={Register} />
-              <Route path='/Login' component={Login} />
+              {/* <Route path='/Register' component={Register} /> */}
+              {/* <Route path='/Login' component={Login} /> */}
           </MapAndGems>
           
         </div>
