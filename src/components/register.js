@@ -164,7 +164,7 @@ function Register (props) {
           ref={register({required: true, pattern: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/, minLength: 4, maxLength: 30
           })}
         />
-        {errors.email && <p className='error' >❌ Must be a valid Email❕</p>}
+        {errors.email && <p className='error' >❌ Must be a valid Email ❗️</p>}
         <Label>PASSWORD</Label>
         <Input
           name='password'

@@ -146,7 +146,7 @@ function Login (props) {
           onChange={handleChange}
           ref={register({required: true, minLength: 4, maxLength: 20})}
         />
-        {errors.username && <p className='error' >❌ It must be a valid username ❕</p>}
+        {errors.username && <p className='error' >❌  It must be a valid username ❗️</p>}
         <Label>Password:</Label>
         <Input
           name='password'
@@ -155,7 +155,7 @@ function Login (props) {
           onChange={handleChange}
           ref={register({required: true, minLength: 4, maxLength: 20})}
         />
-        {errors.password && <p className='error' >❌ It must be a valid password ❕</p>}
+        {errors.password && <p className='error' >❌  It must be a valid password ❗️</p>}
         <Button type='submit'>Log in</Button>
         <p>Don't have an account? <Link className='Form_Link' to='/Register'>Sign Up</Link></p>
        

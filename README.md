@@ -3,15 +3,15 @@
 
  You can find the deployed project at [Deployed Project]( geoseeklambdalabs.xyz).
 
-## Contributors
-
-[![Maintainability](https://api.codeclimate.com/v1/badges/19602e51aa1666635be7/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/geoseek-fe/maintainability)
+ [![Maintainability](https://api.codeclimate.com/v1/badges/19602e51aa1666635be7/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/geoseek-fe/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/19602e51aa1666635be7/test_coverage)](https://codeclimate.com/github/Lambda-School-Labs/geoseek-fe/test_coverage)
 ![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
 ![React](https://img.shields.io/badge/react-v16.7.0--alpha.2-blue.svg)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
  [here](https://github.com/badges/shields)
+
+## Contributors
 
 |                                       [John Marshall](https://github.com/fishmanjohn)                                        |                                       [Michael Stevens](https://github.com/mzstevens69)                                        |                                       [Dante Bui](https://github.com/dantebui)                                        
 | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: 
