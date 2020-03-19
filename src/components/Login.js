@@ -69,6 +69,7 @@ const RegisterDiv = styled.div`
 `
 const Form = styled.form`
 border-left: 3px solid black;
+height:85vh;
     width: 100vw;
     
     h1 {
@@ -97,6 +98,7 @@ function Login (props) {
       .then(res => {
         console.log(res);
         localStorage.setItem("token", res.data.token);
+        localStorage.setItem("user_id", res.data.user_id);
       })
       .catch(err => {
         console.log(err);

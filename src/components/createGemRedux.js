@@ -5,6 +5,7 @@ import {connect} from "react-redux"
 import {postGem} from '../actions'
 
 const FormContainer = styled.div`
+height: 815vh;
 max-width: 400px;
 min-width: 400px;
 max-height: 87.5vh;
@@ -20,56 +21,48 @@ padding-top: 30px;
 `
 
 const Input = styled.input`
-    width: 300px;
-    padding-left: 10px;
-    font-size: .9rem;
-    border: none;
-    height: 44px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    margin: 15px auto;
-    background-color: #3E4958;
-    outline: none;
-    color: white;
-    
-    `
+width: 300px;
+padding-left: 10px;
+font-size: .9rem;
+border: none;
+height: 44px;
+border-radius: 10px;
+display: flex;
+flex-direction: column;
+margin: 15px auto;
+background-color: #3E4958;
+outline: none;
+color: white;
+`
 
 const Button = styled.button`
     width: 350px;
     height: 50px;
     border-radius: 15px;
     outline: none;
-   
-   background-color: #FF69B4;
-   border: none;
-   color: white;
-   text-align: center;
-   font-size: 20px;
-   margin: 40px 0px 40px 25px;
-   transition: 0.3s;
-   text-decoration: none;
-   cursor: pointer;
-   transition: opacity .55s ease-in-out;
-   -moz-transition: opacity .55s ease-in-out;
-   -webkit-transition: opacity .55s ease-in-out;
 
-   :hover {
-       opacity: 1.0;
-       transition: opacity .55s ease-in-out;
-       -moz-transition: opacity .55s ease-in-out;
-       -webkit-transition: opacity .55s ease-in-out;
-       background-color: #C66DB2;
+    background-color: #FF69B4;
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    margin: 40px 0px 40px 25px;
+    transition: 0.3s;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity .55s ease-in-out;
+    -moz-transition: opacity .55s ease-in-out;
+    -webkit-transition: opacity .55s ease-in-out;
 
-   }
-   `
-const ButtonContainer = styled.button`
-      background-color: #30364A;
-      border: 1px solid #30364A;
-      width: 99%;
-      display: flex;
-      justify-content: center;
-   `
+    :hover {
+        opacity: 1.0;
+        transition: opacity .55s ease-in-out;
+        -moz-transition: opacity .55s ease-in-out;
+        -webkit-transition: opacity .55s ease-in-out;
+        background-color: #C66DB2;
+    }
+    `
+
 
 const CoordButton = styled.button`
 width: 230px;
