@@ -72,7 +72,7 @@ border-left: 3px solid black;
     width: 100vw;
     
     h1 {
-        margin: 70px 0px 80px 40px;
+        margin: 30px 0px 80px 40px;
         color: white;
     }
     p {
@@ -83,6 +83,26 @@ border-left: 3px solid black;
     .Form_Link {
         color: #FF69B4;
     }
+`
+const CloseButtonDiv = styled.div`
+  display: flex;
+  justify-content: flex-end;
+
+  .X_Link {
+    color: #FF69B4;
+    text-decoration: none;
+    font-size: 30px;
+    padding: 5px;
+    margin: 5px 8px 0px 0px; 
+
+    :hover {
+      opacity: 1;
+      transition: opacity 0.55s ease-in-out;
+      -moz-transition: opacity 0.55s ease-in-out;
+      -webkit-transition: opacity 0.55s ease-in-out;
+      color: #C66DB2;
+    }
+  }
 `
 
 function Login (props) {
@@ -115,7 +135,7 @@ function Login (props) {
   }, [])
   return (
     <FormContainer>
-        <RegisterDiv>
+      <RegisterDiv>
         <div className='RegLog_Hero_Image_Container'>
           <div className='Login_Hero_Image' />
           <div className='Hero_Text'>
@@ -130,14 +150,15 @@ function Login (props) {
         handleSubmit(form)
         props.history.push('/')
       }}>
-        <h1>Sign in.</h1>
-        <Label>Username:</Label>
+        <CloseButtonDiv><Link className='X_Link' to='/'>X</Link></CloseButtonDiv>
+        <h1>Sign in</h1>
+        <Label>USERNAME</Label>
         <Input
           name='username'
           placeholder='Username'
           onChange={(e) => {handleChange(e)}}
         />
-        <Label>Password:</Label>
+        <Label>PASSWORD</Label>
         <Input
           name='password'
           type='password'
