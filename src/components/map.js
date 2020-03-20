@@ -25,13 +25,28 @@ function Map ({latitude, longitude, refresh}) {
     useEffect(() => {
         axios.get('https://geoseek-be-stage.herokuapp.com/api/gems')
             .then(res => {
-                console.log(res)
                 setGems(res.data)
             })
             .catch(err => {
                 console.log(err)
             })
     }, [refresh])
+
+    function markComplete(gemId){
+        const userToken= localStorage.getItem('userID')
+        let body={
+            gem_id: gemId,
+            completed_by: userToken
+        }
+        console.log(body)
+        axios.post('https://labs21-geoseek-be.herokuapp.com/api/completed', body)
+            .then(res=>{
+                console.log(res)
+            })
+            .catch(err=>{
+                console.log(err)
+            })
+      }
 
     return (
         <ReactMapGL className='Map'
@@ -60,6 +75,7 @@ function Map ({latitude, longitude, refresh}) {
                         <h2>{`Title: ${ selectedGem.title }`}</h2>
                         <p>{`Difficulty: ${ selectedGem.difficulty }`}</p>
                         <p>{`Description: ${ selectedGem.description }`}</p>
+                        <button onClick={markComplete(selectedGem.id)}>Mark As Complete</button>
                     </div>
                 </Popup>
             )}

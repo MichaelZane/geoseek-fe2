@@ -97,6 +97,7 @@ function Login (props) {
       .then(res => {
         console.log(res);
         localStorage.setItem("token", res.data.token);
+        localStorage.setItem('userID', res.data.user_id)
       })
       .catch(err => {
         console.log(err);

@@ -5,7 +5,7 @@ import ViewGem from './components/viewGem'
 import CreateGem from './components/createGem'
 import Register from './components/register'
 import Login from './components/Login'
-import UserDashboard from './components/userDashboard'
+import UserDashboard from './components/dashboard'
 import styled from 'styled-components'
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
@@ -32,8 +32,8 @@ function App() {
           <MapAndGems>
             <Map refresh={refresh} latitude={latitude} longitude={longitude} />
             <Route exact path='/' />
-            <Route path='/userDash' component={UserDashboard}/>
             <Route path='/ViewGem' component={() => <ViewGem updatePosition={updatePosition} />} />
+            <Route path='/UserDash' component={UserDashboard}/>
             <Route path='/CreateGem'
               render={(props) => <CreateGem {...props} latitude={latitude} longitude={longitude} updatePosition={updatePosition} setRefresh={setRefresh} />} />
               <Route path='/Register' component={Register} />
@@ -42,7 +42,7 @@ function App() {
         </div>
       </div>
     </Router>
-  );
+  ); 
 }
 
 export default App;

@@ -58,16 +58,15 @@ height: 100px;
   }` 
  
 function NavBar (props) {
-  return (
+  return(
     <Nav>
-      {/* <Router> */}
       <a href='/' className="sign">
         <span className="fast-flicker">g</span><span>eos</span><span className="flicker">e</span><span>ek</span>
       </a>
       <div>
         <Link className='button' to='/Register'>Register</Link>
         <Link className='button' to='/Login'>Log In</Link>
-        <Link className='link' to='/userDash'>Dashboard</Link>
+        <Link className='button' to='/UserDash'>Dashboard</Link>
         <Link className='button' to='/CreateGem'>Create a Gem</Link>
         <Link className='button' to='/ViewGem'>View Gems</Link>
       </div>
