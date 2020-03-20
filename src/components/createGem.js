@@ -108,7 +108,7 @@ const onFormChange = e => {
         onSubmit={e => {
           e.preventDefault();
           axios
-            .post(`${process.env.REACT_APP_BACKEND_STAGE_URL}/api/gems`, form)
+            .post(`${process.env.REACT_APP_BACKEND_URL}/api/gems`, form)
             .then(res => {
               submitGem();
               props.history.push("/");

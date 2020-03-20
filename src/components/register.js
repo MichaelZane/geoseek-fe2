@@ -109,7 +109,7 @@ function Register (props) {
 
   const onRegisterSubmit = form => {
     axios
-      .post(`${process.env.REACT_APP_BACKEND_STAGE_URL}/api/users/register`, form)
+      .post(`${process.env.REACT_APP_BACKEND_URL}/api/users/register`, form)
       .then(res => {
         console.log(res.data)
         props.history.push('/Login')
