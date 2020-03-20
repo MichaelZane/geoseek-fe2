@@ -79,7 +79,7 @@ border-left: 3px solid black;
     width: 100vw;
     
     h1 {
-        margin: 70px 0px 80px 40px;
+        margin: 30px 0px 80px 40px;
         color: white;
     }
     p {
@@ -94,6 +94,26 @@ border-left: 3px solid black;
       border-left: none;
     }
 `
+const CloseButtonDiv = styled.div`
+  display: flex;
+  justify-content: flex-end;
+
+  .X_Link {
+    color: #FF69B4;
+    text-decoration: none;
+    font-size: 30px;
+    padding: 5px;
+    margin: 5px 8px 0px 0px; 
+
+    :hover {
+      opacity: 1;
+      transition: opacity 0.55s ease-in-out;
+      -moz-transition: opacity 0.55s ease-in-out;
+      -webkit-transition: opacity 0.55s ease-in-out;
+      color: #C66DB2;
+    }
+  }
+`
 
 function Register (props) {
   const [form, setForm] = useState({
@@ -104,7 +124,7 @@ function Register (props) {
 
   function handleSubmit (form) {
     console.log(form)
-    axios.post('https://geoseek-be-stage.herokuapp.com/api/users/register', form)
+    axios.post('process.env.REACT_APP_BACKEND_URL + "/api/users/register', form)
       .then(res => {
         console.log(res)
       })
@@ -139,6 +159,7 @@ function Register (props) {
         handleSubmit(form)
         props.history.push('/Login')
       }}>
+        <CloseButtonDiv><Link className='X_Link' to='/'>X</Link></CloseButtonDiv>
         <h1>Sign Up</h1>
         <Label>USERNAME</Label>
         <Input

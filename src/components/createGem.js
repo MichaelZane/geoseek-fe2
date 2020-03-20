@@ -109,7 +109,7 @@ export default function CreateGem(props) {
         onSubmit={e => {
           e.preventDefault();
           axios
-            .post("https://geoseek-be-stage.herokuapp.com/api/gems", form)
+            .post(process.env.REACT_APP_BACKEND_URL + "/api/gems", form)
             .then(res => {
               submitGem();
               props.history.push("/");

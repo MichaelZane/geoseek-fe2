@@ -3,6 +3,7 @@ import axios from 'axios'
 import styled from 'styled-components'
 import {connect} from "react-redux"
 import {postGem} from '../actions'
+import {Link} from 'react-router-dom'
 
 const FormContainer = styled.div`
 height: 815vh;
@@ -22,7 +23,6 @@ overflow-y: auto;
 const Form = styled.form`
 max-width: 99%;
 margin: 0px;
-padding-top: 30px;
 `
 
 const Input = styled.input`
@@ -67,8 +67,7 @@ const Button = styled.button`
         background-color: #C66DB2;
     }
     `
-
-
+    
 const CoordButton = styled.button`
 width: 230px;
 height: 50px;
@@ -102,6 +101,27 @@ const Label = styled.label`
        margin-left: 10%;
        color: white;
    `
+const CloseButtonDiv = styled.div`
+   display: flex;
+   justify-content: flex-end;
+ 
+   .X_Link {
+     color: #FF69B4;
+     text-decoration: none;
+     font-size: 30px;
+     padding: 5px;
+     margin: 5px 8px 0px 0px; 
+ 
+     :hover {
+       opacity: 1;
+       transition: opacity 0.55s ease-in-out;
+       -moz-transition: opacity 0.55s ease-in-out;
+       -webkit-transition: opacity 0.55s ease-in-out;
+       color: #C66DB2;
+     }
+   }
+ `
+
 //////////////////////////////////////////////////////////////////////////////
 function CreateGem (props) {
 
@@ -128,27 +148,27 @@ function CreateGem (props) {
 
     const handleGeocodeSubmit = e => {
         e.preventDefault()
-        if(address === ''){alert('enter an address') && setAddress('')}else{
-        function geocode (address) {
-            axios
-                .get(`https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?f=json&singleLine=${ address.address }&outFields=Match_addr,Addr_type`)
-                .then(res => {
-                    console.log(res, '********get req********************')
-                    setNewGem(
-                        {
-                            ...newGem,
-                            longitude: res.data.candidates[0].location.x,
-                            latitude: res.data.candidates[0].location.y
-                        }
-                    )
-                })
-                .catch(err => {
-                    console.log("***********************gecode err********************************", err)
-                })
+        if (address === '') {alert('enter an address') && setAddress('')} else {
+            function geocode (address) {
+                axios
+                    .get(`https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?f=json&singleLine=${ address.address }&outFields=Match_addr,Addr_type`)
+                    .then(res => {
+                        console.log(res, '********get req********************')
+                        setNewGem(
+                            {
+                                ...newGem,
+                                longitude: res.data.candidates[0].location.x,
+                                latitude: res.data.candidates[0].location.y
+                            }
+                        )
+                    })
+                    .catch(err => {
+                        console.log("***********************gecode err********************************", err)
+                    })
+            }
+            geocode(address)
         }
-        geocode(address)
     }
-}
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -180,6 +200,7 @@ function CreateGem (props) {
         })
             }}
             /> */}
+                <CloseButtonDiv><Link className='X_Link' to='/'>X</Link></CloseButtonDiv>
                 <Label>TITLE</Label>
                 <Input
                     className='input'
@@ -225,9 +246,9 @@ function CreateGem (props) {
                     onChange={handleChanges}
                 />
 
-            
-                    <Button type='submit'>Create Gem!</Button>
-                
+
+                <Button type='submit'>Create Gem!</Button>
+
             </Form>
         </FormContainer>
     )

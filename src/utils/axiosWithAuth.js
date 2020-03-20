@@ -4,7 +4,7 @@ const axiosWithAuth = () => {
   const token = localStorage.getItem("token");
 
   return axios.create({
-    baseURL: "https://geoseek-be-stage.herokuapp.com",
+    baseURL: process.env.REACT_APP_BACKEND_URL,
               
     headers: {
       Authorization: token
