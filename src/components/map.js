@@ -39,7 +39,7 @@ function Map ({latitude, longitude, refresh}) {
             completed_by: userToken
         }
         console.log(body)
-        axios.post('https://labs21-geoseek-be.herokuapp.com/api/completed', body)
+        axios.post('https://geoseek-be-stage.herokuapp.com/api/completed', body)
             .then(res=>{
                 console.log(res)
             })
@@ -75,7 +75,7 @@ function Map ({latitude, longitude, refresh}) {
                         <h2>{`Title: ${ selectedGem.title }`}</h2>
                         <p>{`Difficulty: ${ selectedGem.difficulty }`}</p>
                         <p>{`Description: ${ selectedGem.description }`}</p>
-                        <button onClick={markComplete(selectedGem.id)}>Mark As Complete</button>
+                        <button type='submit' onSubmit={markComplete(selectedGem.id)}>Mark As Complete</button>
                     </div>
                 </Popup>
             )}

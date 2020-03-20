@@ -106,11 +106,14 @@ const Label = styled.label`
    `
 //////////////////////////////////////////////////////////////////////////////
 function CreateGem (props) {
-
+    const userID= localStorage.getItem('userID')
     const [newGem, setNewGem] = useState({
         title: '',
+        created_by_user: userID,
         longitude: '',
         latitude: '',
+        difficulty: '',
+        description: ''
     })
 
     const [address, setAddress] = useState('')
@@ -124,8 +127,9 @@ function CreateGem (props) {
     const handleChanges = e => {
         setNewGem({
             ...newGem,
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
         })
+        console.log(newGem, 'newGem')
     }
 
     const handleGeocodeSubmit = e => {
@@ -136,6 +140,7 @@ function CreateGem (props) {
                 .get(`https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?f=json&singleLine=${ address.address }&outFields=Match_addr,Addr_type`)
                 .then(res => {
                     console.log(res, '********get req********************')
+                    console.log(newGem)
                     setNewGem(
                         {
                             ...newGem,
@@ -143,6 +148,8 @@ function CreateGem (props) {
                             latitude: res.data.candidates[0].location.y
                         }
                     )
+                    console.log(newGem.longitude, 'long')
+                    console.log(newGem.latitude, 'latitude')
                 })
                 .catch(err => {
                     console.log("***********************gecode err********************************", err)
@@ -200,8 +207,7 @@ function CreateGem (props) {
                     onChange={handleAddressChanges}
                     onBlur={handleGeocodeSubmit}
                 />
-                {console.log('address state', address)}
-                {/* <ButtonContainer>
+                                {/* <ButtonContainer>
                     <CoordButton onClick={handleGeocodeSubmit}> Get your Coordinates</CoordButton>
                 </ButtonContainer> */}
 
@@ -215,7 +221,7 @@ function CreateGem (props) {
                     className='input'
                     name='difficulty'
                     placeholder='Choose 1-5 for difficulty '
-                    value={newGem.name}
+                    value={newGem.difficulty}
                     onChange={handleChanges}
                 />
                 <Label>DESCRIPTION</Label>
@@ -223,7 +229,7 @@ function CreateGem (props) {
                     className='input'
                     name='description'
                     placeholder='Describe or give clues to find your gem.'
-                    value={newGem.name}
+                    value={newGem.description}
                     onChange={handleChanges}
                 />
 

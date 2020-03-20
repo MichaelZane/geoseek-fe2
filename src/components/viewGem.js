@@ -172,7 +172,7 @@ export default function ViewGem ({updatePosition}) {
     const [filtered, setFiltered]= useState([])
 
     useEffect(() => {
-        axios.get('https://geoseek-be.herokuapp.com/api/gems')
+        axios.get('https://geoseek-be-stage.herokuapp.com/api/gems')
             .then(res => {
                 setGems(res.data)
             })
@@ -188,7 +188,7 @@ export default function ViewGem ({updatePosition}) {
             completed_by: userToken
         }
         console.log(body, 'body')
-        axios.post('https://labs21-geoseek-be.herokuapp.com/api/completed', body)
+        axios.post('https://geoseek-be-stage.herokuapp.com/api/completed', body)
             .then(res=>{
                 console.log(res)
             })
