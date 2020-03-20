@@ -9,6 +9,9 @@ const FormContainer = styled.div`
   background-color: #30364a;
   border-left: 3px solid black;
   padding-top: 30px;
+  @media(max-width: 700px){
+    border-left: none;
+  }
 `;
 
 const Input = styled.input`

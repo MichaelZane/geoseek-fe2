@@ -10,6 +10,19 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 height: 100px;
+
+@media(max-width: 1000px){
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  flex wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+@media(max-width: 700px){
+  height: 500px;
+}
+
   div {   margin-right: 2%;  } 
   
   .button {
@@ -55,22 +68,40 @@ height: 100px;
     -webkit-transition: opacity .55s ease-in-out;
     color: white;
   }
+
+
   }` 
+const ButonContainer = styled.div`
+@media(max-width: 700px){
+  height:300px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-between;
+  
+  .button{
+    height: 35px;
+    width: 300px;
+  }
+}
+`
 
 function NavBar (props) {
 
   return (
     <Nav>
       {/* <Router> */}
+      <div>
       <a href='/' className="sign">
         <span className="fast-flicker">g</span><span>eos</span><span className="flicker">e</span><span>ek</span>
       </a>
-      <div>
+      </div>
+      <ButonContainer>
         <Link className='button' to='/Register'>Register</Link>
         <Link className='button' to='/Login'>Log In</Link>
         <Link className='button' to='/CreateGem'>Create a Gem</Link>
         <Link className='button' to='/ViewGem'>View Gems</Link>
-      </div>
+      </ButonContainer>
 
       {/* <Route path = '/CreateGem' component = {CreateGem}/>
     <button onClick= {toggleGem}>View Gems</button>

@@ -12,6 +12,11 @@ max-height: 87.5vh;
 background-color: #30364A;
 border-left: 3px solid black;
 overflow-y: auto;
+@media(max-width: 700px){
+    border-left: none;
+    width: 100%;
+    overflow-y: visible;
+  }
 `
 
 const Form = styled.form`

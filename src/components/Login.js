@@ -66,6 +66,9 @@ const Input = styled.input`
 const RegisterDiv = styled.div`
     width: 100vw;
     height: 85vh;
+    @media(max-width: 700px){
+      display:none;
+    }
 `
 const Form = styled.form`
 border-left: 3px solid black;
@@ -83,6 +86,9 @@ height:85vh;
     }
     .Form_Link {
         color: #FF69B4;
+    }
+    @media(max-width: 700px){
+      border-left: none;
     }
 `
 

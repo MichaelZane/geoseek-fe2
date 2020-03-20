@@ -11,7 +11,6 @@ const Card = styled.div`
     display: flex;
     width: 250px;
     justify-content: space-evenly;
-
   `;
   const ButtonContainer = styled.div`
   width: 200px;
@@ -19,7 +18,7 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-
+  
   .button {
     margin: 5px 3px;
     width: 200px;
