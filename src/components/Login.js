@@ -68,29 +68,45 @@ const RegisterDiv = styled.div`
   height: 85vh;
 `;
 const Form = styled.form`
-  border-left: 3px solid black;
-  width: 100vw;
+border-left: 3px solid black;
+    width: 100vw;
+    
+    h1 {
+        margin: 30px 0px 80px 40px;
+        color: white;
+    }
+    p {
+        color: white;
+        margin: 50px 0px 0px 0px;
+        text-align: center;
+    }
+    .Form_Link {
+        color: #FF69B4;
+    }
+`
+const CloseButtonDiv = styled.div`
+  display: flex;
+  justify-content: flex-end;
 
-  h1 {
-    margin: 70px 0px 80px 40px;
-    color: white;
-  }
-  p {
-    color: white;
-    margin: 50px 0px 0px 0px;
-    text-align: center;
-  }
-  .Form_Link {
-    color: #ff69b4;
-  }
-  .error {
-    color: red;
-    margin: 0;
-    text-align: center;
-  }
-`;
+  .X_Link {
+    color: #FF69B4;
+    text-decoration: none;
+    font-size: 30px;
+    padding: 5px;
+    margin: 5px 8px 0px 0px; 
 
-function Login(props) {
+    :hover {
+      opacity: 1;
+      transition: opacity 0.55s ease-in-out;
+      -moz-transition: opacity 0.55s ease-in-out;
+      -webkit-transition: opacity 0.55s ease-in-out;
+      color: #C66DB2;
+    }
+  }
+`
+
+function Login (props) {
+
   const { register, handleSubmit, errors } = useForm();
   const [form, setForm] = useState({
     username: "",
@@ -125,20 +141,19 @@ function Login(props) {
   return (
     <FormContainer>
       <RegisterDiv>
-        <div className="RegLog_Hero_Image_Container">
-          <div className="Login_Hero_Image" />
-          <div className="Hero_Text">
-            <h1 className="Hero_H1">Welcome Back!</h1>
-            <p className="Hero_P">
-              Sign in to find the hidden gems all around you.
-            </p>
+        <div className='RegLog_Hero_Image_Container'>
+          <div className='Login_Hero_Image' />
+          <div className='Hero_Text'>
+            <h1 className='Hero_H1'>Welcome Back!</h1>
+            <p className='Hero_P'>Sign in to find the hidden gems all around you.</p>
           </div>
         </div>
       </RegisterDiv>
 
       <Form onSubmit={handleSubmit(onLoginSubmit)}>
-        <h1>Sign in.</h1>
-        <Label>Username:</Label>
+        <CloseButtonDiv><Link className='X_Link' to='/'>X</Link></CloseButtonDiv>
+        <h1>Sign in</h1>
+        <Label>USERNAME</Label>
         <Input
           name="username"
           placeholder="Username"

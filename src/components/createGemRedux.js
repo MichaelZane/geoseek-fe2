@@ -3,6 +3,7 @@ import axios from 'axios'
 import styled from 'styled-components'
 import {connect} from "react-redux"
 import {postGem} from '../actions'
+import {Link} from 'react-router-dom'
 
 const FormContainer = styled.div`
 max-width: 400px;
@@ -16,7 +17,6 @@ overflow-y: auto;
 const Form = styled.form`
 max-width: 99%;
 margin: 0px;
-padding-top: 30px;
 `
 
 const Input = styled.input`
@@ -63,47 +63,32 @@ const Button = styled.button`
 
    }
    `
-const ButtonContainer = styled.button`
-      background-color: #30364A;
-      border: 1px solid #30364A;
-      width: 99%;
-      display: flex;
-      justify-content: center;
-   `
-
-const CoordButton = styled.button`
-width: 230px;
-height: 50px;
-border-radius: 15px;
-outline: none;
-
-background-color: #C66DB2;
-border: none;
-color: white;
-text-align: center;
-font-size: 20px;
-margin: 20px 0px 35px 0px;
-transition: 0.3s;
-text-decoration: none;
-cursor: pointer;
-transition: opacity .55s ease-in-out;
--moz-transition: opacity .55s ease-in-out;
--webkit-transition: opacity .55s ease-in-out;
-
-:hover {
-   opacity: 1.0;
-   transition: opacity .55s ease-in-out;
-   -moz-transition: opacity .55s ease-in-out;
-   -webkit-transition: opacity .55s ease-in-out;
-   background-color: #FF69B4;
-   border: 2px solid black;
-}
-`
 
 const Label = styled.label`
        margin-left: 10%;
        color: white;
    `
+const CloseButtonDiv = styled.div`
+   display: flex;
+   justify-content: flex-end;
+ 
+   .X_Link {
+     color: #FF69B4;
+     text-decoration: none;
+     font-size: 30px;
+     padding: 5px;
+     margin: 5px 8px 0px 0px; 
+ 
+     :hover {
+       opacity: 1;
+       transition: opacity 0.55s ease-in-out;
+       -moz-transition: opacity 0.55s ease-in-out;
+       -webkit-transition: opacity 0.55s ease-in-out;
+       color: #C66DB2;
+     }
+   }
+ `
+
 //////////////////////////////////////////////////////////////////////////////
 function CreateGem (props) {
 
@@ -130,27 +115,27 @@ function CreateGem (props) {
 
     const handleGeocodeSubmit = e => {
         e.preventDefault()
-        if(address === ''){alert('enter an address') && setAddress('')}else{
-        function geocode (address) {
-            axios
-                .get(`https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?f=json&singleLine=${ address.address }&outFields=Match_addr,Addr_type`)
-                .then(res => {
-                    console.log(res, '********get req********************')
-                    setNewGem(
-                        {
-                            ...newGem,
-                            longitude: res.data.candidates[0].location.x,
-                            latitude: res.data.candidates[0].location.y
-                        }
-                    )
-                })
-                .catch(err => {
-                    console.log("***********************gecode err********************************", err)
-                })
+        if (address === '') {alert('enter an address') && setAddress('')} else {
+            function geocode (address) {
+                axios
+                    .get(`https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?f=json&singleLine=${ address.address }&outFields=Match_addr,Addr_type`)
+                    .then(res => {
+                        console.log(res, '********get req********************')
+                        setNewGem(
+                            {
+                                ...newGem,
+                                longitude: res.data.candidates[0].location.x,
+                                latitude: res.data.candidates[0].location.y
+                            }
+                        )
+                    })
+                    .catch(err => {
+                        console.log("***********************gecode err********************************", err)
+                    })
+            }
+            geocode(address)
         }
-        geocode(address)
     }
-}
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -182,6 +167,7 @@ function CreateGem (props) {
         })
             }}
             /> */}
+                <CloseButtonDiv><Link className='X_Link' to='/'>X</Link></CloseButtonDiv>
                 <Label>TITLE</Label>
                 <Input
                     className='input'
@@ -227,9 +213,9 @@ function CreateGem (props) {
                     onChange={handleChanges}
                 />
 
-            
-                    <Button type='submit'>Create Gem!</Button>
-                
+
+                <Button type='submit'>Create Gem!</Button>
+
             </Form>
         </FormContainer>
     )
