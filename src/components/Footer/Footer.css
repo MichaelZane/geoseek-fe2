@@ -4,7 +4,7 @@
     width: 100%;
     height: auto;
     padding: 10%;
-    background-color: rgb(245, 248, 252);
+    background-color:#2E333A;
     -webkit-clip-path: polygon(0% 10%, 100% 0%, 100% 100%, 0% 100%);
     clip-path: polygon(0% 10%, 100% 0%, 100% 100%, 0% 100%);
 }

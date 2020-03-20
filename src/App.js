@@ -17,6 +17,18 @@ import {Container} from 'reactstrap';
 
 
 
+// <Container>
+//         <Header/>
+//         <Gallery/>
+//         <h2 className="lead2 gallery_content">
+//           Connect to our App to see much more gems! ---- George Raymond or Anthony Lopez will remove
+//         </h2>
+//         {/* <Roadmap/> */}
+//         <Footer/>
+  // </Container> 
+    
+
+
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
