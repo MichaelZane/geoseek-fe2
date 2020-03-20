@@ -57,14 +57,23 @@ code {
   height: 800px;
   margin: 0px;
 }
-.popup {
+#popup {
   width: 25%;
+  background-color: #3E4958;
 }
 
 .App {
   display: flex;
 }
 
+.mapboxgl-popup-content {
+  position: relative;
+  background:gray;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.1);
+  padding: 10px 10px 15px;
+  pointer-events: auto;
+}
 
 
 /* INPUT AUTOFILL COLOR OVERRIDE */
@@ -138,4 +147,6 @@ select:-webkit-autofill:focus {
   border: 2px solid blue;
   width: 55vh;
  }
+
+ 
 

@@ -55,7 +55,7 @@ function Map ({latitude, longitude, refresh}) {
                 </Marker>
             ))}
             {selectedGem && (
-                <Popup latitude={selectedGem.latitude} longitude={selectedGem.longitude} onClose={() => setSelectedGem(null)}>
+                <Popup id ='popup' latitude={selectedGem.latitude} longitude={selectedGem.longitude} onClose={() => setSelectedGem(null)}>
                     <div>
                         <h2>{`Title: ${ selectedGem.title }`}</h2>
                         <p>{`Difficulty: ${ selectedGem.difficulty }`}</p>
