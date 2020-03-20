@@ -1,16 +1,15 @@
-import React, {useState, useEffect} from 'react'
-import { useForm } from 'react-hook-form';
-import styled from 'styled-components'
-import {Link} from 'react-router-dom'
-import axiosWithAuth from '../utils/axiosWithAuth';
-
+import React, { useState, useEffect } from "react";
+import { useForm } from "react-hook-form";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import axiosWithAuth from "../utils/axiosWithAuth";
 
 const FormContainer = styled.div`
-display: flex;
-width: 99.5vw;
-height: 88vh;
-background-color: #30364A;
-overflow-y: auto;
+  display: flex;
+  width: 99.5vw;
+  height: 88vh;
+  background-color: #30364a;
+  overflow-y: auto;
 
   .Link {
     text-decoration: none;
@@ -23,7 +22,7 @@ const Button = styled.button`
   height: 50px;
   border-radius: 15px;
   outline: none;
-  display:block;
+  display: block;
   background-color: #ff69b4;
   border: none;
   color: white;
@@ -65,103 +64,112 @@ const Input = styled.input`
   color: white;
 `;
 const RegisterDiv = styled.div`
-    width: 100vw;
-    height: 85vh;
-`
+  width: 100vw;
+  height: 85vh;
+`;
 const Form = styled.form`
-border-left: 3px solid black;
-    width: 100vw;
-    
-    h1 {
-        margin: 70px 0px 80px 40px;
-        color: white;
-    }
-    p {
-        color: white;
-        margin: 50px 0px 0px 0px;
-        text-align: center;
-    }
-    .Form_Link {
-        color: #FF69B4;
-    }
-    .error {
-      color: red;
-      margin: 0;
-      text-align: center;
-    }
-`
+  border-left: 3px solid black;
+  width: 100vw;
 
+  h1 {
+    margin: 70px 0px 80px 40px;
+    color: white;
+  }
+  p {
+    color: white;
+    margin: 50px 0px 0px 0px;
+    text-align: center;
+  }
+  .Form_Link {
+    color: #ff69b4;
+  }
+  .error {
+    color: red;
+    margin: 0;
+    text-align: center;
+  }
+`;
 
-function Login (props) {
-  const { register, handleSubmit, errors } = useForm();
+function Login(props) {
+  const { register, handleSubmit, errors } = useForm();
   const [form, setForm] = useState({
-    username: '',
-    password: ''
-  })
+    username: "",
+    password: ""
+  });
 
-  console.log(errors);
-
- const onLoginSubmit = (e) => {
+  const onLoginSubmit = () => {
     axiosWithAuth()
       .post("/api/users/login", form)
       .then(res => {
-       localStorage.setItem("token", res.data.token);
-        props.history.push('/')
-        console.log(res);
+        localStorage.setItem("token", res.data.token);
+        props.history.push("/");
       })
       .catch(err => {
-        console.log(err);
+
+        alert(`${err} Invalid username or password`);
+
       });
-  }
+  };
 
   useEffect(() => {
-    props.setRegLogRendered(true)
-  }, [])
+    props.setRegLogRendered(true);
+  }, []);
 
-  function handleChange (e) {
+  function handleChange(e) {
     setForm({
       ...form,
       [e.target.name]: e.target.value
-    })
+    });
   }
-  
+
   return (
     <FormContainer>
-        <RegisterDiv>
-        <div className='RegLog_Hero_Image_Container'>
-          <div className='Login_Hero_Image' />
-          <div className='Hero_Text'>
-            <h1 className='Hero_H1'>Welcome Back!</h1>
-            <p className='Hero_P'>Sign in to find the hidden gems all around you.</p>
+      <RegisterDiv>
+        <div className="RegLog_Hero_Image_Container">
+          <div className="Login_Hero_Image" />
+          <div className="Hero_Text">
+            <h1 className="Hero_H1">Welcome Back!</h1>
+            <p className="Hero_P">
+              Sign in to find the hidden gems all around you.
+            </p>
           </div>
         </div>
       </RegisterDiv>
 
-      <Form onSubmit={handleSubmit(onLoginSubmit)} >
+      <Form onSubmit={handleSubmit(onLoginSubmit)}>
         <h1>Sign in.</h1>
         <Label>Username:</Label>
         <Input
-          name='username'
-          placeholder='Username'
+          name="username"
+          placeholder="Username"
           onChange={handleChange}
-          ref={register({required: true, minLength: 4, maxLength: 20})}
+          ref={register({ required: true, minLength: 4, maxLength: 20 })}
         />
-        {errors.username && <p className='error' >❌  It must be a valid username ❗️</p>}
+        {errors.username && (
+          <p className="error">❌ It must be a valid username ❗️</p>
+        )}
         <Label>Password:</Label>
         <Input
-          name='password'
-          type='password'
-          placeholder='Password'
+          name="password"
+          type="password"
+          placeholder="Password"
           onChange={handleChange}
-          ref={register({required: true, minLength: 4, maxLength: 20})}
+          ref={register({ required: true, minLength: 4, maxLength: 20 })}
         />
-        {errors.password && <p className='error' >❌  It must be a valid password ❗️</p>}
-        <Button type='submit'>Log in</Button>
-        <p>Don't have an account? <Link className='Form_Link' to='/Register'>Sign Up</Link></p>
-       
+
+        {errors.password && (
+          <p className="error">❌ It must be a valid password ❗️</p>
+        )}
+        <Button type="submit">Log in</Button>
+        <p>
+          Don't have an account?{" "}
+          <Link className="Form_Link" to="/Register">
+            Sign Up
+          </Link>
+        </p>
       </Form>
     </FormContainer>
-  )
+  );
 }
 
 export default Login;

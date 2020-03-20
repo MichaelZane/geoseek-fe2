@@ -24,7 +24,7 @@ function Map ({latitude, longitude, refresh}) {
 
 
     useEffect(() => {
-        axios.get('https://geoseek-be-stage.herokuapp.com/api/gems')
+        axios.get(`${process.env.REACT_APP_BACKEND_STAGE_URL}/api/gems`)
             .then(res => {
                 console.log(res)
                 setGems(res.data)
@@ -34,7 +34,7 @@ function Map ({latitude, longitude, refresh}) {
             })
     }, [refresh])
 
-
+    
 
     return (
         <ReactMapGL className='Map'
