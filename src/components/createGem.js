@@ -8,7 +8,10 @@ const FormContainer = styled.div`
   height: 87%;
   background-color: #30364a;
   border-left: 3px solid black;
-  padding: 2% 2%;
+  padding-top: 30px;
+  @media(max-width: 700px){
+    border-left: none;
+  }
 `;
 
 const Input = styled.input`

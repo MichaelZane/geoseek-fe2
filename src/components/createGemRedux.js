@@ -6,63 +6,119 @@ import {postGem} from '../actions'
 import {Link} from 'react-router-dom'
 
 const FormContainer = styled.div`
+height: 815vh;
 max-width: 400px;
-min-width: 400px;
+min-width: 350px;
 max-height: 87.5vh;
 background-color: #30364A;
 border-left: 3px solid black;
 overflow-y: auto;
+@media(max-width: 700px){
+    border-left: none;
+    width: 100%;
+    overflow-y: visible;
+    z-index: 25;
+    position:absolute;
+    background-color: #30364a;
+    .mapboxgl-ctrl-logo{
+        display:none;
+      }
+    .mapboxgl-ctrl-attrib{
+        display: none;
+    }
+  }
 `
 
 const Form = styled.form`
 max-width: 99%;
 margin: 0px;
+@media(max-width: 700px){
+    border-left: none;
+    width: 100%;
+    overflow-y: visible;
+    z-index: 25;
+    position:absolute;
+    background-color: #30364a;
+    .mapboxgl-ctrl-logo{
+        display:none;
+      }
+    .mapboxgl-ctrl-attrib{
+        display: none;
+    }
+  }
 `
 
 const Input = styled.input`
-    width: 300px;
-    padding-left: 10px;
-    font-size: .9rem;
-    border: none;
-    height: 44px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    margin: 15px auto;
-    background-color: #3E4958;
-    outline: none;
-    color: white;
-    
-    `
+width: 300px;
+padding-left: 10px;
+font-size: .9rem;
+border: none;
+height: 44px;
+border-radius: 10px;
+display: flex;
+flex-direction: column;
+margin: 15px auto;
+background-color: #3E4958;
+outline: none;
+color: white;
+`
 
 const Button = styled.button`
     width: 350px;
     height: 50px;
     border-radius: 15px;
     outline: none;
-   
-   background-color: #FF69B4;
-   border: none;
-   color: white;
-   text-align: center;
-   font-size: 20px;
-   margin: 40px 0px 40px 25px;
-   transition: 0.3s;
-   text-decoration: none;
-   cursor: pointer;
+
+    background-color: #FF69B4;
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    margin: 40px 0px 40px 25px;
+    transition: 0.3s;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity .55s ease-in-out;
+    -moz-transition: opacity .55s ease-in-out;
+    -webkit-transition: opacity .55s ease-in-out;
+
+    :hover {
+        opacity: 1.0;
+        transition: opacity .55s ease-in-out;
+        -moz-transition: opacity .55s ease-in-out;
+        -webkit-transition: opacity .55s ease-in-out;
+        background-color: #C66DB2;
+    }
+    `
+
+const CoordButton = styled.button`
+width: 230px;
+height: 50px;
+border-radius: 15px;
+outline: none;
+
+background-color: #C66DB2;
+border: none;
+color: white;
+text-align: center;
+font-size: 20px;
+margin: 20px 0px 35px 0px;
+transition: 0.3s;
+text-decoration: none;
+cursor: pointer;
+transition: opacity .55s ease-in-out;
+-moz-transition: opacity .55s ease-in-out;
+-webkit-transition: opacity .55s ease-in-out;
+
+:hover {
+   opacity: 1.0;
    transition: opacity .55s ease-in-out;
    -moz-transition: opacity .55s ease-in-out;
    -webkit-transition: opacity .55s ease-in-out;
-
-   :hover {
-       opacity: 1.0;
-       transition: opacity .55s ease-in-out;
-       -moz-transition: opacity .55s ease-in-out;
-       -webkit-transition: opacity .55s ease-in-out;
-       background-color: #C66DB2;
-
-   }
-   `
+   background-color: #FF69B4;
+   border: 2px solid black;
+}
+`
 
 const Label = styled.label`
        margin-left: 10%;

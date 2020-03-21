@@ -18,6 +18,7 @@ overflow-y: auto;
     text-decoration: none;
     outline: none;
   }
+  
 `;
 
 const Button = styled.button`
@@ -71,6 +72,9 @@ const Input = styled.input`
 const RegisterDiv = styled.div`
     width: 100vw;
     height: 85vh;
+    @media(max-width: 700px){
+      display: none;
+    }
 `
 const Form = styled.form`
 border-left: 3px solid black;
@@ -94,7 +98,13 @@ border-left: 3px solid black;
       margin: 0;
       text-align: center;
     }
+<<<<<<< HEAD
     
+=======
+    @media(max-width: 700px){
+      border-left: none;
+    }
+>>>>>>> 4cc604861524c964bb7ec11ee11529625f7ed106
 `
 const CloseButtonDiv = styled.div`
   display: flex;

@@ -57,13 +57,15 @@ code {
   height: 800px;
   margin: 0px;
 }
-.popup {
+#popup {
   width: 25%;
+  background-color: #3E4958;
 }
 
 .App {
   display: flex;
 }
+
 
 
 
