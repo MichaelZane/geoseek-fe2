@@ -228,9 +228,9 @@ export default function ViewGem ({updatePosition}) {
                                 <GemCard key={gem.id} title={gem.title} latitude={gem.latitude} longitude={gem.longitude} />
                                 <div onClick={() => updatePosition(gem.latitude, gem.longitude)}>
                                     <Link className = 'viewLink'>Click To View Location</Link>
-                                    {localStorage.getItem("token") && (
+                                    {/* {localStorage.getItem("token") && (
                                         <Link className= 'viewLink' onClick={()=>markComplete(gem.id)}>Mark As Complete</Link>
-                                    )}
+                                    )} */}
                                 </div>
                             </div>
                         </Card>

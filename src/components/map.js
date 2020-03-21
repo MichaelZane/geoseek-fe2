@@ -3,6 +3,8 @@ import ReactMapGL, {Marker, Popup} from 'react-map-gl'
 import axios from 'axios'
 import {LngLatBounds} from 'mapbox-gl';
 
+
+
 function Map ({latitude, longitude, refresh}) {
     const [viewport, setViewport] = useState({
         latitude: 36.955992,

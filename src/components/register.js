@@ -98,13 +98,9 @@ border-left: 3px solid black;
       margin: 0;
       text-align: center;
     }
-<<<<<<< HEAD
-    
-=======
     @media(max-width: 700px){
       border-left: none;
     }
->>>>>>> 4cc604861524c964bb7ec11ee11529625f7ed106
 `
 const CloseButtonDiv = styled.div`
   display: flex;
