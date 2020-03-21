@@ -5,13 +5,13 @@ function UserDashboard(props){
     const [user, setUser]= useState([])
     const [completed, setCompleted]= useState([])
     const token= localStorage.getItem('userID')
-
+    const test= parseInt(token)
     useEffect(() => {
         props.setRegLogRendered(true)
       }, [])
 
     useEffect(()=>{
-        axios.get(`https://geoseek-be.herokuapp.com/api/users/${token}`)
+        axios.get(`https://geoseek-be-stage.herokuapp.com/api/users/${token}`)
             .then(res=>{
                 setUser(res.data)
             })
@@ -21,13 +21,14 @@ function UserDashboard(props){
     }, [])
 
     function viewCompleted(){
-        axios.get(`https://geoseek-be.herokuapp.com/api/completedByUser/${token}`)
+        axios.get(`https://geoseek-be-stage.herokuapp.com/api/completedByUser/${token}`)
             .then(res=>{
                 console.log(res)
                 setCompleted(res.data)
             })
             .catch(err=>{
                 console.log(err)
+                console.log(token, 'token')
             })
     }
 

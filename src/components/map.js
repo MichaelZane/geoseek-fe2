@@ -33,6 +33,7 @@ function Map ({latitude, longitude, refresh}) {
     }, [refresh])
 
     function markComplete(gemId){
+        
         const userToken= localStorage.getItem('userID')
         let body={
             gem_id: gemId,
