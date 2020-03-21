@@ -62,7 +62,6 @@ function Map ({latitude, longitude, refresh}) {
                 <Marker key={gem.id} latitude={gem.latitude} longitude={gem.longitude}>
                     <button className='marker-btn' onClick={e => {
                         e.preventDefault()
-                        e.stopImmediatePropagation()()
                         setSelectedGem(gem)
                     }} >
                         {selectedGem === gem ? (
