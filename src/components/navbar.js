@@ -56,18 +56,17 @@ height: 100px;
     color: white;
   }
   }` 
-
+ 
 function NavBar (props) {
-
-  return (
+  return(
     <Nav>
-     
       <a href='/' className="sign">
         <span className="fast-flicker">g</span><span>eos</span><span className="flicker">e</span><span>ek</span>
       </a>
       <div>
         <Link className='button' to='/Register'>Register</Link>
         <Link className='button' to='/Login'>Log In</Link>
+        <Link className='button' to='/UserDash'>Dashboard</Link>
         <Link className='button' to='/CreateGem'>Create a Gem</Link>
         <Link className='button' to='/ViewGem'>View Gems</Link>
         {localStorage.getItem("token") && (
@@ -75,6 +74,7 @@ function NavBar (props) {
         )}
       </div>
     </Nav>
-  );
+  )
 }
+
 export default NavBar;

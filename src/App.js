@@ -1,10 +1,13 @@
-import React, { useState } from "react";
-import NavBar from "./components/navbar";
-import Map from "./components/map";
-import ViewGem from "./components/viewGem";
-import CreateGem from "./components/createGem";
-import styled from "styled-components";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import React, {useState} from 'react';
+import NavBar from './components/navbar'
+import Map from './components/map'
+import ViewGem from './components/viewGem'
+import CreateGem from './components/createGem'
+import Register from './components/register'
+import Login from './components/Login'
+import UserDashboard from './components/dashboard'
+import styled from 'styled-components'
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 
 
@@ -33,6 +36,7 @@ function App() {
             <Map refresh={refresh} latitude={latitude} longitude={longitude} />
             <Route exact path='/' />
             <Route path='/ViewGem' component={() => <ViewGem updatePosition={updatePosition} />} />
+            <Route path='/UserDash' component={UserDashboard}/>
             <Route path='/CreateGem'
               render={(props) => <CreateGem {...props} latitude={latitude} longitude={longitude} updatePosition={updatePosition} setRefresh={setRefresh} />} />
 
@@ -41,7 +45,7 @@ function App() {
         </div>
       </div>
     </Router>
-  );
+  ); 
 }
 
 export default App;

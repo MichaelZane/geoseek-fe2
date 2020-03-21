@@ -26,7 +26,6 @@ function Map ({latitude, longitude, refresh}) {
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/gems`)
             .then(res => {
-                console.log(res)
                 setGems(res.data)
             })
             .catch(err => {
@@ -34,7 +33,22 @@ function Map ({latitude, longitude, refresh}) {
             })
     }, [refresh])
 
-    
+    function markComplete(gemId){
+        
+        const userToken= localStorage.getItem('userID')
+        let body={
+            gem_id: gemId,
+            completed_by: userToken
+        }
+        console.log(body)
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/completed`, body)
+            .then(res=>{
+                console.log(res)
+            })
+            .catch(err=>{
+                console.log(err)
+            })
+      }
 
     return (
         <ReactMapGL className='Map'
@@ -63,6 +77,7 @@ function Map ({latitude, longitude, refresh}) {
                         <h2>{`Title: ${ selectedGem.title }`}</h2>
                         <p>{`Difficulty: ${ selectedGem.difficulty }`}</p>
                         <p>{`Description: ${ selectedGem.description }`}</p>
+                        <button type='submit' onSubmit={markComplete(selectedGem.id)}>Mark As Complete</button>
                     </div>
                 </Popup>
             )}
