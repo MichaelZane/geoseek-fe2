@@ -8,7 +8,7 @@ import {Link} from 'react-router-dom'
 const FormContainer = styled.div`
 height: 815vh;
 max-width: 400px;
-min-width: 400px;
+min-width: 350px;
 max-height: 87.5vh;
 background-color: #30364A;
 border-left: 3px solid black;
@@ -17,6 +17,8 @@ overflow-y: auto;
     border-left: none;
     width: 100%;
     overflow-y: visible;
+    position:absolute;
+    background-color: #30364a;
   }
 `
 
@@ -67,7 +69,7 @@ const Button = styled.button`
         background-color: #C66DB2;
     }
     `
-    
+
 const CoordButton = styled.button`
 width: 230px;
 height: 50px;

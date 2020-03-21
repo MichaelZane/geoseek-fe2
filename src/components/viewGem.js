@@ -4,6 +4,24 @@ import axios from "axios";
 import GemCard from "./gem";
 import styled from "styled-components";
 
+const CardsContainer = styled.div`
+border-left: 3px solid black;
+display: flex;
+justify-content: space-evenly;
+flex-wrap: wrap;
+width: 400px;
+padding: 0px;
+max-height: 100%;
+min-height: 100vh;
+height: 100vh;
+overflow-y: auto;
+@media(max-width:700px){
+width:100%;
+position:absolute;
+background-color: #30364a;
+border-left: none;
+}
+`
 const GemCardsList = styled.div`
     margin: 20px;
     padding: 5px;
@@ -49,18 +67,7 @@ const GemCardsList = styled.div`
   }
    `
 
-      const CardsContainer = styled.div`
-    border-left: 3px solid black;
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    width: 400px;
-    padding: 0px;
-    max-height: 100%;
-    min-height: 100vh;
-    height: 100vh;
-    overflow-y: auto;
-    `
+    
 
   const Container = styled.div`
     border-left: 3px solid black;
