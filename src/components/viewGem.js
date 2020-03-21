@@ -20,6 +20,10 @@ width:100%;
 position:absolute;
 background-color: #30364a;
 border-left: none;
+z-index: 25;
+.mapbox-ctrl-logo{
+  display:none;
+}
 }
 `
 const GemCardsList = styled.div`

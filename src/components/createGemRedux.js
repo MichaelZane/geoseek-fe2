@@ -17,14 +17,35 @@ overflow-y: auto;
     border-left: none;
     width: 100%;
     overflow-y: visible;
+    z-index: 25;
     position:absolute;
     background-color: #30364a;
+    .mapboxgl-ctrl-logo{
+        display:none;
+      }
+    .mapboxgl-ctrl-attrib{
+        display: none;
+    }
   }
 `
 
 const Form = styled.form`
 max-width: 99%;
 margin: 0px;
+@media(max-width: 700px){
+    border-left: none;
+    width: 100%;
+    overflow-y: visible;
+    z-index: 25;
+    position:absolute;
+    background-color: #30364a;
+    .mapboxgl-ctrl-logo{
+        display:none;
+      }
+    .mapboxgl-ctrl-attrib{
+        display: none;
+    }
+  }
 `
 
 const Input = styled.input`
