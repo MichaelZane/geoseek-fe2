@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
-
+import {Link} from 'react-router-dom'
 
 const FormContainer = styled.div`
   width: 40%;
@@ -63,6 +63,27 @@ const Label = styled.label`
   color: white;
 `;
 
+const CloseButtonDiv = styled.div`
+   display: flex;
+   justify-content: flex-end;
+ 
+   .X_Link {
+     color: #FF69B4;
+     text-decoration: none;
+     font-size: 30px;
+     padding: 5px;
+     margin: 5px 8px 0px 0px; 
+ 
+     :hover {
+       opacity: 1;
+       transition: opacity 0.55s ease-in-out;
+       -moz-transition: opacity 0.55s ease-in-out;
+       -webkit-transition: opacity 0.55s ease-in-out;
+       color: #C66DB2;
+     }
+   }
+ `
+
 export default function CreateGem(props) {
   const [form, setForm] = useState({
         title: '',
@@ -121,7 +142,7 @@ const onFormChange = e => {
             });
         }}
       >
-
+        <CloseButtonDiv><Link className='X_Link' to='/'>X</Link></CloseButtonDiv>
         <Label>TITLE</Label>
         <Input
           className="input"

@@ -5,44 +5,57 @@ function UserDashboard(props){
     const [user, setUser]= useState([])
     const [completed, setCompleted]= useState([])
     const token= localStorage.getItem('userID')
-    const test= parseInt(token)
+    console.log( token)
     useEffect(() => {
         props.setRegLogRendered(true)
+           
       }, [])
 
     useEffect(()=>{
-        axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/users/${token}`)
+        const abortEffect = new AbortController()
+        const signal = AbortController.signal
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/users/${localStorage.getItem('userID')}`, { signal: signal } )
             .then(res=>{
                 setUser(res.data)
+
+                
             })
             .catch(err=>{
                 console.log(err)
+                return function cleanup() {
+                    abortEffect.abort()
+                }
             })
     }, [])
 
-    function viewCompleted(){
-        axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/completedByUser/${token}`)
+    useEffect(() => {
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/completed/completedByUser/${token}`)
             .then(res=>{
-                console.log(res)
+                
                 setCompleted(res.data)
             })
             .catch(err=>{
                 console.log(err)
-                console.log(token, 'token')
+                
             })
-    }
-
+    }, [])
+    
     return(
         <div>
             <h1>placeholder for img</h1>
             <h1>{user.username}</h1>
-            <button>Edit Profile</button>
-            <button onClick={viewCompleted}>View Your Completed Gems</button>
+            
+            {/* <button>Edit Profile</button> */}
+            {/* <button onClick={viewCompleted}>View Your Completed Gems</button> */}
             <div>
                 {completed.map(gem=>{
                     return(
                         <div>
-                            <h1>{gem.id}</h1>
+                            <h1>{gem.gem_id}</h1>
+                            <p>{gem.completed_at}</p>
+                            <p>{gem.comments}</p>
+                    
+
                         </div>
                     )
                 })}

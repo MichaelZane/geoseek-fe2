@@ -9,7 +9,6 @@ import UserDashboard from './components/dashboard'
 import styled from 'styled-components'
 import RegisterImg from './images/RegisterImg.jpg'
 import {Route, Switch} from 'react-router-dom'
-import ProtectedRoute from './utils/protectedRoute'
 import ProtetedRoute from './utils/protectedRoute';
 
 

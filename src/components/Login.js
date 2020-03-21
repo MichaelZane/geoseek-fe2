@@ -125,8 +125,10 @@ function Login (props) {
       .post("/api/users/login", form)
       .then(res => {
         localStorage.setItem("token", res.data.token);
+        localStorage.setItem("userID", res.data.user_id);
         props.history.push("/");
       })
+     
       .catch(err => {
 
         alert(`${err} Invalid username or password`);

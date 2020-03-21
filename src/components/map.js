@@ -34,8 +34,8 @@ function Map ({latitude, longitude, refresh}) {
     }, [refresh])
 
     function markComplete(gemId){
-        
-        const userToken= localStorage.getItem('userID')
+    
+        const userToken = localStorage.getItem('userID')
         let body={
             gem_id: gemId,
             completed_by: userToken
@@ -62,6 +62,7 @@ function Map ({latitude, longitude, refresh}) {
                 <Marker key={gem.id} latitude={gem.latitude} longitude={gem.longitude}>
                     <button className='marker-btn' onClick={e => {
                         e.preventDefault()
+                        e.stopImmediatePropagation()()
                         setSelectedGem(gem)
                     }} >
                         {selectedGem === gem ? (
