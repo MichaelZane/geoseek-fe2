@@ -1,15 +1,15 @@
-import React, {useState, useEffect} from 'react'
-import axios from 'axios'
-import styled from 'styled-components'
-import {Link} from 'react-router-dom'
-
+import React, { useState, useEffect } from "react";
+import { useForm } from "react-hook-form";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import axiosWithAuth from "../utils/axiosWithAuth";
 
 const FormContainer = styled.div`
-display: flex;
-width: 99.5vw;
-height: 88vh;
-background-color: #30364A;
-overflow-y: auto;
+  display: flex;
+  width: 99.5vw;
+  height: 88vh;
+  background-color: #30364a;
+  overflow-y: auto;
 
   .Link {
     text-decoration: none;
@@ -22,7 +22,7 @@ const Button = styled.button`
   height: 50px;
   border-radius: 15px;
   outline: none;
-  display:block;
+  display: block;
   background-color: #ff69b4;
   border: none;
   color: white;
@@ -66,9 +66,13 @@ const Input = styled.input`
 const RegisterDiv = styled.div`
     width: 100vw;
     height: 85vh;
+    @media(max-width: 700px){
+      display:none;
+    }
 `
 const Form = styled.form`
 border-left: 3px solid black;
+height:85vh;
     width: 100vw;
     
     h1 {
@@ -82,6 +86,9 @@ border-left: 3px solid black;
     }
     .Form_Link {
         color: #FF69B4;
+    }
+    @media(max-width: 700px){
+      border-left: none;
     }
 `
 const CloseButtonDiv = styled.div`
@@ -106,33 +113,40 @@ const CloseButtonDiv = styled.div`
 `
 
 function Login (props) {
+
+  const { register, handleSubmit, errors } = useForm();
   const [form, setForm] = useState({
-    username: '',
-    password: ''
-  })
+    username: "",
+    password: ""
+  });
 
-  function handleSubmit (form) {
-    axios
-      .post(process.env.REACT_APP_BACKEND_URL + "/api/users/login", form)
+  const onLoginSubmit = () => {
+    axiosWithAuth()
+      .post("/api/users/login", form)
       .then(res => {
-        console.log(res);
         localStorage.setItem("token", res.data.token);
+        localStorage.setItem("userID", res.data.user_id);
+        props.history.push("/");
       })
+     
       .catch(err => {
-        console.log(err);
-      });
-  }
 
-  function handleChange (e) {
+        alert(`${err} Invalid username or password`);
+
+      });
+  };
+
+  useEffect(() => {
+    props.setRegLogRendered(true);
+  }, []);
+
+  function handleChange(e) {
     setForm({
       ...form,
       [e.target.name]: e.target.value
-    })
+    });
   }
 
-  useEffect(() => {
-    props.setRegLogRendered(true)
-  }, [])
   return (
     <FormContainer>
       <RegisterDiv>
@@ -145,31 +159,41 @@ function Login (props) {
         </div>
       </RegisterDiv>
 
-      <Form onSubmit={(e) => {
-        e.preventDefault();
-        handleSubmit(form)
-        props.history.push('/')
-      }}>
+      <Form onSubmit={handleSubmit(onLoginSubmit)}>
         <CloseButtonDiv><Link className='X_Link' to='/'>X</Link></CloseButtonDiv>
         <h1>Sign in</h1>
         <Label>USERNAME</Label>
         <Input
-          name='username'
-          placeholder='Username'
-          onChange={(e) => {handleChange(e)}}
+          name="username"
+          placeholder="Username"
+          onChange={handleChange}
+          ref={register({ required: true, minLength: 4, maxLength: 20 })}
         />
-        <Label>PASSWORD</Label>
+        {errors.username && (
+          <p className="error">❌ It must be a valid username ❗️</p>
+        )}
+        <Label>Password:</Label>
         <Input
-          name='password'
-          type='password'
-          placeholder='Password'
-          onChange={(e) => {handleChange(e)}}
+          name="password"
+          type="password"
+          placeholder="Password"
+          onChange={handleChange}
+          ref={register({ required: true, minLength: 4, maxLength: 20 })}
         />
-        <Button type='submit'>Log in</Button>
-        <p>Don't have an account? <Link className='Form_Link' to='/Register'>Sign Up</Link></p>
+
+        {errors.password && (
+          <p className="error">❌ It must be a valid password ❗️</p>
+        )}
+        <Button type="submit">Log in</Button>
+        <p>
+          Don't have an account?{" "}
+          <Link className="Form_Link" to="/Register">
+            Sign Up
+          </Link>
+        </p>
       </Form>
     </FormContainer>
-  )
+  );
 }
 
 export default Login;

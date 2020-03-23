@@ -40,6 +40,8 @@ code {
   border: none;
   cursor: pointer;
   outline: none;
+  width:40px;
+  height: 40px;
 }
 
 .marker-btn img:active {
@@ -57,13 +59,15 @@ code {
   height: 800px;
   margin: 0px;
 }
-.popup {
+#popup {
   width: 25%;
+  background-color: #3E4958;
 }
 
 .App {
   display: flex;
 }
+
 
 
 
@@ -139,3 +143,22 @@ select:-webkit-autofill:focus {
   width: 55vh;
  }
 
+ #firstNameError {
+   width: 330px;
+   color: white;
+ }
+.mapboxgl-popup-content {
+  background-color: hsl(215, 17%, 29%)!important;
+  color: #f5f5f5;
+}
+
+.mapboxgl-popup-close-button {
+  color: hsl(313, 44%, 60%);
+
+}
+.viewLink {
+  color: whitesmoke;
+}
+h2 {
+  color: hsl(313, 44%, 60%);
+}

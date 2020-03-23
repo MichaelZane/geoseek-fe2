@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react'
+import { useForm } from 'react-hook-form';
 import axios from 'axios'
 import styled from 'styled-components'
 import '../index.css'
 import {Link} from 'react-router-dom'
+
 
 const FormContainer = styled.div`
 
@@ -16,6 +18,7 @@ overflow-y: auto;
     text-decoration: none;
     outline: none;
   }
+  
 `;
 
 const Button = styled.button`
@@ -69,6 +72,9 @@ const Input = styled.input`
 const RegisterDiv = styled.div`
     width: 100vw;
     height: 85vh;
+    @media(max-width: 700px){
+      display: none;
+    }
 `
 const Form = styled.form`
 border-left: 3px solid black;
@@ -80,11 +86,20 @@ border-left: 3px solid black;
     }
     p {
         color: white;
-        margin: 50px 0px 0px 0px;
+        margin: 20px 0px 0px 0px;
         text-align: center;
     }
     .Form_Link {
-        color: #FF69B4;
+        color: #FF69B4;  
+    }
+
+    .error {
+      color: red;
+      margin: 0;
+      text-align: center;
+    }
+    @media(max-width: 700px){
+      border-left: none;
     }
 `
 const CloseButtonDiv = styled.div`
@@ -109,20 +124,28 @@ const CloseButtonDiv = styled.div`
 `
 
 function Register (props) {
+  const { register, handleSubmit, errors } = useForm();
   const [form, setForm] = useState({
     username: "",
     email: "",
     password: ""
   })
 
-  function handleSubmit (form) {
-    console.log(form)
-    axios.post('process.env.REACT_APP_BACKEND_URL + "/api/users/register', form)
+  console.log(errors);
+
+  const onRegisterSubmit = form => {
+    axios
+      .post(`${process.env.REACT_APP_BACKEND_URL}/api/users/register`, form)
       .then(res => {
-        console.log(res)
+        console.log(res.data)
+        props.history.push('/Login')
       })
       .catch(err => {console.log(err)})
   }
+
+  useEffect(() => {
+    props.setRegLogRendered(true)
+  }, [])
 
   function handleChange (e) {
     setForm({
@@ -130,11 +153,8 @@ function Register (props) {
       [e.target.name]: e.target.value
     })
   }
-
-  useEffect(() => {
-    props.setRegLogRendered(true)
-  }, [])
-
+  
+  
   return (
     <FormContainer>
       <RegisterDiv>
@@ -147,11 +167,9 @@ function Register (props) {
         </div>
       </RegisterDiv>
 
-      <Form onSubmit={(e) => {
-        e.preventDefault();
-        handleSubmit(form)
-        props.history.push('/Login')
-      }}>
+      <Form onSubmit={handleSubmit(onRegisterSubmit)}
+      noValidate
+      >
         <CloseButtonDiv><Link className='X_Link' to='/'>X</Link></CloseButtonDiv>
         <h1>Sign Up</h1>
         <Label>USERNAME</Label>
@@ -159,26 +177,34 @@ function Register (props) {
           name='username'
           placeholder='Username'
           value={form.name}
-          onChange={(e) => {handleChange(e)}}
+          onChange={handleChange}
+          ref={register({required: true, minLength: 4, maxLength: 20})} 
         />
+        {errors.username && <p className='error' >❌ Your username is less than 4 characters ❗️</p>}
         <Label>EMAIL</Label>
         <Input
           name='email'
           type='email'
           placeholder='Email'
           value={form.name}
-          onChange={(e) => {handleChange(e)}}
+          onChange={handleChange}  
+          ref={register({required: true, pattern: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/, minLength: 4, maxLength: 30
+          })}
         />
+        {errors.email && <p className='error' >❌ Must be a valid Email ❗️</p>}
         <Label>PASSWORD</Label>
         <Input
           name='password'
           type='password'
           value={form.name}
           placeholder='Password'
-          onChange={(e) => {handleChange(e)}}
+          onChange={handleChange} 
+          ref={register({required: true, minLength: 4, maxLength: 20})} 
         />
+        {errors.password && <p className='error' >❌ Your password is less than 4 characters ❗️</p>}
         <Button type='submit'>Register</Button>
         <p>Already have an account? <Link className='Form_Link' to='/Login'>Sign In</Link></p>
+       
       </Form>
     </FormContainer>
   )

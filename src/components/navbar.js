@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from "react-router-dom"
 import styled from 'styled-components'
 import '../Logo.css'
+import LogOut from './LogOut'
 
 const Nav = styled.div`
 border-bottom: 3px solid black;
@@ -10,6 +11,17 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 height: 100px;
+@media(max-width: 1035px){
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  flex wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+@media(max-width: 700px){
+  height: 500px;
+}
   div {   margin-right: 2%;  } 
   
   .button {
@@ -31,7 +43,6 @@ height: 100px;
     // transition: opacity .55s ease-in-out;
     // -moz-transition: opacity .55s ease-in-out;
     // -webkit-transition: opacity .55s ease-in-out;
-
    :hover {
        opacity: 1.0;
        transition: opacity .55s ease-in-out;
@@ -56,21 +67,43 @@ height: 100px;
     color: white;
   }
   }` 
+const ButonContainer = styled.div`
+@media(max-width: 700px){
+  height:300px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-between;
+  
+  .button{
+    height: 35px;
+    width: 300px;
+  }
+}
+`
 
 function NavBar (props) {
 
   return (
     <Nav>
       {/* <Router> */}
+      <div>
       <a href='/' className="sign">
         <span className="fast-flicker">g</span><span>eos</span><span className="flicker">e</span><span>ek</span>
       </a>
-      <div>
+      </div>
+      <ButonContainer>
         <Link className='button' to='/Register'>Register</Link>
+        <Link className='button' to='/UserDash'>Dashboard</Link>
         <Link className='button' to='/Login'>Log In</Link>
         <Link className='button' to='/CreateGem'>Create a Gem</Link>
         <Link className='button' to='/ViewGem'>View Gems</Link>
-      </div>
+        <>
+        {localStorage.getItem("token") && (
+        <LogOut />
+        )}
+        </>
+      </ButonContainer>
 
       {/* <Route path = '/CreateGem' component = {CreateGem}/>
     <button onClick= {toggleGem}>View Gems</button>
