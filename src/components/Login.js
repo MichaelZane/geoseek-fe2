@@ -1,14 +1,15 @@
-import React, {useState, useEffect} from 'react'
-import axios from 'axios'
-import styled from 'styled-components'
-
+import React, { useState, useEffect } from "react";
+import { useForm } from "react-hook-form";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import axiosWithAuth from "../utils/axiosWithAuth";
 
 const FormContainer = styled.div`
-  width: 20%;
-  height: 87%;
+  display: flex;
+  width: 99.5vw;
+  height: 88vh;
   background-color: #30364a;
-  border-left: 3px solid black;
-  padding-top: 30px;
+  overflow-y: auto;
 
   .Link {
     text-decoration: none;
@@ -21,13 +22,13 @@ const Button = styled.button`
   height: 50px;
   border-radius: 15px;
   outline: none;
-
-  background-color: #c66db2;
+  display: block;
+  background-color: #ff69b4;
   border: none;
   color: white;
   text-align: center;
   font-size: 20px;
-  margin: 100px 10px 0px 15px;
+  margin: 100px auto 0px auto;
   transition: 0.3s;
   text-decoration: none;
   cursor: pointer;
@@ -40,8 +41,7 @@ const Button = styled.button`
     transition: opacity 0.55s ease-in-out;
     -moz-transition: opacity 0.55s ease-in-out;
     -webkit-transition: opacity 0.55s ease-in-out;
-    background-color: #ff69b4;
-    border: 2px solid black;
+    background-color: #c66db2;
   }
 `;
 const Label = styled.label`
@@ -63,58 +63,137 @@ const Input = styled.input`
   outline: none;
   color: white;
 `;
+const RegisterDiv = styled.div`
+    width: 100vw;
+    height: 85vh;
+    @media(max-width: 700px){
+      display:none;
+    }
+`
+const Form = styled.form`
+border-left: 3px solid black;
+height:85vh;
+    width: 100vw;
+    
+    h1 {
+        margin: 30px 0px 80px 40px;
+        color: white;
+    }
+    p {
+        color: white;
+        margin: 50px 0px 0px 0px;
+        text-align: center;
+    }
+    .Form_Link {
+        color: #FF69B4;
+    }
+    @media(max-width: 700px){
+      border-left: none;
+    }
+`
+const CloseButtonDiv = styled.div`
+  display: flex;
+  justify-content: flex-end;
+
+  .X_Link {
+    color: #FF69B4;
+    text-decoration: none;
+    font-size: 30px;
+    padding: 5px;
+    margin: 5px 8px 0px 0px; 
+
+    :hover {
+      opacity: 1;
+      transition: opacity 0.55s ease-in-out;
+      -moz-transition: opacity 0.55s ease-in-out;
+      -webkit-transition: opacity 0.55s ease-in-out;
+      color: #C66DB2;
+    }
+  }
+`
 
 function Login (props) {
+
+  const { register, handleSubmit, errors } = useForm();
   const [form, setForm] = useState({
-    username: '',
-    password: ''
-  })
+    username: "",
+    password: ""
+  });
 
-  function handleSubmit (form) {
-    axios
-      .post("https://geoseek-be-stage.herokuapp.com/api/users/login", form)
+  const onLoginSubmit = () => {
+    axiosWithAuth()
+      .post("/api/users/login", form)
       .then(res => {
-        console.log(res);
         localStorage.setItem("token", res.data.token);
+        localStorage.setItem("userID", res.data.user_id);
+        props.history.push("/");
       })
+     
       .catch(err => {
-        console.log(err);
-      });
-  }
 
-  function handleChange (e) {
+        alert(`${err} Invalid username or password`);
+
+      });
+  };
+
+  useEffect(() => {
+    props.setRegLogRendered(true);
+  }, []);
+
+  function handleChange(e) {
     setForm({
       ...form,
       [e.target.name]: e.target.value
-    })
+    });
   }
 
-  useEffect(() => {
-    props.setRegLogRendered(true)
-  }, [])
   return (
     <FormContainer>
-      <form onSubmit={(e) => {
-        e.preventDefault();
-        handleSubmit(form)
-      }}>
-        <Label>Username:</Label>
+      <RegisterDiv>
+        <div className='RegLog_Hero_Image_Container'>
+          <div className='Login_Hero_Image' />
+          <div className='Hero_Text'>
+            <h1 className='Hero_H1'>Welcome Back!</h1>
+            <p className='Hero_P'>Sign in to find the hidden gems all around you.</p>
+          </div>
+        </div>
+      </RegisterDiv>
+
+      <Form onSubmit={handleSubmit(onLoginSubmit)}>
+        <CloseButtonDiv><Link className='X_Link' to='/'>X</Link></CloseButtonDiv>
+        <h1>Sign in</h1>
+        <Label>USERNAME</Label>
         <Input
-          name='username'
-          placeholder='Username'
-          onChange={(e) => {handleChange(e)}}
+          name="username"
+          placeholder="Username"
+          onChange={handleChange}
+          ref={register({ required: true, minLength: 4, maxLength: 20 })}
         />
+        {errors.username && (
+          <p className="error">❌ It must be a valid username ❗️</p>
+        )}
         <Label>Password:</Label>
         <Input
-          name='password'
-          type='password'
-          placeholder='Password'
-          onChange={(e) => {handleChange(e)}}
+          name="password"
+          type="password"
+          placeholder="Password"
+          onChange={handleChange}
+          ref={register({ required: true, minLength: 4, maxLength: 20 })}
         />
-        <Button type='submit'>Log in</Button>
-      </form>
+
+        {errors.password && (
+          <p className="error">❌ It must be a valid password ❗️</p>
+        )}
+        <Button type="submit">Log in</Button>
+        <p>
+          Don't have an account?{" "}
+          <Link className="Form_Link" to="/Register">
+            Sign Up
+          </Link>
+        </p>
+      </Form>
     </FormContainer>
-  )
+  );
 }
 
 export default Login;

@@ -1,13 +1,17 @@
-import React, { useState } from "react";
-import axios from "axios";
-import styled from "styled-components";
+import React, {useState, useEffect} from 'react'
+import axios from 'axios'
+import styled from 'styled-components'
+import {Link} from 'react-router-dom'
 
 const FormContainer = styled.div`
-  width: 20%;
+  width: 40%;
   height: 87%;
   background-color: #30364a;
   border-left: 3px solid black;
   padding-top: 30px;
+  @media(max-width: 700px){
+    border-left: none;
+  }
 `;
 
 const Input = styled.input`
@@ -26,16 +30,18 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
-  width: 330px;
+  width: 100%;
   height: 50px;
   border-radius: 15px;
   outline: none;
+
   background-color: #c66db2;
   border: none;
   color: white;
   text-align: center;
   font-size: 20px;
-  margin: 100px 10px 0px 15px;
+  margin: 100px 0px 0px 1px;
+
   transition: 0.3s;
   text-decoration: none;
   cursor: pointer;
@@ -53,15 +59,38 @@ const Button = styled.button`
   }
 `;
 const Label = styled.label`
-  margin-left: 10%;
+  margin-left: 1%;
   color: white;
 `;
 
+const CloseButtonDiv = styled.div`
+   display: flex;
+   justify-content: flex-end;
+ 
+   .X_Link {
+     color: #FF69B4;
+     text-decoration: none;
+     font-size: 30px;
+     padding: 5px;
+     margin: 5px 8px 0px 0px; 
+ 
+     :hover {
+       opacity: 1;
+       transition: opacity 0.55s ease-in-out;
+       -moz-transition: opacity 0.55s ease-in-out;
+       -webkit-transition: opacity 0.55s ease-in-out;
+       color: #C66DB2;
+     }
+   }
+ `
+
 export default function CreateGem(props) {
   const [form, setForm] = useState({
-    title: "",
-    latitude: "",
-    longitude: ""
+        title: '',
+        latitude: '',
+        longitude: '',
+        difficulty: '',
+        description:''
   });
 
   const [longitude, setLongitude] = useState();
@@ -90,8 +119,8 @@ export default function CreateGem(props) {
   const submitGem = () => {
     props.setRefresh(!props.refresh);
     props.updatePosition(Number(form.latitude), Number(form.longitude));
-  };
-  const onFormChange = e => {
+}
+const onFormChange = e => {
     setForm({
       ...form,
       [e.target.name]: e.target.value
@@ -103,7 +132,7 @@ export default function CreateGem(props) {
         onSubmit={e => {
           e.preventDefault();
           axios
-            .post("https://geoseek-be-stage.herokuapp.com/api/gems", form)
+            .post(`${process.env.REACT_APP_BACKEND_URL}/api/gems`, form)
             .then(res => {
               submitGem();
               props.history.push("/");
@@ -113,7 +142,7 @@ export default function CreateGem(props) {
             });
         }}
       >
-
+        <CloseButtonDiv><Link className='X_Link' to='/'>X</Link></CloseButtonDiv>
         <Label>TITLE</Label>
         <Input
           className="input"

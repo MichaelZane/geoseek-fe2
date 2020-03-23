@@ -1,10 +1,13 @@
 import React, {useState, useEffect} from 'react'
+import { useForm } from 'react-hook-form';
 import axios from 'axios'
 import styled from 'styled-components'
 import '../index.css'
 import {Link} from 'react-router-dom'
 
+
 const FormContainer = styled.div`
+
 display: flex;
 width: 99.5vw;
 height: 87%;
@@ -15,6 +18,7 @@ overflow-y: auto;
     text-decoration: none;
     outline: none;
   }
+  
 `;
 
 const Button = styled.button`
@@ -24,7 +28,7 @@ const Button = styled.button`
     outline: none;
     display: block;
    
-   background-color: #C66DB2;
+   background-color: #ff69b4;
    border: none;
    color: white;
    text-align: center;
@@ -42,8 +46,7 @@ const Button = styled.button`
     transition: opacity 0.55s ease-in-out;
     -moz-transition: opacity 0.55s ease-in-out;
     -webkit-transition: opacity 0.55s ease-in-out;
-    background-color: #ff69b4;
-    border: 2px solid black;
+    background-color: #C66DB2;
   }
 `;
 const Label = styled.label`
@@ -69,38 +72,80 @@ const Input = styled.input`
 const RegisterDiv = styled.div`
     width: 100vw;
     height: 85vh;
+    @media(max-width: 700px){
+      display: none;
+    }
 `
 const Form = styled.form`
+border-left: 3px solid black;
     width: 100vw;
     
     h1 {
-        margin: 70px 0px 80px 40px;
+        margin: 30px 0px 80px 40px;
         color: white;
     }
     p {
         color: white;
-        margin: 50px 0px 0px 0px;
+        margin: 20px 0px 0px 0px;
         text-align: center;
     }
     .Form_Link {
-        color: #FF69B4;
+        color: #FF69B4;  
     }
+
+    .error {
+      color: red;
+      margin: 0;
+      text-align: center;
+    }
+    @media(max-width: 700px){
+      border-left: none;
+    }
+`
+const CloseButtonDiv = styled.div`
+  display: flex;
+  justify-content: flex-end;
+
+  .X_Link {
+    color: #FF69B4;
+    text-decoration: none;
+    font-size: 30px;
+    padding: 5px;
+    margin: 5px 8px 0px 0px; 
+
+    :hover {
+      opacity: 1;
+      transition: opacity 0.55s ease-in-out;
+      -moz-transition: opacity 0.55s ease-in-out;
+      -webkit-transition: opacity 0.55s ease-in-out;
+      color: #C66DB2;
+    }
+  }
 `
 
 function Register (props) {
+  const { register, handleSubmit, errors } = useForm();
   const [form, setForm] = useState({
     username: "",
     email: "",
     password: ""
   })
 
-  function handleSubmit (form) {
-    console.log(form)
-    axios.post('https://geoseek-be-stage.herokuapp.com/api/users/register', form)
+  console.log(errors);
+
+  const onRegisterSubmit = form => {
+    axios
+      .post(`${process.env.REACT_APP_BACKEND_URL}/api/users/register`, form)
       .then(res => {
+        console.log(res.data)
+        props.history.push('/Login')
       })
       .catch(err => {console.log(err)})
   }
+
+  useEffect(() => {
+    props.setRegLogRendered(true)
+  }, [])
 
   function handleChange (e) {
     setForm({
@@ -108,15 +153,12 @@ function Register (props) {
       [e.target.name]: e.target.value
     })
   }
-
-  useEffect(() => {
-    props.setRegLogRendered(true)
-  }, [])
-
+  
+  
   return (
     <FormContainer>
       <RegisterDiv>
-        <div className='Register_Hero_Image_Container'>
+        <div className='RegLog_Hero_Image_Container'>
           <div className='Register_Hero_Image' />
           <div className='Hero_Text'>
             <h1 className='Hero_H1'>Join GeoSeek</h1>
@@ -125,37 +167,44 @@ function Register (props) {
         </div>
       </RegisterDiv>
 
-      <Form onSubmit={(e) => {
-        e.preventDefault();
-        handleSubmit(form)
-        props.history.push('/')
-      }}>
+      <Form onSubmit={handleSubmit(onRegisterSubmit)}
+      noValidate
+      >
+        <CloseButtonDiv><Link className='X_Link' to='/'>X</Link></CloseButtonDiv>
         <h1>Sign Up</h1>
         <Label>USERNAME</Label>
         <Input
           name='username'
           placeholder='Username'
           value={form.name}
-          onChange={(e) => {handleChange(e)}}
+          onChange={handleChange}
+          ref={register({required: true, minLength: 4, maxLength: 20})} 
         />
+        {errors.username && <p className='error' >❌ Your username is less than 4 characters ❗️</p>}
         <Label>EMAIL</Label>
         <Input
           name='email'
           type='email'
           placeholder='Email'
           value={form.name}
-          onChange={(e) => {handleChange(e)}}
+          onChange={handleChange}  
+          ref={register({required: true, pattern: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/, minLength: 4, maxLength: 30
+          })}
         />
+        {errors.email && <p className='error' >❌ Must be a valid Email ❗️</p>}
         <Label>PASSWORD</Label>
         <Input
           name='password'
           type='password'
           value={form.name}
           placeholder='Password'
-          onChange={(e) => {handleChange(e)}}
+          onChange={handleChange} 
+          ref={register({required: true, minLength: 4, maxLength: 20})} 
         />
+        {errors.password && <p className='error' >❌ Your password is less than 4 characters ❗️</p>}
         <Button type='submit'>Register</Button>
         <p>Already have an account? <Link className='Form_Link' to='/Login'>Sign In</Link></p>
+       
       </Form>
     </FormContainer>
   )

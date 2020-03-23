@@ -5,12 +5,16 @@ import ViewGem from './components/viewGem'
 import CreateGem from './components/createGemRedux'
 import Register from './components/register'
 import Login from './components/Login'
+import UserDashboard from './components/dashboard'
 import styled from 'styled-components'
 import RegisterImg from './images/RegisterImg.jpg'
 import {Route, Switch} from 'react-router-dom'
 import Header from "./components/Header/Header"
+import ProtetedRoute from './utils/protectedRoute';
+
+
 const AppContainer = styled.div`
-min-height: 100vh;
+min-height: 100vh;d
 max-height: 100vh;
 `
 
@@ -48,9 +52,10 @@ function App () {
             <Map refresh={refresh} latitude={latitude} longitude={longitude} />
           </Route>}
         <Route path='/Register' render={(props) => <Register {...props} setRegLogRendered={setRegLogRendered} />} />
-        <Route path='/Login' component={() => <Login setRegLogRendered={setRegLogRendered} />} />
+        <Route path='/Login' component={(props) => <Login {...props} setRegLogRendered={setRegLogRendered} />} />
+        <Route path='/UserDash' component={(props) => <UserDashboard {...props} setRegLogRendered={setRegLogRendered} />}/>
         <Route path='/ViewGem' component={() => <ViewGem refresh={refresh} setRegLogRendered={setRegLogRendered} updatePosition={updatePosition} />} />
-        <Route path='/CreateGem' render={props => (<CreateGem {...props} setRegLogRendered={setRegLogRendered} latitude={latitude} longitude={longitude} updatePosition={updatePosition} setRefresh={setRefresh} />)} />
+        <ProtetedRoute path='/CreateGem' component={props => (<CreateGem {...props} setRegLogRendered={setRegLogRendered} latitude={latitude} longitude={longitude} updatePosition={updatePosition} setRefresh={setRefresh} />)} />
       </MapAndGems>
     </AppContainer>
   );
