@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {Link} from "react-router-dom"
 import styled from 'styled-components'
 import '../Logo.css'
@@ -83,6 +83,10 @@ const ButonContainer = styled.div`
 `
 
 function NavBar (props) {
+
+  useEffect(() => {
+    props.setHeaderRendered(false)
+  }, [])
 
   return (
     <Nav>

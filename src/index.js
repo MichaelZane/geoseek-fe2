@@ -17,7 +17,7 @@ const store = createStore(gemReducer, applyMiddleware(thunk, logger));
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <AppRedux/>
+      <AppRedux />
     </Router>
   </Provider>,
   document.getElementById("root")
