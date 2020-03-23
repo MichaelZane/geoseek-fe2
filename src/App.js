@@ -5,11 +5,13 @@ import ViewGem from "./components/viewGem";
 import CreateGem from "./components/createGem";
 import styled from "styled-components";
 
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 
 
 import './App.css';
-import Header from './components/Header/Header';
+import Header from "./components/Header/Header";
+
 import Gallery from './components/Gallery/Gallery';
 import Roadmap from './components/Roadmap/Roadmap'; // Dont delete
 import Footer from './components/Footer/Footer';
@@ -17,20 +19,19 @@ import {Container} from 'reactstrap';
 
 
 
-// <Container>
-//         <Header/>
-//         <Gallery/>
-//         <h2 className="lead2 gallery_content">
-//           Connect to our App to see much more gems! ---- George Raymond or Anthony Lopez will remove
-//         </h2>
-//         {/* <Roadmap/> */}
-//         <Footer/>
-  // </Container> 
+{/* <Container>
+        <Header/>
+        <Gallery/>
+        <h2 className="lead2 gallery_content">
+          Connect to our App to see much more gems! ---- George Raymond or Anthony Lopez will remove
+        </h2>
+        <Roadmap/>
+        <Footer/>
+  </Container>  */}
     
 
 
 
-import { BrowserRouter as Router, Route } from "react-router-dom";
 
 const BACKEND_URL = process.env.BACKEND_URL
 
@@ -49,6 +50,7 @@ function App() {
   const updatePosition = (latitude, longitude) => {
     setLatLong([latitude, longitude]);
   };
+  
 
   return (
     <Router>
@@ -57,7 +59,7 @@ function App() {
         <div>
           <MapAndGems>
             <Map refresh={refresh} latitude={latitude} longitude={longitude} />
-            <Route exact path="/" />
+            {/* <Route exact path="/" /> */}
             <Route
               path="/ViewGem"
               component={() => <ViewGem updatePosition={updatePosition} />}

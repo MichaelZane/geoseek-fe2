@@ -1,18 +1,24 @@
-import React, { Component } from "react";
+import React,{ useEffect } from "react";
 // import appleWeb from "../../../public/img/apple-icon-web.png";
 // import geoLogo from "../../../public/img/Logo1.png";
 // import appleWeb from '../../img/apple-icon-web.png'
+import {Link} from "react-router-dom"
 import appleWeb from '../../images/apple-icon-web.png'
 
-import { Jumbotron, Button, Row, Col, Container } from "reactstrap";
+
+import { Jumbotron, Row, Col,Container} from "reactstrap";
 import "./Header.css";
 
-class Header extends Component {
-  constructor() {
-    super();
-  }
+// class Header extends Component {
+//   constructor() {
+//     super(props);
+//   }
+function Header(props) {
 
-  render() {
+// useEffect(() => {
+//   props.setHeaderRendered(true)
+// }, [])
+
     return (
       <Row>
         <Jumbotron className="header_body">
@@ -50,25 +56,19 @@ class Header extends Component {
                         </a>
                       </li> */}
                       <li className="nav_rightSide_outline">
-                        <a href="#">
-                          <span className="nav_rightSide_bar_content">
-                            Login
-                          </span>
-                        </a>
+                        {/* <a href="#"> */}
+                        <Link className='link' to='/Login'>Log In</Link>
+                        {/* </a> */}
                       </li>
                       <li className="nav_rightSide_outline">
-                        <a href="#">
-                          <span className="nav_rightSide_bar_content">
-                            Register
-                          </span>
-                        </a>
+                        <Link className='link' to='/Register'>Register</Link>
                       </li>
                       <li className="nav_rightSide_outline">
-                        <a href="#">
+                        {/* <a href="#"> */}
                           <span className="nav_rightSide_bar_content">
                             View map
                           </span>
-                        </a>
+                        {/* </a> */}
                       </li>
                     </ul>
                   </div>
@@ -99,6 +99,5 @@ class Header extends Component {
       </Row>
     );
   }
-}
 
 export default Header;
