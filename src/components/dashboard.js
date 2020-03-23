@@ -30,7 +30,7 @@ function UserDashboard(props){
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/completed/completedByUser/${token}`)
             .then(res=>{
-                
+                console.log(res)
                 setCompleted(res.data)
             })
             .catch(err=>{
