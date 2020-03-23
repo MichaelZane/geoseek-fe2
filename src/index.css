@@ -149,8 +149,16 @@ select:-webkit-autofill:focus {
  }
 .mapboxgl-popup-content {
   background-color: hsl(215, 17%, 29%)!important;
-  color: hsl(313, 44%, 60%);
+  color: #f5f5f5;
 }
+
 .mapboxgl-popup-close-button {
+  color: hsl(313, 44%, 60%);
+
+}
+.viewLink {
+  color: whitesmoke;
+}
+h2 {
   color: hsl(313, 44%, 60%);
 }

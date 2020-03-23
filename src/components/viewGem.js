@@ -75,7 +75,7 @@ z-index: 25;
 }
 }
 `
-const GemCardsList = styled.div`
+/*const GemCardsList = styled.div`
     margin: 20px;
     padding: 5px;
     border-radius: 10px;
@@ -119,10 +119,10 @@ const GemCardsList = styled.div`
    }
   }
    `
-
+*/
     
 
-  const Container = styled.div`
+ /* const Container = styled.div`
     border-left: 3px solid black;
     display: flex;
     justify-content: space-evenly;
@@ -133,7 +133,7 @@ const GemCardsList = styled.div`
     height: 800px;
     overflow-y: auto;
   `;
-
+*/
   const Input = styled.input`
 width: 200px;
 padding-left: 10px;
@@ -151,7 +151,7 @@ color: white;
 const CloseButtonDiv = styled.div`
 display: flex;
    justify-content: flex-end;
- 
+  width: 400px;
    .X_Link {
      color: #FF69B4;
      text-decoration: none;
@@ -169,6 +169,7 @@ display: flex;
    }
 `
 
+
 export default function ViewGem ({updatePosition}) {
     const [gems, setGems] = useState([])
     const [search, setSearch]= useState('')
@@ -184,28 +185,31 @@ export default function ViewGem ({updatePosition}) {
             })
     }, [])
 
-    function markComplete(gemId){
-        const userToken= localStorage.getItem('userID')
-        let body={
-            gem_id: gemId,
-            completed_by: userToken
-        }
-        console.log(body, 'body')
-        axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/completed`, body)
-            .then(res=>{
-                console.log(res)
-            })
-            .catch(err=>{
-                console.log(err)
-            })
-    }
+    // function markComplete(gemId){
+    //     const userToken= localStorage.getItem('userID')
+    //     let body={
+    //         gem_id: gemId,
+    //         completed_by: userToken
+    //     }
+    //     console.log(body, 'body')
+    //     axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/completed`, body)
+    //         .then(res=>{
+    //             console.log(res)
+    //         })
+    //         .catch(err=>{
+    //             console.log(err)
+    //         })
+    // }
 
     if(!search){
     return (
+        
+        
+       
         <CardsContainer>
-             <CloseButtonDiv><Link className='X_Link' to='/'>X</Link></CloseButtonDiv>
+            <CloseButtonDiv><Link className='X_Link' to='/'>X</Link></CloseButtonDiv>
             <form>
-                <input
+                <Input
                     name= 'searchForm'
                     placeholder= 'Search Gems'
                     value= {search}
@@ -219,13 +223,14 @@ export default function ViewGem ({updatePosition}) {
                         setFiltered(filteredGems)
                     }}
                 />
+                
             </form>
             {gems.map((gem) => {
                 return (
                     <div>
                         <Card>
                             <div>
-                                <GemCard key={gem.id} title={gem.title} latitude={gem.latitude} longitude={gem.longitude} />
+                                <GemCard key={gem.id} title={gem.title} latitude={gem.latitude} longitude={gem.longitude} description={gem.description}  />
                                 <div onClick={() => updatePosition(gem.latitude, gem.longitude)}>
                                     <Link className = 'viewLink'>Click To View Location</Link>
                                     {/* {localStorage.getItem("token") && (
@@ -238,6 +243,7 @@ export default function ViewGem ({updatePosition}) {
                 )
             })}
         </CardsContainer>
+   
     )
 }
 else{
@@ -267,9 +273,9 @@ else{
                                 <GemCard key={gem.id} title={gem.title} latitude={gem.latitude} longitude={gem.longitude} />
                                 <div onClick={() => updatePosition(gem.latitude, gem.longitude)}>
                                     <Link className = 'viewLink'>Click To View Location</Link>
-                                    {localStorage.getItem("token") && (
+                                    {/* {localStorage.getItem("token") && (
                                         <Link className= 'viewLink' onClick={()=>markComplete(gem.id)}>Mark As Complete</Link>
-                                    )}
+                                    )} */}
                                 </div>
                             </div>
                         </Card>

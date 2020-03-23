@@ -12,16 +12,15 @@ function UserDashboard(props){
       }, [])
 
     useEffect(()=>{
-        const abortEffect = new AbortController()
-        const signal = AbortController.signal
-        axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/users/${localStorage.getItem('userID')}`, { signal: signal } )
+        const abortEffect = new AbortController()//set-up for clean-up of useEffect
+        const signal = AbortController.signal//set-up for useEffect clean-up
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/users/${token}`, { signal: signal } )
             .then(res=>{
-                setUser(res.data)
-
-                
+                setUser(res.data)                
             })
             .catch(err=>{
                 console.log(err)
+                //clean-up iniitiated
                 return function cleanup() {
                     abortEffect.abort()
                 }
