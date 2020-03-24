@@ -84,10 +84,6 @@ const ButonContainer = styled.div`
 
 function NavBar (props) {
 
-  useEffect(() => {
-    props.setHeaderRendered(false)
-  }, [])
-
   return (
     <Nav>
       {/* <Router> */}

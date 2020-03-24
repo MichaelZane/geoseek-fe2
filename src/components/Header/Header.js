@@ -5,22 +5,18 @@ import React,{ useEffect } from "react";
 import {Link} from "react-router-dom"
 import appleWeb from '../../images/apple-icon-web.png'
 
+import Gallery from '../Gallery/Gallery';
+import Roadmap from '../Roadmap/Roadmap'; // Dont delete
+import Footer from '../Footer/Footer';
+
 
 import { Jumbotron, Row, Col,Container} from "reactstrap";
 import "./Header.css";
 
-// class Header extends Component {
-//   constructor() {
-//     super(props);
-//   }
 function Header(props) {
-
-// useEffect(() => {
-//   props.setHeaderRendered(true)
-// }, [])
-
     return (
       <Row>
+       
         <Jumbotron className="header_body">
           <Col xs="12" sm="12">
             <div className="nav_container">
@@ -41,35 +37,6 @@ function Header(props) {
                   </div>
                   <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav navbar-right">
-                      {/* <li className="nav_rightSide_outline">
-                        <a href="#">
-                          <span className="nav_rightSide_bar_content">
-                            Our Solution
-                          </span>
-                        </a>
-                      </li> */}
-                      {/* <li className="nav_rightSide_outline">
-                        <a href="#">
-                          <span className="nav_rightSide_bar_content">
-                            Readmap
-                          </span>
-                        </a>
-                      </li> */}
-                      <li className="nav_rightSide_outline">
-                        {/* <a href="#"> */}
-                        <Link className='link' to='/Login'>Log In</Link>
-                        {/* </a> */}
-                      </li>
-                      <li className="nav_rightSide_outline">
-                        <Link className='link' to='/Register'>Register</Link>
-                      </li>
-                      <li className="nav_rightSide_outline">
-                        {/* <a href="#"> */}
-                          <span className="nav_rightSide_bar_content">
-                            View map
-                          </span>
-                        {/* </a> */}
-                      </li>
                     </ul>
                   </div>
                 </div>
@@ -95,7 +62,15 @@ function Header(props) {
               <h3> Download our app now </h3>
             </center>
           </Col>
+          
         </Jumbotron>
+        <Container>
+        <Gallery/>
+        <h2 className="lead2 gallery_content">
+          Connect to our App to see much more gems!
+        </h2>
+        <Footer/>
+      </Container>
       </Row>
     );
   }
