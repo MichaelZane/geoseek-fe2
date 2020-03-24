@@ -83,28 +83,6 @@ const ButonContainer = styled.div`
 `
 
 function NavBar (props) {
-  let navLinks;
-  if(localStorage.getItem('token')){
-    navLinks=(
-      <ButonContainer>
-           <Link className='button' to='/UserDash'>Dashboard</Link>
-           <Link className='button' to='/CreateGem'>Create a Gem</Link>
-           <Link className='button' to='/ViewGem'>View Gems</Link>
-           <LogOut />
-      </ButonContainer>
-    )
-  }else{
-    navLinks=(
-      <ButonContainer>
-        <Link className='button' to='/Register'>Register</Link>
-        <Link className='button' to='/Login'>Log In</Link>
-        <Link className='button' to='/ViewGem'>View Gems</Link>
-      </ButonContainer>
-    )
-  }
-  useEffect(() => {
-    props.setHeaderRendered(false)
-  }, [])
 
   return (
     <Nav>

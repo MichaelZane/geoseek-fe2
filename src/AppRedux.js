@@ -29,20 +29,10 @@ function App () {
     setLatLong([latitude, longitude])
   }
   const [RegLogRendered, setRegLogRendered] = useState(false)
-  const  [HeaderRendered, setHeaderRendered] = useState(false)
   return (
     <AppContainer>
-      {/* {HeaderRendered === true
-      ? 
-      
-    </Route>
-         
-       } */}
-       <NavBar setHeaderRendered={setHeaderRendered}/>
+       <NavBar/>
        <Route exact path='/' component={Header}/>
-       {/* <Header setHeaderRendered={setHeaderRendered} /> */}
-       
-     
       <MapAndGems>
         {RegLogRendered === true
           ? <Route exact path='/Map'>

@@ -27,9 +27,9 @@ class Gallery extends Component {
     return (
       <Row>
         <center>
+          {/* <br />
           <br />
-          <br />
-          <br />
+          <br /> */}
           <h1 className="display-3">Welcome to GeoSeek!</h1>
           <p className="lead gallery_content">
             Discover unique adventures with different categorizes. Fun for all
@@ -39,10 +39,11 @@ class Gallery extends Component {
             Gem colors represent categorizes that can be added or seeked.
           </p>
         </center>
-        <Col xs="12" sm="1" />
-        <Col xs="12" sm="2">
+        {/* <Col xs="12" sm="1" />
+        <Col xs="12" sm="2"> */}
+          <div className="gemConatiner">
           <Card>
-            <CardImg top width="50%" src={blueGem} alt="Card image cap" />
+            <CardImg className="Card"  src={blueGem} alt="Card image cap" />
             <CardBody>
               <CardTitle className="gallery_title">Family Fun</CardTitle>
               <CardText className="gallery_content">
@@ -50,10 +51,10 @@ class Gallery extends Component {
               </CardText>
             </CardBody>
           </Card>
-        </Col>
-        <Col xs="12" sm="2">
+        {/* </Col>
+        <Col xs="12" sm="2"> */}
           <Card>
-            <CardImg top width="50%" src={orangeGem} alt="Card image cap" />
+            <CardImg className="Card" src={orangeGem} alt="Card image cap" />
             <CardBody>
               <CardTitle className="gallery_title">Historical</CardTitle>
               <CardText className="gallery_content">
@@ -61,10 +62,10 @@ class Gallery extends Component {
               </CardText>
             </CardBody>
           </Card>
-        </Col>
-        <Col xs="12" sm="2">
+        {/* </Col> */}
+        {/* <Col xs="12" sm="2"> */}
           <Card>
-            <CardImg top width="50%" src={greenGem} alt="Card image cap" />
+            <CardImg className="Card" src={greenGem} alt="Card image cap" />
             <CardBody>
               <CardTitle className="gallery_title">Outdoors</CardTitle>
               <CardText className="gallery_content">
@@ -72,10 +73,10 @@ class Gallery extends Component {
               </CardText>
             </CardBody>
           </Card>
-        </Col>
-        <Col xs="12" sm="2">
+        {/* </Col> */}
+        {/* <Col xs="12" sm="2"> */}
           <Card>
-            <CardImg top width="50%" src={yellowGem} alt="Card image cap" />
+            <CardImg className="Card" src={yellowGem} alt="Card image cap" />
             <CardBody>
               <CardTitle className="gallery_title">Cultural</CardTitle>
               <CardText className="gallery_content">
@@ -83,10 +84,10 @@ class Gallery extends Component {
               </CardText>
             </CardBody>
           </Card>
-        </Col>
-        <Col xs="12" sm="2">
+        {/* </Col> */}
+        {/* <Col xs="12" sm="2"> */}
           <Card>
-            <CardImg top width="50%" src={purpleGem} alt="Card image cap" />
+            <CardImg className="Card" src={purpleGem} alt="Card image cap" />
             <CardBody>
               <CardTitle className="gallery_title">Night Life </CardTitle>
               <CardText className="gallery_content">
@@ -95,7 +96,8 @@ class Gallery extends Component {
               </CardText>
             </CardBody>
           </Card>
-        </Col>
+          </div>
+        {/* </Col> */}
         <Col xs="12" sm="1" />
       </Row>
     );

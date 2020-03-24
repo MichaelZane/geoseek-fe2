@@ -13,3 +13,10 @@
 .gallery_title {
   padding-top: 12%;
 }
+.Card {
+  width: 30%;
+}
+.gemConatiner {
+  display: flex;
+  flex-direction: row;
+}
