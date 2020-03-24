@@ -135,7 +135,7 @@ const onFormChange = e => {
             .post(`${process.env.REACT_APP_BACKEND_URL}/api/gems`, form)
             .then(res => {
               submitGem();
-              props.history.push("/");
+              props.history.push("/Map");
             })
             .catch(err => {
               console.log(err);
