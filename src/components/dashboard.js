@@ -40,7 +40,6 @@ function UserDashboard(props){
     console.log( token)
     useEffect(() => {
         props.setRegLogRendered(true)
-           
       }, [])
 
     useEffect(()=>{
@@ -97,7 +96,7 @@ function UserDashboard(props){
                     )
                 })}
             </CompletedGems>
-        </Container>
+        </Container> 
     )
 }
 

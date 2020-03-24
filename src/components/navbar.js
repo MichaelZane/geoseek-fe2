@@ -83,7 +83,25 @@ const ButonContainer = styled.div`
 `
 
 function NavBar (props) {
-
+  let navLinks;
+  if(localStorage.getItem('token')){
+    navLinks=(
+      <ButonContainer>
+           <Link className='button' to='/UserDash'>Dashboard</Link>
+           <Link className='button' to='/CreateGem'>Create a Gem</Link>
+           <Link className='button' to='/ViewGem'>View Gems</Link>
+           <LogOut />
+      </ButonContainer>
+    )
+  }else{
+    navLinks=(
+      <ButonContainer>
+        <Link className='button' to='/Register'>Register</Link>
+        <Link className='button' to='/Login'>Log In</Link>
+        <Link className='button' to='/ViewGem'>View Gems</Link>
+      </ButonContainer>
+    )
+  }
   useEffect(() => {
     props.setHeaderRendered(false)
   }, [])
@@ -96,19 +114,27 @@ function NavBar (props) {
         <span className="fast-flicker">g</span><span>eos</span><span className="flicker">e</span><span>ek</span>
       </a>
       </div>
-      <ButonContainer>
+      {/* <ButonContainer>
         <Link className='button' to='/Register'>Register</Link>
-        <Link className='button' to='/UserDash'>Dashboard</Link>
         <Link className='button' to='/Login'>Log In</Link>
-        <Link className='button' to='/CreateGem'>Create a Gem</Link>
         <Link className='button' to='/ViewGem'>View Gems</Link>
+        <>
+        {localStorage.getItem("token") && (
+        <Link className='button' to='/UserDash'>Dashboard</Link>
+        )}
+        </>
+        <>
+        {localStorage.getItem("token") && (
+        <Link className='button' to='/CreateGem'>Create a Gem</Link>
+        )}
+        </>
         <>
         {localStorage.getItem("token") && (
         <LogOut />
         )}
         </>
-      </ButonContainer>
-
+      </ButonContainer> */}
+      {navLinks}
       {/* <Route path = '/CreateGem' component = {CreateGem}/>
     <button onClick= {toggleGem}>View Gems</button>
     </Router> */}
