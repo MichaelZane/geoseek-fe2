@@ -31,14 +31,16 @@ padding:10px;
 `
 
 
-class LogOut extends React.Component {
+class LogOut extends React.Component{
   state = {
     navigate: false
   };
+
   logout = () => {
     localStorage.clear();
     this.setState({ navigate: true });
   };
+
   render() {
     const { navigate } = this.state;
 
