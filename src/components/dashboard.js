@@ -53,8 +53,6 @@ function UserDashboard(props){
                             <h1>{gem.gem_id}</h1>
                             <p>{gem.completed_at}</p>
                             <p>{gem.comments}</p>
-                    
-
                         </div>
                     )
                 })}
