@@ -232,7 +232,7 @@ export default function ViewGem ({updatePosition}) {
                             <div>
                                 <GemCard key={gem.id} title={gem.title} latitude={gem.latitude} longitude={gem.longitude} description={gem.description}  />
                                 <div onClick={() => updatePosition(gem.latitude, gem.longitude)}>
-                                    <Link className = 'viewLink'>Click To View Location</Link>
+                                    <Link className = 'button'>Click To View Location</Link>
                                     {/* {localStorage.getItem("token") && (
                                         <Link className= 'viewLink' onClick={()=>markComplete(gem.id)}>Mark As Complete</Link>
                                     )} */}
@@ -248,9 +248,9 @@ export default function ViewGem ({updatePosition}) {
 }
 else{
     return (
-        <Card2>
+        <CardsContainer>
             <form>
-                <input
+                <Input
                     name= 'searchForm'
                     placeholder= 'Search Gems'
                     value= {search}
@@ -272,7 +272,7 @@ else{
                             <div>
                                 <GemCard key={gem.id} title={gem.title} latitude={gem.latitude} longitude={gem.longitude} />
                                 <div onClick={() => updatePosition(gem.latitude, gem.longitude)}>
-                                    <Link className = 'viewLink'>Click To View Location</Link>
+                                    <Link className = 'button'>Click To View Location</Link>
                                     {/* {localStorage.getItem("token") && (
                                         <Link className= 'viewLink' onClick={()=>markComplete(gem.id)}>Mark As Complete</Link>
                                     )} */}
@@ -282,7 +282,7 @@ else{
                     </div>
                 )
             })}
-        </Card2>
+        </CardsContainer>
     )
 }
 }

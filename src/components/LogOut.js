@@ -17,6 +17,11 @@ transition: 0.3s;
 text-decoration: none;
 cursor: pointer;
 padding:10px; 
+
+@media (max-width: 990px ){
+  height: 50px;
+  width: 320px;
+ }
 // opacity: 0.6;
 // transition: opacity .55s ease-in-out;
 // -moz-transition: opacity .55s ease-in-out;

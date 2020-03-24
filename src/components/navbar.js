@@ -11,7 +11,7 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 height: 100px;
-@media(max-width: 1035px){
+@media(max-width: 1380px){
   height: 250px;
   display: flex;
   flex-direction: column;
@@ -19,7 +19,7 @@ height: 100px;
   align-items: center;
   justify-content: space-evenly;
 }
-@media(max-width: 700px){
+@media(max-width: 990px){
   height: 500px;
 }
   div {   margin-right: 2%;  } 
@@ -68,8 +68,8 @@ height: 100px;
   }
   }` 
 const ButonContainer = styled.div`
-@media(max-width: 700px){
-  height:300px;
+@media(max-width: 990px){
+  height:360px;
   display: flex;
   flex-direction: column;
   align-content: center;
