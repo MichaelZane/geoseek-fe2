@@ -49,7 +49,7 @@ function Map ({latitude, longitude, refresh}) {
     //         })
     //         .catch(err=>{
     //             console.log(err)
-    //         })
+    //         }) 
     
     // }
     
