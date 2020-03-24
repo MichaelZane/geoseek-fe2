@@ -34,15 +34,15 @@ function App () {
        <NavBar/>
        <Route exact path='/' component={Header}/>
       <MapAndGems>
+
         {RegLogRendered === true
-          ? <Route exact path='/Map'>
-            <Map refresh={refresh} latitude={latitude} longitude={longitude} />
-          </Route>
-          : <Route path='/Map' >
-            <Map refresh={refresh} latitude={latitude} longitude={longitude} />
-          </Route>}
+           ? 
+              null
+          : 
+          <Map refresh={refresh} latitude={latitude} longitude={longitude} />
+             }
         <Route path='/Register' render={(props) => <Register {...props} setRegLogRendered={setRegLogRendered} />} />
-        <Route path='/Login' component={(props) => <Login {...props} setRegLogRendered={setRegLogRendered} />} />
+        <Route path='/Login' component={(props) => <Login {...props} setRefresh={setRefresh} setRegLogRendered={setRegLogRendered} />} />
         <Route path='/UserDash' component={(props) => <UserDashboard {...props} setRegLogRendered={setRegLogRendered} />}/>
         <Route path='/ViewGem' component={() => <ViewGem refresh={refresh} setRegLogRendered={setRegLogRendered} updatePosition={updatePosition} />} />
         <ProtetedRoute path='/CreateGem' component={props => (<CreateGem {...props} setRegLogRendered={setRegLogRendered} latitude={latitude} longitude={longitude} updatePosition={updatePosition} setRefresh={setRefresh} />)} />

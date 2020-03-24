@@ -33,7 +33,7 @@ function Map ({latitude, longitude, refresh}) {
             .catch(err => {
                 console.log(err)
             })
-    }, [refresh])
+    }, [])
 
     // function markComplete( gemId, props){
     //     console.log(props)

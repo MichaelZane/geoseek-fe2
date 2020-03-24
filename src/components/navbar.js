@@ -66,7 +66,8 @@ height: 100px;
     -webkit-transition: opacity .55s ease-in-out;
     color: white;
   }
-  }` 
+  }
+  `
 const ButonContainer = styled.div`
 @media(max-width: 700px){
   height:300px;
@@ -83,6 +84,14 @@ const ButonContainer = styled.div`
 `
 
 function NavBar (props) {
+  const logOut = (e) => {
+		e.preventDefault();
+		console.log("LOGGING OUT");
+
+		localStorage.removeItem("token");
+		window.location.reload();
+  };
+  
   let navLinks;
   if(localStorage.getItem('token')){
     navLinks=(
@@ -90,7 +99,7 @@ function NavBar (props) {
            <Link className='button' to='/UserDash'>Dashboard</Link>
            <Link className='button' to='/CreateGem'>Create a Gem</Link>
            <Link className='button' to='/ViewGem'>View Gems</Link>
-           <LogOut />
+           <Link onClick={logOut} className='button' to='/'>Log Out</Link>
       </ButonContainer>
     )
   }else{

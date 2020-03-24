@@ -207,7 +207,7 @@ export default function ViewGem ({updatePosition}) {
         
        
         <CardsContainer>
-            <CloseButtonDiv><Link className='X_Link' to='/'>X</Link></CloseButtonDiv>
+            <CloseButtonDiv><Link className='X_Link' to='/Map'>X</Link></CloseButtonDiv>
             <form>
                 <Input
                     name= 'searchForm'

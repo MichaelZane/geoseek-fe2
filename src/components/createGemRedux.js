@@ -6,6 +6,7 @@ import { postGem } from "../actions";
 import { Link } from "react-router-dom";
 
 const FormContainer = styled.div`
+
   max-width: 400px;
   min-width: 400px;
   max-height: 87.5vh;
@@ -195,7 +196,7 @@ function CreateGem(props) {
     <FormContainer>
       <Form onSubmit={handleSubmit}>
         <CloseButtonDiv>
-          <Link className="X_Link" to="/">
+          <Link className="X_Link" to="/Map">
             X
           </Link>
         </CloseButtonDiv>
