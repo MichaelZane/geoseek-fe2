@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {Link} from "react-router-dom"
 import styled from 'styled-components'
 import '../Logo.css'
@@ -11,7 +11,7 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 height: 100px;
-@media(max-width: 1380px){
+@media(max-width: 1035px){
   height: 250px;
   display: flex;
   flex-direction: column;
@@ -19,7 +19,7 @@ height: 100px;
   align-items: center;
   justify-content: space-evenly;
 }
-@media(max-width: 990px){
+@media(max-width: 700px){
   height: 500px;
 }
   div {   margin-right: 2%;  } 
@@ -66,10 +66,11 @@ height: 100px;
     -webkit-transition: opacity .55s ease-in-out;
     color: white;
   }
-  }` 
+  }
+  `
 const ButonContainer = styled.div`
-@media(max-width: 990px){
-  height:360px;
+@media(max-width: 700px){
+  height:300px;
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -83,7 +84,33 @@ const ButonContainer = styled.div`
 `
 
 function NavBar (props) {
+  const logOut = (e) => {
+		e.preventDefault();
+		console.log("LOGGING OUT");
 
+		localStorage.removeItem("token");
+		window.location.reload();
+  };
+  
+  let navLinks;
+  if(localStorage.getItem('token')){
+    navLinks=(
+      <ButonContainer>
+           <Link className='button' to='/UserDash'>Dashboard</Link>
+           <Link className='button' to='/CreateGem'>Create a Gem</Link>
+           <Link className='button' to='/ViewGem'>View Gems</Link>
+           <Link onClick={logOut} className='button' to='/'>Log Out</Link>
+      </ButonContainer>
+    )
+  }else{
+    navLinks=(
+      <ButonContainer>
+        <Link className='button' to='/Register'>Register</Link>
+        <Link className='button' to='/Login'>Log In</Link>
+        <Link className='button' to='/ViewGem'>View Gems</Link>
+      </ButonContainer>
+    )
+  }
   return (
     <Nav>
       {/* <Router> */}
@@ -92,23 +119,33 @@ function NavBar (props) {
         <span className="fast-flicker">g</span><span>eos</span><span className="flicker">e</span><span>ek</span>
       </a>
       </div>
-      <ButonContainer>
-        <Link className='button' to='/Register'>Register</Link>
-        <Link className='button' to='/UserDash'>Dashboard</Link>
-        <Link className='button' to='/Login'>Log In</Link>
-        <Link className='button' to='/CreateGem'>Create a Gem</Link>
-        <Link className='button' to='/ViewGem'>View Gems</Link>
-        <>
-        {localStorage.getItem("token") && (
-        <LogOut />
-        )}
-        </>
-      </ButonContainer>
-
-      {/* <Route path = '/CreateGem' component = {CreateGem}/>
-    <button onClick= {toggleGem}>View Gems</button>
-    </Router> */}
-    </Nav>
+      {navLinks}
+      </Nav>
+        
   );
-}
+};
+    //   {/* <ButonContainer>
+    //     <Link className='button' to='/Register'>Register</Link>
+    //     <Link className='button' to='/Login'>Log In</Link>
+    //     <Link className='button' to='/ViewGem'>View Gems</Link>
+    //     <>
+    //     {localStorage.getItem("token") && (
+    //     <Link className='button' to='/UserDash'>Dashboard</Link>
+    //     )}
+    //     </>
+    //     <>
+    //     {localStorage.getItem("token") && (
+    //     <Link className='button' to='/CreateGem'>Create a Gem</Link>
+    //     )}
+    //     </>
+    //     <>
+    //     {localStorage.getItem("token") && (
+    //     <LogOut />
+    //     )}
+    //     </>
+    //   </ButonContainer> */}
+     
+    //   {/* <Route path = '/CreateGem' component = {CreateGem}/>
+    // <button onClick= {toggleGem}>View Gems</button>
+    // </Router> */}
 export default NavBar;

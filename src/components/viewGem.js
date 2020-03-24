@@ -55,6 +55,7 @@ overflow-y: auto;
 `
 const CardsContainer = styled.div`
 border-left: 3px solid black;
+margin-left: auto;
 display: flex;
 justify-content: space-evenly;
 flex-wrap: wrap;
