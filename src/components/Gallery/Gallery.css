@@ -1,0 +1,22 @@
+.gallery_title {
+  margin-left: 2%;
+}
+.gallery_content {
+  color: rgb(184, 184, 200);
+  margin-left: 2%;
+}
+.lead2 {
+  /* border: red 2px solid; */
+  margin-left: 28%;
+}
+
+.gallery_title {
+  padding-top: 12%;
+}
+.Card {
+  width: 30%;
+}
+.gemConatiner {
+  display: flex;
+  flex-direction: row;
+}

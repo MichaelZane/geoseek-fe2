@@ -9,6 +9,7 @@ import UserDashboard from './components/dashboard'
 import styled from 'styled-components'
 import RegisterImg from './images/RegisterImg.jpg'
 import {Route, Switch} from 'react-router-dom'
+import Header from "./components/Header/Header"
 import ProtetedRoute from './utils/protectedRoute';
 
 
@@ -30,13 +31,14 @@ function App () {
   const [RegLogRendered, setRegLogRendered] = useState(false)
   return (
     <AppContainer>
-      <NavBar />
+       <NavBar/>
+       <Route exact path='/' component={Header}/>
       <MapAndGems>
         {RegLogRendered === true
-          ? <Route exact path='/' >
+          ? <Route exact path='/Map'>
             <Map refresh={refresh} latitude={latitude} longitude={longitude} />
           </Route>
-          : <Route path='/' >
+          : <Route path='/Map' >
             <Map refresh={refresh} latitude={latitude} longitude={longitude} />
           </Route>}
         <Route path='/Register' render={(props) => <Register {...props} setRegLogRendered={setRegLogRendered} />} />
