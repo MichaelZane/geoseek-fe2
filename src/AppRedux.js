@@ -14,7 +14,7 @@ import ProtetedRoute from './utils/protectedRoute';
 
 
 const AppContainer = styled.div`
-min-height: 100vh;d
+min-height: 100vh;
 max-height: 100vh;
 `
 
@@ -22,33 +22,85 @@ const MapAndGems = styled.div`
  display: flex;
 `
 
-function App () {
+ function App () {
   const [[latitude, longitude], setLatLong] = useState([36.955992, -121.971428])
   const [refresh, setRefresh] = useState(false);
   const updatePosition = (latitude, longitude) => {
     setLatLong([latitude, longitude])
   }
-  const [RegLogRendered, setRegLogRendered] = useState(false)
-  return (
-    <AppContainer>
-       <NavBar/>
-       <Route exact path='/' component={Header}/>
-      <MapAndGems>
+  const [RegLogRendered, setRegLogRendered] = useState(false);
+  console.log('This is the RegLogRendered ==>', RegLogRendered);
 
-        {RegLogRendered === true
-           ? 
-              null
-          : 
-          <Map refresh={refresh} latitude={latitude} longitude={longitude} />
-             }
-        <Route path='/Register' render={(props) => <Register {...props} setRegLogRendered={setRegLogRendered} />} />
-        <Route path='/Login' component={(props) => <Login {...props} setRefresh={setRefresh} setRegLogRendered={setRegLogRendered} />} />
-        <Route path='/UserDash' component={(props) => <UserDashboard {...props} setRegLogRendered={setRegLogRendered} />}/>
-        <Route path='/ViewGem' component={() => <ViewGem refresh={refresh} setRegLogRendered={setRegLogRendered} updatePosition={updatePosition} />} />
-        <ProtetedRoute path='/CreateGem' component={props => (<CreateGem {...props} setRegLogRendered={setRegLogRendered} latitude={latitude} longitude={longitude} updatePosition={updatePosition} setRefresh={setRefresh} />)} />
-      </MapAndGems>
-    </AppContainer>
-  );
+  if (RegLogRendered === true) {
+    return (
+      <AppContainer>
+            <NavBar/>
+            <MapAndGems>
+                <Route exact path='/' component={() => <Header setRegLogRendered={setRegLogRendered}/>} />
+                <Route path='/Register' render={(props) => <Register {...props} setRegLogRendered={setRegLogRendered} />} />
+                <Route path='/Login' component={(props) => <Login {...props} setRefresh={setRefresh} setRegLogRendered={setRegLogRendered} />} />
+            </MapAndGems>
+      </AppContainer>      
+    )
+  } else {
+    return (
+      <AppContainer>
+            <NavBar/>
+            <MapAndGems>
+                <Route exact path='/' component={() => <Header setRegLogRendered={setRegLogRendered}/>} />
+                <Route path='*'>
+                  <Map refresh={refresh} setRefresh={setRefresh} latitude={latitude} longitude={longitude} />
+                </Route>
+                <Route path='/Register' render={(props) => <Register {...props} setRegLogRendered={setRegLogRendered} />} />
+                <Route path='/Login' component={(props) => <Login {...props} setRefresh={setRefresh} setRegLogRendered={setRegLogRendered} />} />
+                <ProtetedRoute path='/CreateGem' component={props => <CreateGem {...props} setRegLogRendered={setRegLogRendered} latitude={latitude} longitude={longitude} updatePosition={updatePosition} setRefresh={setRefresh} />} />
+                <Route path='/ViewGem' component={() => <ViewGem refresh={refresh} setRegLogRendered={setRegLogRendered} updatePosition={updatePosition} />} />
+                <Route path='/UserDash' component={(props) => <UserDashboard {...props} setRegLogRendered={setRegLogRendered} />}/>
+            </MapAndGems>
+      </AppContainer>
+    )
+  }
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//   return (
+//     <AppContainer>
+//       
+//       <MapAndGems>
+//         {RegLogRendered === true
+//            ? <div>
+//               <Route exact path='/' component={() => <Header setRegLogRendered={setRegLogRendered}/>} />
+//               <Route path='/Register' render={(props) => <Register {...props} setRegLogRendered={setRegLogRendered} />} />
+//               <Route path='/Login' component={(props) => <Login {...props} setRefresh={setRefresh} setRegLogRendered={setRegLogRendered} />} />
+//             </div>
+//           : 
+//             <div>
+//               <Route exact path='/' component={() => <Header setRegLogRendered={setRegLogRendered}/>} />
+//               <Map refresh={refresh} setRefresh={setRefresh} latitude={latitude} longitude={longitude} />
+//               <Route path='/Register' render={(props) => <Register {...props} setRegLogRendered={setRegLogRendered} />} />
+//               <Route path='/Login' component={(props) => <Login {...props} setRefresh={setRefresh} setRegLogRendered={setRegLogRendered} />} />
+//               <ProtetedRoute path='/CreateGem' component={props => <CreateGem {...props} setRegLogRendered={setRegLogRendered} latitude={latitude} longitude={longitude} updatePosition={updatePosition} setRefresh={setRefresh} />} />
+//               <Route path='/ViewGem' component={() => <ViewGem refresh={refresh} setRegLogRendered={setRegLogRendered} updatePosition={updatePosition} />} />
+//             </div>
+//           }
+//         </MapAndGems>
+//         {/* <Route path='/UserDash' component={(props) => <UserDashboard {...props} setRegLogRendered={setRegLogRendered} />}/> */}
+//     </AppContainer>
+//   );
+// }
+
+// export default App

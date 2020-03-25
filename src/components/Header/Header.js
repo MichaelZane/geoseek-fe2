@@ -14,6 +14,9 @@ import { Jumbotron, Row, Col,Container} from "reactstrap";
 import "./Header.css";
 
 function Header(props) {
+  useEffect(() => {
+    props.setRegLogRendered(true);
+  }, []);
     return (
       <Row>
        
