@@ -96,6 +96,7 @@ function NavBar (props) {
   if(localStorage.getItem('token')){
     navLinks=(
       <ButonContainer>
+           <a className='button' href='/Map'>Map</a>
            <a className='button' href='/UserDash'>Dashboard</a>
            <a className='button' href='/CreateGem'>Create a Gem</a>
            <a className='button' href='/ViewGem' >View Gems</a>
@@ -105,6 +106,7 @@ function NavBar (props) {
   }else{
     navLinks=(
       <ButonContainer>
+        <a className='button' href='/Map'>Map</a>
         <Link className='button' to='/Register'>Register</Link>
         <Link className='button' to='/Login'>Log In</Link>
         <a className='button' href='/ViewGem'>View Gems</a>

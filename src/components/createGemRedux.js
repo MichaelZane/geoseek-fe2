@@ -184,7 +184,7 @@ function CreateGem(props) {
     setTimeout(() => {
       props.setRefresh(!props.refresh);
       props.updatePosition(Number(newGem.latitude), Number(newGem.longitude));
-      props.history.push("/");
+      props.history.push("/Map");
     }, 1000);
   };
 

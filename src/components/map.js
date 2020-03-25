@@ -28,7 +28,6 @@ function Map ({latitude, longitude, refresh, setRegLogRendered}) {
     // }, [refresh])
 
     useEffect(() => {
-        setRegLogRendered(false)
         axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/gems`)
             .then(res => {
                 setGems(res.data)
@@ -36,7 +35,7 @@ function Map ({latitude, longitude, refresh, setRegLogRendered}) {
             .catch(err => {
                 console.log(err)
             })
-    }, [])
+    }, [refresh])
 
     // function markComplete( gemId, props){
     //     console.log(props)
