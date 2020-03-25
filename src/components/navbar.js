@@ -105,8 +105,8 @@ function NavBar (props) {
   }else{
     navLinks=(
       <ButonContainer>
-        <a className='button' href='/Register'>Register</a>
-        <a className='button' href='/Login'>Log In</a>
+        <Link className='button' to='/Register'>Register</Link>
+        <Link className='button' to='/Login'>Log In</Link>
         <a className='button' href='/ViewGem'>View Gems</a>
       </ButonContainer>
     )
@@ -115,9 +115,9 @@ function NavBar (props) {
     <Nav>
       {/* <Router> */}
       <div>
-      <a href='/' className="sign">
+      <Link to='/' className="sign">
         <span className="fast-flicker">g</span><span>eos</span><span className="flicker">e</span><span>ek</span>
-      </a>
+      </Link>
       </div>
       {/* <ButonContainer>
         <Link className='button' to='/Register'>Register</Link>
