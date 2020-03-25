@@ -12,6 +12,12 @@ const FormContainer = styled.div`
   background-color: #30364a;
   border-left: 3px solid black;
   overflow-y: auto;
+  @media(max-width:700px){
+    width:100vw;
+    position:absolute;
+    background-color: #30364a;
+    border-left: none;
+    z-index: 25;
 `;
 
 const Form = styled.form`

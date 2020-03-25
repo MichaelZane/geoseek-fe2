@@ -11,7 +11,7 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 height: 100px;
-@media(max-width: 1035px){
+@media(max-width: 1090px){
   height: 250px;
   display: flex;
   flex-direction: column;

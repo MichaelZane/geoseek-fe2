@@ -1,5 +1,13 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
+import styled from "styled-components"
+
+const Container = styled.div`
+text-align: center;
+color:white;
+background-color: 
+
+`
 
 function UserDashboard(props){
     const [user, setUser]= useState([])
@@ -40,13 +48,13 @@ function UserDashboard(props){
     }, [])
     
     return(
-        <div>
+        <Container>
             <h1>placeholder for img</h1>
-            <h1>{user.username}</h1>
-            
+            <h1>Welcome back,{user.username}</h1>
+            <p>You have found {completed.length} Gems. Good job!</p>
             {/* <button>Edit Profile</button> */}
             {/* <button onClick={viewCompleted}>View Your Completed Gems</button> */}
-            <div>
+            {/* <div>
                 {completed.map(gem=>{
                     return(
                         <div>
@@ -56,8 +64,8 @@ function UserDashboard(props){
                         </div>
                     )
                 })}
-            </div>
-        </div>
+            </div> */}
+        </Container>
     )
 }
 
