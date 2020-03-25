@@ -83,7 +83,7 @@ const ButonContainer = styled.div`
 `
 
 function NavBar (props) {
-
+  
   return (
     <Nav>
       {/* <Router> */}
@@ -112,7 +112,7 @@ function NavBar (props) {
         )}
         </>
       </ButonContainer> */}
-      {navLinks}
+      {/* {navLinks} */}
       {/* <Route path = '/CreateGem' component = {CreateGem}/>
     <button onClick= {toggleGem}>View Gems</button>
     </Router> */}

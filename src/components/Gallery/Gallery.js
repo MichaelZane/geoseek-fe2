@@ -27,16 +27,13 @@ class Gallery extends Component {
     return (
       <Row>
         <center>
-          {/* <br />
-          <br />
-          <br /> */}
-          <h1 className="display-3">Welcome to GeoSeek!</h1>
+          <h1 className="display-3">Discover Gems</h1>
           <p className="lead gallery_content">
             Discover unique adventures with different categorizes. Fun for all
             ages.
           </p>
           <p className="lead gallery_content">
-            Gem colors represent categorizes that can be added or seeked.
+            {/* Gem colors represent categorizes that can be added or seeked. */}
           </p>
         </center>
         {/* <Col xs="12" sm="1" />
@@ -98,7 +95,7 @@ class Gallery extends Component {
           </Card>
           </div>
         {/* </Col> */}
-        <Col xs="12" sm="1" />
+        {/* <Col xs="12" sm="1" /> */}
       </Row>
     );
   }
