@@ -96,18 +96,20 @@ function NavBar (props) {
   if(localStorage.getItem('token')){
     navLinks=(
       <ButonContainer>
-           <Link className='button' to='/UserDash'>Dashboard</Link>
-           <Link className='button' to='/CreateGem'>Create a Gem</Link>
-           <Link className='button' to='/ViewGem'>View Gems</Link>
-           <Link onClick={logOut} className='button' to='/'>Log Out</Link>
+           <a className='button' href='/Map'>Map</a>
+           <a className='button' href='/UserDash'>Dashboard</a>
+           <a className='button' href='/CreateGem'>Create a Gem</a>
+           <a className='button' href='/ViewGem' >View Gems</a>
+           <a onClick={logOut} className='button' href='/'>Log Out</a>
       </ButonContainer>
     )
   }else{
     navLinks=(
       <ButonContainer>
+        <a className='button' href='/Map'>Map</a>
         <Link className='button' to='/Register'>Register</Link>
         <Link className='button' to='/Login'>Log In</Link>
-        <Link className='button' to='/ViewGem'>View Gems</Link>
+        <a className='button' href='/ViewGem'>View Gems</a>
       </ButonContainer>
     )
   }
@@ -115,9 +117,9 @@ function NavBar (props) {
     <Nav>
       {/* <Router> */}
       <div>
-      <a href='/' className="sign">
+      <Link to='/' className="sign">
         <span className="fast-flicker">g</span><span>eos</span><span className="flicker">e</span><span>ek</span>
-      </a>
+      </Link>
       </div>
       {navLinks}
       </Nav>

@@ -127,6 +127,8 @@ function Login (props) {
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("userID", res.data.user_id);
         props.history.push("/Map");
+        props.setRefresh(!props.refresh);
+        props.setRegLogRendered(false);
       })
      
       .catch(err => {

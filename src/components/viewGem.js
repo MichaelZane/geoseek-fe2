@@ -209,7 +209,7 @@ display: flex;
 `
 
 
-export default function ViewGem ({updatePosition}) {
+export default function ViewGem ({updatePosition, setRegLogRendered}) {
     const [gems, setGems] = useState([])
     const [search, setSearch]= useState('')
     const [filtered, setFiltered]= useState([])
@@ -218,6 +218,7 @@ export default function ViewGem ({updatePosition}) {
         axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/gems`)
             .then(res => {
                 setGems(res.data)
+                setRegLogRendered(false);
             })
             .catch(err => {
                 console.log(err)
@@ -243,7 +244,7 @@ export default function ViewGem ({updatePosition}) {
     if(!search){
     return (
         <CardsContainer>
-            <CloseButtonDiv><Link className='X_Link' to='/'>X</Link></CloseButtonDiv>
+            <CloseButtonDiv><Link className='X_Link' to='/Map'>X</Link></CloseButtonDiv>
             <form>
                 <Input
                     name= 'searchForm'
@@ -279,7 +280,6 @@ export default function ViewGem ({updatePosition}) {
                 )
             })}
         </CardsContainer>
-   
     )
 }
 else{
