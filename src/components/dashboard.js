@@ -134,7 +134,7 @@ function UserDashboard(props){
                                         })
                                         .catch(err => {
                                             console.log(err);
-                                        });
+                                        }); 
                                 }}>
                                     <h1>editing {gem.title}</h1>
                                     <lable>title</lable>
