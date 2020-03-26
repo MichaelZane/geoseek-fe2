@@ -11,7 +11,7 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 height: 100px;
-@media(max-width: 1090px){
+@media(max-width: 1190px){
   height: 250px;
   display: flex;
   flex-direction: column;
@@ -69,7 +69,7 @@ height: 100px;
   }
   `
 const ButonContainer = styled.div`
-@media(max-width: 700px){
+@media(max-width: 900px){
   height:300px;
   display: flex;
   flex-direction: column;

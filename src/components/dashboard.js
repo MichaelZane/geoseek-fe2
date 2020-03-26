@@ -15,6 +15,7 @@ const GemContainer= styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
+flex-wrap: wrap;
 `
 
 const CompletedGems= styled.div`
@@ -32,7 +33,86 @@ const Card = styled.div`
     border-radius: 5px;
     background-color:#30364a;
     box-shadow: 0 0px 6px 4px #FF69B4;
-  } 
+    .Popup{
+        background-color: #3E4958;
+    }
+    .button{
+        width: 350px;
+  height: 50px;
+  border-radius: 15px;
+  outline: none;
+
+  background-color: #ff69b4;
+  border: none;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  margin: 15px auto;
+  transition: 0.3s;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.55s ease-in-out;
+  -moz-transition: opacity 0.55s ease-in-out;
+  -webkit-transition: opacity 0.55s ease-in-out;
+  :hover {
+    opacity: 1;
+    transition: opacity 0.55s ease-in-out;
+    -moz-transition: opacity 0.55s ease-in-out;
+    -webkit-transition: opacity 0.55s ease-in-out;
+    background-color: #c66db2;
+  }
+
+  `
+
+  const StyledPopup = styled(Popup)`
+  background-color: #3E4958;
+    .form{
+       display:flex; 
+       flex-direction: column;
+       justify-content: space-evenly;
+       
+       background-color: #30364A;
+    }
+    .input{
+        width: 300px;
+    padding-left: 10px;
+    font-size: 0.9rem;
+    border: none;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin: 15px auto;
+    background-color: #3e4958;
+    outline: none;
+    color: white;
+    }
+    .button{
+        width: 350px;
+  height: 50px;
+  border-radius: 15px;
+  outline: none;
+
+  background-color: #ff69b4;
+  border: none;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  margin: 15px auto;
+  transition: 0.3s;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.55s ease-in-out;
+  -moz-transition: opacity 0.55s ease-in-out;
+  -webkit-transition: opacity 0.55s ease-in-out;
+  :hover {
+    opacity: 1;
+    transition: opacity 0.55s ease-in-out;
+    -moz-transition: opacity 0.55s ease-in-out;
+    -webkit-transition: opacity 0.55s ease-in-out;
+    background-color: #c66db2;
+  }
+    }
   `
 
 function UserDashboard(props){
@@ -122,8 +202,8 @@ function UserDashboard(props){
                         <Card>
                             <h1>Title: {gem.title}</h1>
                             <h2>id: {gem.id}</h2>
-                            <Popup modal trigger={<button>Edit Gem</button>}>
-                                <form onSubmit={e => {
+                            <StyledPopup modal trigger={<button className='button' >Edit Gem</button>} className = 'Popup'>
+                                <form className = 'form' onSubmit={e => {
                                     e.preventDefault();
                                     console.log(form)
                                     axios
@@ -136,40 +216,45 @@ function UserDashboard(props){
                                             console.log(err);
                                         });
                                 }}>
-                                    <h1>editing {gem.title}</h1>
-                                    <lable>title</lable>
+                                    <h1>Editing: {gem.title}</h1>
+                                    <lable>Title</lable>
                                     <input
                                         name='title'
                                         placeholder='title'
                                         onChange={handleChange}
+                                        className = 'input'
                                     />
-                                    <lable>longitude</lable>
+                                    <lable>Longitude</lable>
                                     <input
                                         name='longitidue'
                                         placeholder='longitude'
                                         onChange={handleChange}
+                                        className = 'input'
                                     />
-                                    <lable>latitude</lable>
+                                    <lable>Latitude</lable>
                                     <input
                                         name='latitude'
                                         placeholder='latitude'
                                         onChange={handleChange}
+                                        className = 'input'
                                     />
-                                    <lable>difficulty</lable>
+                                    <lable>Difficulty</lable>
                                     <input
                                         name='difficulty'
                                         placeholder='difficulty'
                                         onChange={handleChange}
+                                        className = 'input'
                                     />
-                                    <lable>description</lable>
+                                    <lable>Description</lable>
                                     <input
                                         name='description'
                                         placeholder='description'
                                         onChange={handleChange}
+                                        className = 'input'
                                     />
-                                    <button type='submit'>Submit Changes</button>
+                                    <button type='submit' className = 'button'>Submit Changes</button>
                                 </form>
-                            </Popup>
+                            </StyledPopup>
                         </Card>
                     )
                 })}
