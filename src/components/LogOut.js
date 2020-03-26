@@ -43,7 +43,8 @@ class LogOut extends React.Component{
 
   logout = () => {
     localStorage.clear();
-    this.setState({ navigate: true });
+    this.setState({ navigate: true })
+    window.history.pushState("/");
   };
 
   render() {

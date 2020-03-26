@@ -57,7 +57,7 @@ const MapAndGems = styled.div`
                 <Route path='/Login' render={(props) => <Login {...props} refresh={refresh} setRefresh={setRefresh} setRegLogRendered={setRegLogRendered} />} />
                 <ProtetedRoute path='/CreateGem' component={props => <CreateGem {...props} setRegLogRendered={setRegLogRendered} latitude={latitude} longitude={longitude} updatePosition={updatePosition} setRefresh={setRefresh} />} />
                 <Route path='/ViewGem' render={(props) => <ViewGem {...props} refresh={refresh} setRegLogRendered={setRegLogRendered} updatePosition={updatePosition} />} />
-                <Route path='/UserDash' component={(props) => <UserDashboard {...props} setRegLogRendered={setRegLogRendered} />}/>
+                <ProtetedRoute path='/UserDash' component={(props) => <UserDashboard {...props} setRegLogRendered={setRegLogRendered} />}/>
             </MapAndGems>
       </AppContainer>
     )

@@ -83,8 +83,16 @@ const ButonContainer = styled.div`
 }
 `
 
+function NavBar (props) {
+  const logOut = (e) => {
+		e.preventDefault();
+		console.log("LOGGING OUT");
 
-let navLinks;
+		localStorage.removeItem("token");
+		window.location.reload('/');
+  };
+  
+  let navLinks;
   if(localStorage.getItem('token')){
     navLinks=(
       <ButonContainer>
@@ -92,7 +100,7 @@ let navLinks;
            <a className='button' href='/UserDash'>Dashboard</a>
            <a className='button' href='/CreateGem'>Create a Gem</a>
            <a className='button' href='/ViewGem' >View Gems</a>
-           <a onClick={LogOut} className='button' href='/'>Log Out</a>
+           <a onClick={logOut} className='button' href='/'>Log Out</a>
       </ButonContainer>
     )
   }else{
@@ -105,13 +113,9 @@ let navLinks;
       </ButonContainer>
     )
   }
- 
-
-
-function NavBar (props) {
-  
   return (
     <Nav>
+      {/* <Router> */}
       <div>
       <Link to='/' className="sign">
         <span className="fast-flicker">g</span><span>eos</span><span className="flicker">e</span><span>ek</span>
@@ -119,6 +123,7 @@ function NavBar (props) {
       </div>
       {navLinks}
       </Nav>
+        
   );
 };
 export default NavBar;
