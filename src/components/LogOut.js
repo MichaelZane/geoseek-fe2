@@ -17,6 +17,11 @@ transition: 0.3s;
 text-decoration: none;
 cursor: pointer;
 padding:10px; 
+
+@media (max-width: 990px ){
+  height: 50px;
+  width: 320px;
+ }
 // opacity: 0.6;
 // transition: opacity .55s ease-in-out;
 // -moz-transition: opacity .55s ease-in-out;
@@ -31,14 +36,16 @@ padding:10px;
 `
 
 
-class LogOut extends React.Component {
+class LogOut extends React.Component{
   state = {
     navigate: false
   };
+
   logout = () => {
     localStorage.clear();
     this.setState({ navigate: true });
   };
+
   render() {
     const { navigate } = this.state;
 

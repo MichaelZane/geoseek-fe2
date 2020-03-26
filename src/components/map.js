@@ -5,7 +5,7 @@ import {LngLatBounds} from 'mapbox-gl';
 
 
 
-function Map ({latitude, longitude, refresh}) {
+function Map ({latitude, longitude, refresh, setRegLogRendered}) {
     const [viewport, setViewport] = useState({
         latitude: 36.955992,
         longitude: -121.971428,
@@ -21,9 +21,11 @@ function Map ({latitude, longitude, refresh}) {
      useEffect(() => {
         const zoom = 12
         setViewport({...viewport, latitude, longitude, zoom})
-    }, [latitude, longitude])
+    }, [latitude, longitude, refresh])
 
-
+    // useEffect(() => {
+    //     setRefresh(!refresh);
+    // }, [refresh])
 
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/gems`)
