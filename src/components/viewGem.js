@@ -73,8 +73,8 @@ border-left: none;
 z-index: 25;
 .mapbox-ctrl-logo{
   display:none;
-}
-}
+  }
+    }
 `
 /*const GemCardsList = styled.div`
     margin: 20px;

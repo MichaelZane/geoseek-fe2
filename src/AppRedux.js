@@ -11,6 +11,7 @@ import RegisterImg from './images/RegisterImg.jpg'
 import {Route, Switch} from 'react-router-dom'
 import Header from "./components/Header/Header"
 import ProtetedRoute from './utils/protectedRoute';
+import './App.css';
 
 
 const AppContainer = styled.div`
