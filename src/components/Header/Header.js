@@ -42,7 +42,7 @@ function Header(props) {
               </h4>
               <h4 className="lead_p">
                 {" "}
-                seek out gems, create gems, discover new activities.
+                Seek out gems, create gems, and discover new activities.
               </h4>
               <a href="https://testflight.apple.com/join/qcnyqBE0" target="_blank">
                 <img src={appleWeb} alt="applelogo" />
@@ -55,7 +55,7 @@ function Header(props) {
         <Container>
         <Gallery/>
         <h2 className="lead2 gallery_content">
-          Connect to our App to see more gems!
+          Explore our App to find more gems!
         </h2>
         <Roadmap/>
         <Footer/>

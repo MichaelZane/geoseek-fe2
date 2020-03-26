@@ -28,7 +28,7 @@ function Gallery(){
         <center>
           <h1 className="display-3">Discover Gems</h1>
           <p className="lead gallery_content">
-            Discover unique adventures with different categorizes. Fun for all
+            Discover unique adventures with different categories.  Fun for all
             ages.
           </p>
           <p className="lead gallery_content">
@@ -52,7 +52,7 @@ function Gallery(){
             <CardBody>
               <CardTitle className="gallery_title">Historical</CardTitle>
               <CardText className="gallery_content">
-                Explore Historical monuments.
+                Explore historical monuments.
               </CardText>
             </CardBody>
           </Card>
@@ -72,7 +72,7 @@ function Gallery(){
             <CardBody>
               <CardTitle className="gallery_title">Cultural</CardTitle>
               <CardText className="gallery_content">
-                Explore different Cultural
+                Explore different Cultures.
               </CardText>
             </CardBody>
           </Card>
@@ -83,7 +83,7 @@ function Gallery(){
               <CardTitle className="gallery_title">Night Life </CardTitle>
               <CardText className="gallery_content">
                 {" "}
-                Leave the kids at home and have fun
+                Leave the kids at home and have fun.
               </CardText>
             </CardBody>
           </Card>
