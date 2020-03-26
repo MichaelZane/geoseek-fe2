@@ -37,7 +37,9 @@ function UserDashboard(props){
     const [completed, setCompleted]= useState([])
     const token= localStorage.getItem('userID')
     const [count, setCount]= useState('')
+    const [namedGems, setNamedGems] = useState([])
     console.log( token)
+
     useEffect(() => {
         props.setRegLogRendered(true)
       }, [])
@@ -63,12 +65,35 @@ function UserDashboard(props){
             .then(res=>{
                 setCompleted(res.data)
                 setCount(res.data.length)
+            
             })
             .catch(err=>{
                 console.log(err)
             })
+
+         
     }, [])
 
+
+
+
+    
+        // completed.map(gem =>{
+        //     const id = gem.gem_id 
+        //     useEffect(() => {
+        //         axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/gems/${id}`)
+        //             .then(res=>{
+        //                 console.log(res)
+        //             setNamedGems(res.data.title)
+        //             })
+        //             .catch(err=>{
+        //                 console.log(err)
+        //             }) 
+        //         },[])  
+        // })
+    
+
+console.log(`NAMED GEMS>>>>>>>>>>>>>>>${namedGems}`)
     function getGemName(id){
         axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/gems/${id}`)
             .then(res=>{

@@ -39,6 +39,7 @@ const MapAndGems = styled.div`
                 <Route exact path='/' component={() => <Header setRegLogRendered={setRegLogRendered}/>} />
                 <Route path='/Register' render={(props) => <Register {...props} setRegLogRendered={setRegLogRendered} />} />
                 <Route path='/Login' component={(props) => <Login {...props} setRefresh={setRefresh} setRegLogRendered={setRegLogRendered} />} />
+                <Route path='/UserDash' component={(props) => <UserDashboard {...props} setRegLogRendered={setRegLogRendered} />}/>
             </MapAndGems>
       </AppContainer>      
     )
@@ -54,7 +55,7 @@ const MapAndGems = styled.div`
                 <Route path='/Register' render={(props) => <Register {...props} setRegLogRendered={setRegLogRendered} />} />
                 <Route path='/Login' render={(props) => <Login {...props} refresh={refresh} setRefresh={setRefresh} setRegLogRendered={setRegLogRendered} />} />
                 <ProtetedRoute path='/CreateGem' component={props => <CreateGem {...props} setRegLogRendered={setRegLogRendered} latitude={latitude} longitude={longitude} updatePosition={updatePosition} setRefresh={setRefresh} />} />
-                <Route path='/ViewGem' component={() => <ViewGem refresh={refresh} setRegLogRendered={setRegLogRendered} updatePosition={updatePosition} />} />
+                <Route path='/ViewGem' render={(props) => <ViewGem {...props} refresh={refresh} setRegLogRendered={setRegLogRendered} updatePosition={updatePosition} />} />
                 <Route path='/UserDash' component={(props) => <UserDashboard {...props} setRegLogRendered={setRegLogRendered} />}/>
             </MapAndGems>
       </AppContainer>

@@ -207,9 +207,9 @@ display: flex;
      }
    }
 `
+//{updatePosition, setRegLogRendered}
 
-
-export default function ViewGem ({updatePosition, setRegLogRendered}) {
+export default function ViewGem (props) {
     const [gems, setGems] = useState([])
     const [search, setSearch]= useState('')
     const [filtered, setFiltered]= useState([])
@@ -218,7 +218,7 @@ export default function ViewGem ({updatePosition, setRegLogRendered}) {
         axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/gems`)
             .then(res => {
                 setGems(res.data)
-                setRegLogRendered(false);
+                props.setRegLogRendered(false);
             })
             .catch(err => {
                 console.log(err)
@@ -235,10 +235,12 @@ export default function ViewGem ({updatePosition, setRegLogRendered}) {
         axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/completed`, body)
             .then(res=>{
                 console.log(res)
+                props.history.push('/UserDash')
             })
             .catch(err=>{
                 console.log(err)
             })
+            
     }
 
     if(!search){
@@ -268,7 +270,7 @@ export default function ViewGem ({updatePosition, setRegLogRendered}) {
                         <Card>
                             <div>
                                 <GemCard key={gem.id} title={gem.title} latitude={gem.latitude} longitude={gem.longitude} description={gem.description}  />
-                                <ButtonContainer onClick={() => updatePosition(gem.latitude, gem.longitude)}>
+                                <ButtonContainer onClick={() => props.updatePosition(gem.latitude, gem.longitude)}>
                                     <Link className = 'button'>Click To View Location</Link>
                                     {localStorage.getItem("token") && (
                                         <Link className= 'button' onClick={()=>markComplete(gem.id)}>Mark As Complete</Link>
@@ -307,11 +309,11 @@ else{
                         <Card>
                             <div>
                                 <GemCard key={gem.id} title={gem.title} latitude={gem.latitude} longitude={gem.longitude} />
-                                <ButtonContainer onClick={() => updatePosition(gem.latitude, gem.longitude)}>
+                                <ButtonContainer onClick={() => props.updatePosition(gem.latitude, gem.longitude)}>
                                     <Link className = 'button'>Click To View Location</Link>
-                                    {/* {localStorage.getItem("token") && (
-                                        <Link className= 'viewLink' onClick={()=>markComplete(gem.id)}>Mark As Complete</Link>
-                                    )} */}
+                                    {localStorage.getItem("token") && (
+                                        <Link className= 'button' onClick={()=>markComplete(gem.id)}>Mark As Complete</Link>
+                                    )}
                                 </ButtonContainer>
                             </div>
                         </Card>
