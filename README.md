@@ -71,6 +71,14 @@ Our app GeoSeek aims to be a known name for creating engaging experiences throug
 
 JWT
 
+## Mapping API's
+
+React Map Gl, ArcGis geocoding
+
+## Data Storage
+
+Geoseek-be
+
 # Environment Variables
 
 In order for the app to function correctly, the user must set up their own environment variables. There should be a .env.local file containing the following:

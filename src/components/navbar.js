@@ -115,14 +115,13 @@ function NavBar (props) {
   }
   return (
     <Nav>
-      {/* <Router> */}
-      <div>
-      <Link to='/' className="sign">
-        <span className="fast-flicker">g</span><span>eos</span><span className="flicker">e</span><span>ek</span>
-      </Link>
-      </div>
-      {navLinks}
-      </Nav>
+        <div>
+          <Link to='/' className="sign">
+            <span className="fast-flicker">g</span><span>eos</span><span className="flicker">e</span><span>ek</span>
+          </Link>
+        </div>
+        {navLinks}
+    </Nav>
         
   );
 };

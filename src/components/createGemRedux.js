@@ -68,40 +68,6 @@ const Button = styled.button`
     background-color: #c66db2;
   }
 `;
-const ButtonContainer = styled.button`
-  background-color: #30364a;
-  border: 1px solid #30364a;
-  width: 99%;
-  display: flex;
-  justify-content: center;
-`;
-
-const CoordButton = styled.button`
-  width: 230px;
-  height: 50px;
-  border-radius: 15px;
-  outline: none;
-  background-color: #c66db2;
-  border: none;
-  color: white;
-  text-align: center;
-  font-size: 20px;
-  margin: 20px 0px 35px 0px;
-  transition: 0.3s;
-  text-decoration: none;
-  cursor: pointer;
-  transition: opacity 0.55s ease-in-out;
-  -moz-transition: opacity 0.55s ease-in-out;
-  -webkit-transition: opacity 0.55s ease-in-out;
-  :hover {
-    opacity: 1;
-    transition: opacity 0.55s ease-in-out;
-    -moz-transition: opacity 0.55s ease-in-out;
-    -webkit-transition: opacity 0.55s ease-in-out;
-    background-color: #ff69b4;
-    border: 2px solid black;
-  }
-`;
 
 const Label = styled.label`
   margin-left: 10%;
