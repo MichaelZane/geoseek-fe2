@@ -3,11 +3,18 @@ import axios from 'axios'
 import styled from 'styled-components'
 import GemCard from './gem'
 import CompletedGemCard from './completedGemCard'
+import Popup from 'reactjs-popup'
 
 const Container= styled.div`
 width: 100vw;
 text-align: center;
 color: white;
+`
+
+const GemContainer= styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
 `
 
 const CompletedGems= styled.div`
@@ -33,6 +40,16 @@ function UserDashboard(props){
     const [completed, setCompleted]= useState([])
     const token= localStorage.getItem('userID')
     const [count, setCount]= useState('')
+    const [created, setCreated]= useState([])
+    const [form, setForm]= useState({
+        title: '',
+        longitude: '',
+        latitude: '',
+        difficulty: '',
+        description: ''
+    })
+    const [completedCount, setCompletedCount]= useState('')
+    const [createdCount, setCreatedCount]= useState('')
 
     useEffect(() => {
         props.setRegLogRendered(true)
@@ -58,21 +75,107 @@ function UserDashboard(props){
         axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/completed/completedByUser/${token}`)
             .then(res=>{
                 setCompleted(res.data)
-                setCount(res.data.length)
-            
+                setCompletedCount(res.data.length)
             })
             .catch(err=>{
                 console.log(err)
             })
-
-         
     }, [])
 
+    useEffect(() => {
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/gems/byUser/${token}`)
+            .then(res=>{
+                setCreated(res.data)
+                setCreatedCount(res.data.length)
+            })
+            .catch(err=>{
+                console.log(err)
+            })
+    }, [])
+
+    function getGemName(id){
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/gems/${id}`)
+            .then(res=>{
+                console.log(res)
+            })
+            .catch(err=>{
+                console.log(err)
+            })
+    }
+
+    function handleChange(e) {
+        setForm({
+          ...form,
+          [e.target.name]: e.target.value
+        });
+        console.log(form)
+      }
+    
     return(
         <Container>
             <h1>{user.username}</h1>
-            <h2>You've completed {count} gems!</h2>
-            <CompletedGems>
+            <h2>You've created {createdCount} gems and completed {completedCount} gems!</h2>
+            <h2>Created:</h2>
+            <GemContainer>
+                {created.map(gem=>{
+                    return(
+                        <Card>
+                            <h1>Title: {gem.title}</h1>
+                            <h2>id: {gem.id}</h2>
+                            <Popup modal trigger={<button>Edit Gem</button>}>
+                                <form onSubmit={e => {
+                                    e.preventDefault();
+                                    console.log(form)
+                                    axios
+                                        .put(`${process.env.REACT_APP_BACKEND_URL}/api/gems/${gem.id}`, form)
+                                        .then(res => {
+                                            console.log(res)
+                                            props.history.push("/UserDash");
+                                        })
+                                        .catch(err => {
+                                            console.log(err);
+                                        });
+                                }}>
+                                    <h1>editing {gem.title}</h1>
+                                    <lable>title</lable>
+                                    <input
+                                        name='title'
+                                        placeholder='title'
+                                        onChange={handleChange}
+                                    />
+                                    <lable>longitude</lable>
+                                    <input
+                                        name='longitidue'
+                                        placeholder='longitude'
+                                        onChange={handleChange}
+                                    />
+                                    <lable>latitude</lable>
+                                    <input
+                                        name='latitude'
+                                        placeholder='latitude'
+                                        onChange={handleChange}
+                                    />
+                                    <lable>difficulty</lable>
+                                    <input
+                                        name='difficulty'
+                                        placeholder='difficulty'
+                                        onChange={handleChange}
+                                    />
+                                    <lable>description</lable>
+                                    <input
+                                        name='description'
+                                        placeholder='description'
+                                        onChange={handleChange}
+                                    />
+                                    <button type='submit'>Submit Changes</button>
+                                </form>
+                            </Popup>
+                        </Card>
+                    )
+                })}
+            </GemContainer>
+            <h2>Completed:</h2>
+            <GemContainer>
                 {completed.map(gem=>{
                     return(
                     <Card>
@@ -80,8 +183,8 @@ function UserDashboard(props){
                     </Card>
                     )
                 })}
-            </CompletedGems>
-        </Container> 
+            </GemContainer>
+        </Container>
     )
 }
 

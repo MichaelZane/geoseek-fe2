@@ -10,8 +10,8 @@ function Roadmap() {
           <Col xs="6" sm="8">
             <h2>What is GoeSeek </h2>
             <p className="lead gallery_content">
-              GeoSeek is a mobile scavenger hunt, that is both interactive and filled with excitement. 
-              <br/> 
+              GeoSeek is a mobile scavenger hunt that is both interactive and filled with excitement. 
+              <br/><br/> 
               As a seeker you create and
               collect gems while simultaneously creating unique and memorable moments. 
               <br/>
@@ -19,8 +19,8 @@ function Roadmap() {
             </p>
             <h2>Get Started</h2>
             <p className="lead gallery_content">
-              Connecting with with family and friends as never been this simple. 
-              <br/>
+              Connecting with family and friends as never been this simple. 
+              <br/><br/>
               Become a seeker and climb the leader board.
                 <br/>
               </p>
