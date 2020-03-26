@@ -84,38 +84,9 @@ const ButonContainer = styled.div`
 `
 
 function NavBar (props) {
-  const logOut = (e) => {
-		e.preventDefault();
-		console.log("LOGGING OUT");
-
-		localStorage.removeItem("token");
-		window.location.reload();
-  };
   
-  let navLinks;
-  if(localStorage.getItem('token')){
-    navLinks=(
-      <ButonContainer>
-           <a className='button' href='/Map'>Map</a>
-           <a className='button' href='/UserDash'>Dashboard</a>
-           <a className='button' href='/CreateGem'>Create a Gem</a>
-           <a className='button' href='/ViewGem' >View Gems</a>
-           <a onClick={logOut} className='button' href='/'>Log Out</a>
-      </ButonContainer>
-    )
-  }else{
-    navLinks=(
-      <ButonContainer>
-        <a className='button' href='/Map'>Map</a>
-        <Link className='button' to='/Register'>Register</Link>
-        <Link className='button' to='/Login'>Log In</Link>
-        <a className='button' href='/ViewGem'>View Gems</a>
-      </ButonContainer>
-    )
-  }
   return (
     <Nav>
-      {/* <Router> */}
       <div>
       <Link to='/' className="sign">
         <span className="fast-flicker">g</span><span>eos</span><span className="flicker">e</span><span>ek</span>
@@ -126,28 +97,4 @@ function NavBar (props) {
         
   );
 };
-    //   {/* <ButonContainer>
-    //     <Link className='button' to='/Register'>Register</Link>
-    //     <Link className='button' to='/Login'>Log In</Link>
-    //     <Link className='button' to='/ViewGem'>View Gems</Link>
-    //     <>
-    //     {localStorage.getItem("token") && (
-    //     <Link className='button' to='/UserDash'>Dashboard</Link>
-    //     )}
-    //     </>
-    //     <>
-    //     {localStorage.getItem("token") && (
-    //     <Link className='button' to='/CreateGem'>Create a Gem</Link>
-    //     )}
-    //     </>
-    //     <>
-    //     {localStorage.getItem("token") && (
-    //     <LogOut />
-    //     )}
-    //     </>
-    //   </ButonContainer> */}
-     
-    //   {/* <Route path = '/CreateGem' component = {CreateGem}/>
-    // <button onClick= {toggleGem}>View Gems</button>
-    // </Router> */}
 export default NavBar;

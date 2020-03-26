@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 import "./Gallery.css";
 
@@ -22,25 +22,20 @@ import {
   Button
 } from "reactstrap";
 
-class Gallery extends Component {
-  render() {
+function Gallery(){
     return (
       <Row>
         <center>
-          {/* <br />
-          <br />
-          <br /> */}
-          <h1 className="display-3">Welcome to GeoSeek!</h1>
+          <h1 className="display-3">Discover Gems</h1>
           <p className="lead gallery_content">
             Discover unique adventures with different categorizes. Fun for all
             ages.
           </p>
           <p className="lead gallery_content">
-            Gem colors represent categorizes that can be added or seeked.
+           
           </p>
         </center>
-        {/* <Col xs="12" sm="1" />
-        <Col xs="12" sm="2"> */}
+       
           <div className="gemConatiner">
           <Card>
             <CardImg className="Card"  src={blueGem} alt="Card image cap" />
@@ -51,8 +46,7 @@ class Gallery extends Component {
               </CardText>
             </CardBody>
           </Card>
-        {/* </Col>
-        <Col xs="12" sm="2"> */}
+       
           <Card>
             <CardImg className="Card" src={orangeGem} alt="Card image cap" />
             <CardBody>
@@ -62,8 +56,7 @@ class Gallery extends Component {
               </CardText>
             </CardBody>
           </Card>
-        {/* </Col> */}
-        {/* <Col xs="12" sm="2"> */}
+       
           <Card>
             <CardImg className="Card" src={greenGem} alt="Card image cap" />
             <CardBody>
@@ -73,8 +66,7 @@ class Gallery extends Component {
               </CardText>
             </CardBody>
           </Card>
-        {/* </Col> */}
-        {/* <Col xs="12" sm="2"> */}
+        
           <Card>
             <CardImg className="Card" src={yellowGem} alt="Card image cap" />
             <CardBody>
@@ -84,8 +76,7 @@ class Gallery extends Component {
               </CardText>
             </CardBody>
           </Card>
-        {/* </Col> */}
-        {/* <Col xs="12" sm="2"> */}
+      
           <Card>
             <CardImg className="Card" src={purpleGem} alt="Card image cap" />
             <CardBody>
@@ -97,11 +88,9 @@ class Gallery extends Component {
             </CardBody>
           </Card>
           </div>
-        {/* </Col> */}
-        <Col xs="12" sm="1" />
+       
       </Row>
     );
   }
-}
 
 export default Gallery;
