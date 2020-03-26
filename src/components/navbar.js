@@ -83,6 +83,31 @@ const ButonContainer = styled.div`
 }
 `
 
+
+let navLinks;
+  if(localStorage.getItem('token')){
+    navLinks=(
+      <ButonContainer>
+           <a className='button' href='/Map'>Map</a>
+           <a className='button' href='/UserDash'>Dashboard</a>
+           <a className='button' href='/CreateGem'>Create a Gem</a>
+           <a className='button' href='/ViewGem' >View Gems</a>
+           <a onClick={LogOut} className='button' href='/'>Log Out</a>
+      </ButonContainer>
+    )
+  }else{
+    navLinks=(
+      <ButonContainer>
+        <a className='button' href='/Map'>Map</a>
+        <Link className='button' to='/Register'>Register</Link>
+        <Link className='button' to='/Login'>Log In</Link>
+        <a className='button' href='/ViewGem'>View Gems</a>
+      </ButonContainer>
+    )
+  }
+ 
+
+
 function NavBar (props) {
   
   return (
@@ -94,7 +119,6 @@ function NavBar (props) {
       </div>
       {navLinks}
       </Nav>
-        
   );
 };
 export default NavBar;
