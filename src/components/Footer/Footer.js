@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Footer.css';
 import { 
   Row,
@@ -7,8 +7,8 @@ import {
  } from 'reactstrap';
 
 
-class Footer extends Component {
-  render() {
+function Footer(){
+  
     return (
      
     <div className="footer_body">
@@ -35,19 +35,18 @@ class Footer extends Component {
         <a href="https://github.com/Lambda-School-Labs/geoseek-fe" target="_blank"><p>Github</p></a>
         <a href="https://github.com/Lambda-School-Labs/geoseek-be/blob/master/README.md" target="_blank"><p>API Doc</p></a>
         </Col>
-        {/* <Col xs="4" sm="4"> */}
         <div className="footer_flex footer_gallery_content">
         <span>Connect with us</span><br/><br/>
-        <p>FaceBook</p>
-        <p>Instagram</p>
+        <a href="www.facebook.com" target="_blank"><p>FaceBook</p></a>
+        <a href="www.Instagram.com" target="_blank"><p>Instagram</p></a>
         <a href="https://twitter.com/i/flow/signup" target="_blank"><p>Twitter</p></a>
         </div>
-        {/* </Col> */}
+        
         </Col>
       </Row>
     </div>
     );
   }
-}
+
 
 export default Footer;

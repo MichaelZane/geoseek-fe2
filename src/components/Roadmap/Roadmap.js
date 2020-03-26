@@ -15,7 +15,7 @@ function Roadmap() {
               As a seeker you create and
               collect gems while simultaneously creating unique and memorable moments. 
               <br/>
-              Fun for all ages.
+              
             </p>
             <h2>Get Started</h2>
             <p className="lead gallery_content">
@@ -24,12 +24,9 @@ function Roadmap() {
               Become a seeker and climb the leader board.
                 <br/>
               </p>
-            {/* <img className="event_left_img" src="./img/code-image.png"/> */}
+           
           </Col>
-         
-          {/* <a href="https://testflight.apple.com/join/zBk3NnVo" target="_blank"> */}
            <img className="event_right_img" src={pinkGem} alt="PinkGem"/>
-          {/* </a> */}
       </Row>
     );
 }
