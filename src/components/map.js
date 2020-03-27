@@ -1,36 +1,28 @@
-
 import React, {useState, useEffect} from 'react';
 import ReactMapGL, {Marker, Popup} from 'react-map-gl'
 import axios from 'axios'
 
 
-
-function Map ({latitude, longitude, refresh}) {
+function Map ({latitude, longitude, refresh, setRegLogRendered}) {
     const [viewport, setViewport] = useState({
-
-        latitude: 33.812468,
-        longitude: -117.918989,
-        width: "100%",
-        height: "90%",
-        zoom: 15
+        latitude: 36.955992,
+        longitude: -121.971428,
+        width: "100vw",
+        height: "90vh",
+        zoom: 12
     });
-
+    
     const [gems, setGems] = useState([])
-
     const [selectedGem, setSelectedGem] = useState(null)
 
-
-
-    useEffect(() => {
-        setViewport({...viewport, latitude, longitude})
-    }, [latitude, longitude])
-
-
+     useEffect(() => {
+        const zoom = 12
+        setViewport({...viewport, latitude, longitude, zoom})
+    }, [latitude, longitude, refresh])
 
     useEffect(() => {
-        axios.get('https://geoseek-be.herokuapp.com/api/gems')
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/gems`)
             .then(res => {
-                console.log(res)
                 setGems(res.data)
             })
             .catch(err => {
@@ -38,8 +30,7 @@ function Map ({latitude, longitude, refresh}) {
             })
     }, [refresh])
 
-
-
+    
     return (
         <ReactMapGL className='Map'
             {...viewport}
@@ -50,10 +41,10 @@ function Map ({latitude, longitude, refresh}) {
         >
             {gems.map((gem) => (
                 <Marker key={gem.id} latitude={gem.latitude} longitude={gem.longitude}>
-                    <button className='marker-btn' onClick={e => {
+                    <button className='marker-btn' onClick={e =>{
                         e.preventDefault()
                         setSelectedGem(gem)
-                    }} >
+                        }} >
                         {selectedGem === gem ? (
                             <img src='/pinkGem.png' alt="Selected Gem Icon" />
                         ) :
@@ -71,9 +62,6 @@ function Map ({latitude, longitude, refresh}) {
                 </Popup>
             )}
         </ReactMapGL>
-
-
-
     );
 }
 

@@ -1,30 +1,30 @@
 # GeoSeek
 
+
+ [![Maintainability](https://api.codeclimate.com/v1/badges/19602e51aa1666635be7/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/geoseek-fe/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/19602e51aa1666635be7/test_coverage)](https://codeclimate.com/github/Lambda-School-Labs/geoseek-fe/test_coverage)
+![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
+![React](https://img.shields.io/badge/react-v16.7.0--alpha.2-blue.svg)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+
  You can find the deployed project at [Deployed Project]( geoseeklambdalabs.xyz).
 
 ## Contributors
 
 |                                       [John Marshall](https://github.com/fishmanjohn)                                        |                                       [Michael Stevens](https://github.com/mzstevens69)                                        |                                       [Dante Bui](https://github.com/dantebui)                                        
 | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: 
-|                      [<img src="https://ca.slack-edge.com/T4JUEB3ME-UNJVAAVR6-3886a9ec902e-72" width = "200" />](https://github.com/fishmanjohn)                       |                      [<img src="https://ca.slack-edge.com/T4JUEB3ME-UNE3PAE4B-bf258b73a9be-72" width = "200" />](https://github.com/mzstevens69)                       |                      [<img src="https://ca.slack-edge.com/T4JUEB3ME-ULWH387EU-6812c9665cb0-72" width = "200" />](https://github.com/dantebui)                       
-|                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/honda0306)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)           |
-| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) |
+|                      [<img src="https://avatars3.githubusercontent.com/u/55719369?s=460&u=7202b33f344277027d10f5904f1b5611f07f19b7&v=4" width = "200" />](https://github.com/fishmanjohn)                       |                      [<img src="https://avatars3.githubusercontent.com/u/54222870?s=400&u=dceca4bf8b05a7fef13f7cd4610be6ef995fdb79&v=4" width = "200" />](https://github.com/mzstevens69)                       |                      [<img src="https://ca.slack-edge.com/T4JUEB3ME-ULWH387EU-6812c9665cb0-512" width = "200" />](https://github.com/dantebui)
+|                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/fishmamjohn)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/mzstevens69)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/dantebui)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)           |
+| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/michael-stevens-a95a2b59/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) |
 
 |                                       [George Raymond](https://github.com/georgeraymond98)                                        |                                       [Chase Redford](https://github.com/redfordch1)                                        |                                       [Anthony Lopez](https://github.com/anthony1120)                                        
 | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: |
-|                      [<img src="https://ca.slack-edge.com/T4JUEB3ME-UNJVA94AC-ff89659ecee0-48" width = "200" />](https://github.com/georgeraymond98)                       |                      [<img src="https://ca.slack-edge.com/T4JUEB3ME-UNLQW699V-30384bab5949-48" width = "200" />](https://github.com/redfordch1)                       |                      [<img src="https://ca.slack-edge.com/T4JUEB3ME-ULYR9J3BR-fe7413d4bb61-48" width = "200" />](https://github.com/anthony1120)                       
-|                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/honda0306)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)           |
-| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) |
+|                      [<img src="https://avatars3.githubusercontent.com/u/49840522?s=460&u=468032a956335acae29eba43ce68ef89f9afa950&v=4" width = "200" />](https://github.com/georgeraymond98)                       |                      [<img src="https://avatars1.githubusercontent.com/u/54921879?s=460&u=5e2d9c2577c51d6040add3e5661d240511bc3737&v=4" width = "200" />](https://github.com/redfordch1)                       |                      [<img src="https://avatars0.githubusercontent.com/u/53539912?s=460&u=2f676643c6a84e8feb7608a375c3c5ca3217e99f&v=4" width = "200" />](https://github.com/AnthonyLopez1120)                       
+|                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/georgeraymond98)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/redfordch1)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/AnthonyLopez1120)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)           |
+| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/george-raymond-656285102/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) |
 <br>
 <br>
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/19602e51aa1666635be7/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/geoseek-fe/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/19602e51aa1666635be7/test_coverage)](https://codeclimate.com/github/Lambda-School-Labs/geoseek-fe/test_coverage)
-![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
-![React](https://img.shields.io/badge/react-v16.7.0--alpha.2-blue.svg)
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
-
- [here](https://github.com/badges/shields)
 
 ## Project Overview
 
@@ -70,6 +70,14 @@ Our app GeoSeek aims to be a known name for creating engaging experiences throug
 ## Authentication API here
 
 JWT
+
+## Mapping API's
+
+React Map Gl, ArcGis geocoding
+
+## Data Storage
+
+Geoseek-be
 
 # Environment Variables
 
