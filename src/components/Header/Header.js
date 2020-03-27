@@ -21,11 +21,11 @@ function Header(props) {
           <Col xs="12" sm="12">
             <div className="nav_container">
               <nav className="navbar navbar-default nav_container">
-                <div class="container-fluid">
-                  <div class="navbar-header">
+                <div className="container-fluid">
+                  <div className="navbar-header">
                   </div>
-                  <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav navbar-right">
+                  <div className="collapse navbar-collapse" id="myNavbar">
+                    <ul className="nav navbar-nav navbar-right">
                     </ul>
                   </div>
                 </div>

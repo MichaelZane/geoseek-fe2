@@ -121,8 +121,8 @@ function CreateGem(props) {
       ...newGem,
       [e.target.name]: e.target.value
     });
-    console.log(newGem, "newGem");
   };
+  
   // Enables geocode on submit
   const handleGeocodeSubmit = e => {
     e.preventDefault();

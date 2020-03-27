@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import NavBar from './components/navbar'
 import Map from './components/map'
 import ViewGem from './components/viewGem'
-import CreateGem from './components/createGemRedux'
+import CreateGem from './components/createGem'
 import Register from './components/register'
 import Login from './components/Login'
 import UserDashboard from './components/dashboard'
@@ -30,7 +30,6 @@ const MapAndGems = styled.div`
     setLatLong([latitude, longitude])
   }
   const [RegLogRendered, setRegLogRendered] = useState(false);
-  console.log('This is the RegLogRendered ==>', RegLogRendered);
 
   if (RegLogRendered === true) {
     return (

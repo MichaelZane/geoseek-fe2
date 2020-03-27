@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import {Link} from "react-router-dom"
 import styled from 'styled-components'
 import '../Logo.css'
-import LogOut from './LogOut'
 
 const Nav = styled.div`
 border-bottom: 3px solid black;
@@ -19,7 +18,7 @@ height: 100px;
   align-items: center;
   justify-content: space-evenly;
 }
-@media(max-width: 700px){
+@media(max-width: 900px){
   height: 500px;
 }
   div {   margin-right: 2%;  } 

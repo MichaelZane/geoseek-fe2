@@ -18,14 +18,6 @@ align-items: center;
 flex-wrap: wrap;
 `
 
-const CompletedGems= styled.div`
-margin-top: 50px;
-display: flex;
-overflow-y: auto;
-justify-content: space-evenly;
-flex-wrap: wrap;
-padding: 0px;
-`
 
 const Card = styled.div`
     padding: 10px;
@@ -63,57 +55,58 @@ const Card = styled.div`
   }
 
   `
+// Styled compnent for commented out pop up
 
-  const StyledPopup = styled(Popup)`
-  background-color: #3E4958;
-    .form{
-       display:flex; 
-       flex-direction: column;
-       justify-content: space-evenly;
+//   const StyledPopup = styled(Popup)`
+//   background-color: #3E4958;
+//     .form{
+//        display:flex; 
+//        flex-direction: column;
+//        justify-content: space-evenly;
        
-       background-color: #30364A;
-    }
-    .input{
-        width: 300px;
-    padding-left: 10px;
-    font-size: 0.9rem;
-    border: none;
-    height: 44px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    margin: 15px auto;
-    background-color: #3e4958;
-    outline: none;
-    color: white;
-    }
-    .button{
-        width: 350px;
-  height: 50px;
-  border-radius: 15px;
-  outline: none;
+//        background-color: #30364A;
+//     }
+//     .input{
+//         width: 300px;
+//     padding-left: 10px;
+//     font-size: 0.9rem;
+//     border: none;
+//     height: 44px;
+//     border-radius: 10px;
+//     display: flex;
+//     flex-direction: column;
+//     margin: 15px auto;
+//     background-color: #3e4958;
+//     outline: none;
+//     color: white;
+//     }
+//     .button{
+//         width: 350px;
+//   height: 50px;
+//   border-radius: 15px;
+//   outline: none;
 
-  background-color: #ff69b4;
-  border: none;
-  color: white;
-  text-align: center;
-  font-size: 20px;
-  margin: 15px auto;
-  transition: 0.3s;
-  text-decoration: none;
-  cursor: pointer;
-  transition: opacity 0.55s ease-in-out;
-  -moz-transition: opacity 0.55s ease-in-out;
-  -webkit-transition: opacity 0.55s ease-in-out;
-  :hover {
-    opacity: 1;
-    transition: opacity 0.55s ease-in-out;
-    -moz-transition: opacity 0.55s ease-in-out;
-    -webkit-transition: opacity 0.55s ease-in-out;
-    background-color: #c66db2;
-  }
-    }
-  `
+//   background-color: #ff69b4;
+//   border: none;
+//   color: white;
+//   text-align: center;
+//   font-size: 20px;
+//   margin: 15px auto;
+//   transition: 0.3s;
+//   text-decoration: none;
+//   cursor: pointer;
+//   transition: opacity 0.55s ease-in-out;
+//   -moz-transition: opacity 0.55s ease-in-out;
+//   -webkit-transition: opacity 0.55s ease-in-out;
+//   :hover {
+//     opacity: 1;
+//     transition: opacity 0.55s ease-in-out;
+//     -moz-transition: opacity 0.55s ease-in-out;
+//     -webkit-transition: opacity 0.55s ease-in-out;
+//     background-color: #c66db2;
+//   }
+//     }
+//   `
 
 function UserDashboard(props){
     const [user, setUser]= useState([])
@@ -188,7 +181,6 @@ function UserDashboard(props){
           ...form,
           [e.target.name]: e.target.value
         });
-        console.log(form)
       }
     
     return(
@@ -202,7 +194,10 @@ function UserDashboard(props){
                         <Card>
                             <h1>Title: {gem.title}</h1>
                             <h2>id: {gem.id}</h2>
-                            <StyledPopup modal trigger={<button className='button' >Edit Gem</button>} className = 'Popup'>
+
+                            {/*Pop Up retuns CORs error on submit can use for RC3 some back end adjustments needed for full functionality */}
+
+                            {/* <StyledPopup modal trigger={<button className='button' >Edit Gem</button>} className = 'Popup'>
                                 <form className = 'form' onSubmit={e => {
                                     e.preventDefault();
                                     console.log(form)
@@ -254,7 +249,8 @@ function UserDashboard(props){
                                     />
                                     <button type='submit' className = 'button'>Submit Changes</button>
                                 </form>
-                            </StyledPopup>
+                            </StyledPopup> */}
+
                         </Card>
                     )
                 })}

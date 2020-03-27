@@ -14,7 +14,7 @@ function Map ({latitude, longitude, refresh, setRegLogRendered}) {
         zoom: 12
     });
     
-    const [completed, setCompleted] = useState()
+   
     const [gems, setGems] = useState([])
     const [selectedGem, setSelectedGem] = useState(null)
 

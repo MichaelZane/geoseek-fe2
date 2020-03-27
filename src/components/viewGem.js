@@ -159,10 +159,8 @@ export default function ViewGem (props) {
             gem_id: gemId,
             completed_by: userToken
         }
-        console.log(body, 'body')
         axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/completed`, body)
             .then(res=>{
-                console.log(res)
                 props.history.push('/UserDash')
             })
             .catch(err=>{
