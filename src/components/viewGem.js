@@ -41,18 +41,6 @@ import styled from "styled-components";
   } 
   `;
 
-  const Card2 = styled.div`
-border: 2px solid teal;
-display: flex;
-justify-content: space-evenly;
-flex-wrap: wrap;
-width: 350px;
-padding: 0px;
-max-height: 100%;
-min-height: 100vh;
-height: 100vh;
-overflow-y: auto;
-`
 const CardsContainer = styled.div`
 border-left: 3px solid black;
 margin-left: auto;
@@ -76,65 +64,6 @@ z-index: 25;
   }
     }
 `
-/*const GemCardsList = styled.div`
-    margin: 20px;
-    padding: 5px;
-    border-radius: 10px;
-    display: flex;
-    width: 250px;
-    justify-content: space-evenly;
-  `;
-  const ButtonContainer = styled.div`
-  width: 200px;
- height:150px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  
-  .button {
-    margin: 5px 3px;
-    width: 200px;
-    height: 40px;
-    border-radius: 5px;
-    background-color:#FF69B4;
-    border: none;
-    color: white;
-    text-align: center;
-    font-size: 20px;
-    transition: 0.3s;
-    text-decoration: none;
-    cursor: pointer;
-    padding:5px; 
-    // opacity: 0.6;
-    // transition: opacity .55s ease-in-out;
-    // -moz-transition: opacity .55s ease-in-out;
-    // -webkit-transition: opacity .55s ease-in-out;
-
-   :hover {
-       opacity: 1.0;
-       transition: opacity .55s ease-in-out;
-       -moz-transition: opacity .55s ease-in-out;
-       -webkit-transition: opacity .55s ease-in-out;
-       background-color:#C66DB2;
-       //border: 2px solid black;
-   }
-  }
-   `
-*/
-    
-
- /* const Container = styled.div`
-    border-left: 3px solid black;
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    width: 400px;
-    padding: 0px;
-    max-height: 100%;
-    height: 800px;
-    overflow-y: auto;
-  `;
-*/
 
 const ButtonContainer = styled.div`
 width: 200px;
@@ -207,7 +136,6 @@ display: flex;
      }
    }
 `
-//{updatePosition, setRegLogRendered}
 
 export default function ViewGem (props) {
     const [gems, setGems] = useState([])
@@ -231,16 +159,13 @@ export default function ViewGem (props) {
             gem_id: gemId,
             completed_by: userToken
         }
-        console.log(body, 'body')
         axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/completed`, body)
             .then(res=>{
-                console.log(res)
                 props.history.push('/UserDash')
             })
             .catch(err=>{
                 console.log(err)
-            })
-            
+            })   
     }
 
     if(!search){

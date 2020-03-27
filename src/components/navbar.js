@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import {Link} from "react-router-dom"
 import styled from 'styled-components'
 import '../Logo.css'
-import LogOut from './LogOut'
 
 const Nav = styled.div`
 border-bottom: 3px solid black;
@@ -19,7 +18,7 @@ height: 100px;
   align-items: center;
   justify-content: space-evenly;
 }
-@media(max-width: 700px){
+@media(max-width: 900px){
   height: 500px;
 }
   div {   margin-right: 2%;  } 
@@ -84,10 +83,9 @@ const ButonContainer = styled.div`
 `
 
 function NavBar (props) {
+
   const logOut = (e) => {
 		e.preventDefault();
-		console.log("LOGGING OUT");
-
 		localStorage.removeItem("token");
 		window.location.reload('/');
   };
@@ -115,14 +113,16 @@ function NavBar (props) {
   }
   return (
     <Nav>
-      {/* <Router> */}
-      <div>
-      <Link to='/' className="sign">
-        <span className="fast-flicker">g</span><span>eos</span><span className="flicker">e</span><span>ek</span>
-      </Link>
-      </div>
-      {navLinks}
-      </Nav>
+        <div>
+          <Link to='/' className="sign">
+            <span className="fast-flicker">g</span>
+            <span>eos</span>
+            <span className="flicker">e</span>
+            <span>ek</span>
+          </Link>
+        </div>
+        {navLinks}
+    </Nav>
         
   );
 };

@@ -18,8 +18,8 @@
 
 |                                       [George Raymond](https://github.com/georgeraymond98)                                        |                                       [Chase Redford](https://github.com/redfordch1)                                        |                                       [Anthony Lopez](https://github.com/anthony1120)                                        
 | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: |
-|                      [<img src="https://avatars3.githubusercontent.com/u/49840522?s=460&u=468032a956335acae29eba43ce68ef89f9afa950&v=4" width = "200" />](https://github.com/georgeraymond98)                       |                      [<img src="https://avatars1.githubusercontent.com/u/54921879?s=460&u=5e2d9c2577c51d6040add3e5661d240511bc3737&v=4" width = "200" />](https://github.com/redfordch1)                       |                      [<img src="https://avatars0.githubusercontent.com/u/53539912?s=460&u=2f676643c6a84e8feb7608a375c3c5ca3217e99f&v=4" width = "200" />](https://github.com/anthony1120)                       
-|                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/georgeraymond98)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/redfordch1)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/anthonylopez1120)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)           |
+|                      [<img src="https://avatars3.githubusercontent.com/u/49840522?s=460&u=468032a956335acae29eba43ce68ef89f9afa950&v=4" width = "200" />](https://github.com/georgeraymond98)                       |                      [<img src="https://avatars1.githubusercontent.com/u/54921879?s=460&u=5e2d9c2577c51d6040add3e5661d240511bc3737&v=4" width = "200" />](https://github.com/redfordch1)                       |                      [<img src="https://avatars0.githubusercontent.com/u/53539912?s=460&u=2f676643c6a84e8feb7608a375c3c5ca3217e99f&v=4" width = "200" />](https://github.com/AnthonyLopez1120)                       
+|                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/georgeraymond98)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/redfordch1)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/AnthonyLopez1120)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)           |
 | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/george-raymond-656285102/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) |
 <br>
 <br>
@@ -70,6 +70,14 @@ Our app GeoSeek aims to be a known name for creating engaging experiences throug
 ## Authentication API here
 
 JWT
+
+## Mapping API's
+
+React Map Gl, ArcGis geocoding
+
+## Data Storage
+
+Geoseek-be
 
 # Environment Variables
 

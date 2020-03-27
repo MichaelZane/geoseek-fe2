@@ -131,28 +131,27 @@ function Register (props) {
     password: ""
   })
 
-  console.log(errors);
+ 
 
   const onRegisterSubmit = form => {
     axios
       .post(`${process.env.REACT_APP_BACKEND_URL}/api/users/register`, form)
       .then(res => {
-        console.log(res.data)
         props.history.push('/Login')
       })
       .catch(err => {console.log(err)})
-  }
+    }
 
   useEffect(() => {
     props.setRegLogRendered(true)
-  }, [])
+    }, [])
 
   function handleChange (e) {
     setForm({
       ...form,
       [e.target.name]: e.target.value
     })
-  }
+    }
   
   
   return (
