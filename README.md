@@ -1,5 +1,6 @@
 # GeoSeek
 
+
  [![Maintainability](https://api.codeclimate.com/v1/badges/19602e51aa1666635be7/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/geoseek-fe/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/19602e51aa1666635be7/test_coverage)](https://codeclimate.com/github/Lambda-School-Labs/geoseek-fe/test_coverage)
 ![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
@@ -23,7 +24,6 @@
 | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/george-raymond-656285102/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) |
 <br>
 <br>
-
 
 
 ## Project Overview
@@ -151,3 +151,4 @@ These contribution guidelines have been adapted from [this good-Contributing.md-
 ## Documentation
 
 See [Backend Documentation](https://github.com/Lambda-School-Labs/geoseek-be/blob/master/README.md) for details on the backend of our project.
+
