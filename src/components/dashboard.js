@@ -165,23 +165,23 @@ function UserDashboard(props){
                 console.log(err)
             })
     }, [])
+    // FUNCTIONS TO SUPPORT COMMENTED OUT POPUP 
+    // function getGemName(id){
+    //     axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/gems/${id}`)
+    //         .then(res=>{
+    //             console.log(res)
+    //         })
+    //         .catch(err=>{
+    //             console.log(err)
+    //         })
+    // }
 
-    function getGemName(id){
-        axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/gems/${id}`)
-            .then(res=>{
-                console.log(res)
-            })
-            .catch(err=>{
-                console.log(err)
-            })
-    }
-
-    function handleChange(e) {
-        setForm({
-          ...form,
-          [e.target.name]: e.target.value
-        });
-      }
+    // function handleChange(e) {
+    //     setForm({
+    //       ...form,
+    //       [e.target.name]: e.target.value
+    //     });
+    //   }
     
     return(
         <Container>
@@ -193,7 +193,7 @@ function UserDashboard(props){
                     return(
                         <Card>
                             <h1>Title: {gem.title}</h1>
-                            <h2>id: {gem.id}</h2>
+                            <p>Description: {gem.description}</p>
 
                             {/*Pop Up retuns CORs error on submit can use for RC3 some back end adjustments needed for full functionality */}
 

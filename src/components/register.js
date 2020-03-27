@@ -140,18 +140,18 @@ function Register (props) {
         props.history.push('/Login')
       })
       .catch(err => {console.log(err)})
-  }
+    }
 
   useEffect(() => {
     props.setRegLogRendered(true)
-  }, [])
+    }, [])
 
   function handleChange (e) {
     setForm({
       ...form,
       [e.target.name]: e.target.value
     })
-  }
+    }
   
   
   return (

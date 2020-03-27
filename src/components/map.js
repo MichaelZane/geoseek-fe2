@@ -3,8 +3,6 @@ import ReactMapGL, {Marker, Popup} from 'react-map-gl'
 import axios from 'axios'
 
 
-
-
 function Map ({latitude, longitude, refresh, setRegLogRendered}) {
     const [viewport, setViewport] = useState({
         latitude: 36.955992,
@@ -14,7 +12,6 @@ function Map ({latitude, longitude, refresh, setRegLogRendered}) {
         zoom: 12
     });
     
-   
     const [gems, setGems] = useState([])
     const [selectedGem, setSelectedGem] = useState(null)
 
@@ -22,7 +19,6 @@ function Map ({latitude, longitude, refresh, setRegLogRendered}) {
         const zoom = 12
         setViewport({...viewport, latitude, longitude, zoom})
     }, [latitude, longitude, refresh])
-
 
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/gems`)

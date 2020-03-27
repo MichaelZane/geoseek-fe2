@@ -181,7 +181,8 @@ function CreateGem(props) {
           onChange={handleChanges}
         />
 
-        {/* <GeocodingRedux/> */}
+        {/* Geocoding */}
+        
         <Label>ADDRESS</Label>
         <Input
           name="address"

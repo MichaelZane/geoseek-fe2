@@ -165,8 +165,7 @@ export default function ViewGem (props) {
             })
             .catch(err=>{
                 console.log(err)
-            })
-            
+            })   
     }
 
     if(!search){

@@ -154,10 +154,10 @@ function Login (props) {
       <RegisterDiv>
         <div className='RegLog_Hero_Image_Container'>
           <div className='Login_Hero_Image' />
-          <div className='Hero_Text'>
-            <h1 className='Hero_H1'>Welcome Back!</h1>
-            <p className='Hero_P'>Sign in to find the hidden gems all around you.</p>
-          </div>
+            <div className='Hero_Text'>
+              <h1 className='Hero_H1'>Welcome Back!</h1>
+              <p className='Hero_P'>Sign in to find the hidden gems all around you.</p>
+            </div>
         </div>
       </RegisterDiv>
 

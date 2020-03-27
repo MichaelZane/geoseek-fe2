@@ -23,7 +23,7 @@ function Roadmap() {
               <br/><br/>
               Become a seeker and climb the leader board.
                 <br/>
-              </p>
+            </p>
            
           </Col>
            <img className="event_right_img" src={pinkGem} alt="PinkGem"/>

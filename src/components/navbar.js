@@ -83,10 +83,9 @@ const ButonContainer = styled.div`
 `
 
 function NavBar (props) {
+
   const logOut = (e) => {
 		e.preventDefault();
-		console.log("LOGGING OUT");
-
 		localStorage.removeItem("token");
 		window.location.reload('/');
   };
@@ -116,7 +115,10 @@ function NavBar (props) {
     <Nav>
         <div>
           <Link to='/' className="sign">
-            <span className="fast-flicker">g</span><span>eos</span><span className="flicker">e</span><span>ek</span>
+            <span className="fast-flicker">g</span>
+            <span>eos</span>
+            <span className="flicker">e</span>
+            <span>ek</span>
           </Link>
         </div>
         {navLinks}
